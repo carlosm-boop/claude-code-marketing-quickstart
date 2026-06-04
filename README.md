@@ -85,6 +85,10 @@ The 8 skills:
 - `product-messaging` — 10-component messaging library
 - `tov-guidelines` — voice rules with violation/fix patterns
 
+Plus one **mastery skill** (meta, not research):
+
+- `level` — score your Claude Code maturity 0-10 against the same 4 systems this repo teaches (Context · Skills · Integrations · Orchestration), via a fun quiz or a repo scan. Gives you a next-level roadmap + a shareable card (HTML or ASCII). Run `/level` any time to see how far along the curve you are and what to build next.
+
 ### 7:00 → 10:00 — Run your first skill
 
 Open Claude Code in this repo and run:
