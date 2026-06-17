@@ -18,6 +18,8 @@ Each folder holds **per-domain research files** (dated, e.g., `0526-competitor-a
 | [`competitors/`](./competitors/) | `0526-competitor-a.md` — one competitor analyzed (11 dimensions). Aggregate file appears once 2+ competitors are analyzed |
 | [`brand/`](./brand/) | `brand-kit.md` (design tokens) + `brand-voice.md` (5 voice rules) |
 | [`funnel/`](./funnel/) | `funnel-strategy.md` — GTM motion + pre/post-close stages |
+| [`win-loss/`](./win-loss/) | `win-loss.md` — why deals close + churn, with verbatim buyer quotes (situational) |
+| [`expert-pov/`](./expert-pov/) | `expert-pov.md` — founder beliefs, contrarian takes, recommended OBI (situational) |
 | [`goals/`](./goals/) | `goals.md` — KPIs, baselines, targets, owners |
 
 **Synthesis order:** icp → competitors → brand → positioning → messaging → funnel. Each downstream skill reads from the locked canonical files. Edit the canonical → every downstream output reflects the change on next run.

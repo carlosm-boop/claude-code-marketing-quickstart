@@ -10,7 +10,7 @@ Built by [Matteo Tittarelli](https://www.linkedin.com/in/matteotittarelli/) at [
 
 ## What this repo gives you in 60 seconds
 
-- **8 pre-seeded research skills** ready to run: ICP research, competitor research, positioning, messaging, brand kit, voice rules, funnel strategy, competitor aggregate.
+- **10 pre-seeded research skills** ready to run: ICP research, competitor research, positioning, messaging, brand kit, voice rules, funnel strategy, competitor aggregate, win/loss analysis, expert POV.
 - **A fully populated example** (`pulse-analytics-example/`) — a fictional B2B SaaS marketing analytics company called PulseAnalytics. Read it first to see what a working marketing OS looks like.
 - **An empty workspace** (`marketing/`) — same structure as the example, ready for your company's data. Each subfolder has a one-line `CLAUDE.md` telling you what goes there + which skill to run.
 - **A 12-connector setup guide** ([`.claude/connections.md`](.claude/connections.md)) — covers Exa, Firecrawl, Google Drive, Notion, Slack, Linear, Granola, Gong, Google Search Console, Ahrefs, Framer, Webflow. Split by input/output role with install instructions for Claude Code CLI, Cursor, and claude.ai.
@@ -72,9 +72,9 @@ This is the shape your own marketing OS will take.
 
 ### 5:00 → 7:00 — Skim the skills
 
-Look at the 8 pre-seeded research skills in [`.claude/skills/`](./.claude/skills/). Each one has a `SKILL.md` with canonical frontmatter + a body that explains when to use it, what it produces, and an example run.
+Look at the 10 pre-seeded research skills in [`.claude/skills/`](./.claude/skills/). Each one has a `SKILL.md` with canonical frontmatter + a body that explains when to use it, what it produces, and an example run.
 
-The 8 skills:
+The 10 skills:
 
 - `brand-kit` — extract design tokens + voice rules from a brand
 - `competitor-research` — per-competitor 11-dimension analysis
@@ -84,6 +84,8 @@ The 8 skills:
 - `positioning` — anchor + differentiators + statement
 - `product-messaging` — 10-component messaging library
 - `tov-guidelines` — voice rules with violation/fix patterns
+- `win-loss-analysis` — why deals close + churn, in the buyer's own words (needs transcripts)
+- `expert-pov` — founder beliefs + recommended "one big idea" (needs founder input)
 
 Plus one **mastery skill** (meta, not research):
 
@@ -110,6 +112,8 @@ The recommended order:
 5. `/product-messaging` → reads positioning, produces messaging library
 6. `/funnel-strategy` → maps your GTM motion to funnel stages
 
+**Situational (run when you have the inputs):** `/win-loss-analysis` before `/icp-research` if you have 5+ sales-call transcripts — it's the evidence base under ICP + positioning. `/expert-pov` before founder-led content if you have founder material (posts, interviews).
+
 Each skill takes 5–15 minutes. By the end of week 1, your PMM spine is locked.
 
 ---
@@ -121,7 +125,7 @@ This repo is built around four systems that compose into a loop:
 | System | What it does | Where it lives in this repo |
 |---|---|---|
 | **1. Context** | What Claude knows about your company | `marketing/` (your data) + `pulse-analytics-example/` (reference) |
-| **2. Action** | What Claude does — the producers | `.claude/skills/` (8 pre-seeded research skills) |
+| **2. Action** | What Claude does — the producers | `.claude/skills/` (10 pre-seeded research skills) |
 | **3. Orchestration** | When + how skills fire | `.claude/agents/` + `.claude/hooks/` (empty by default — you add) |
 | **4. Integrations** | What Claude can reach | `.claude/connections.md` (setup guide) + root `.mcp.json` + `env` (wiring) |
 
@@ -138,7 +142,7 @@ claude-code-marketing-quickstart/
 │
 ├── .claude/                           ← Claude Code internals
 │   ├── connections.md                 ← 12-connector setup guide
-│   ├── skills/                        ← 8 pre-seeded research skills (system of action)
+│   ├── skills/                        ← 10 pre-seeded research skills (system of action)
 │   ├── agents/                        ← ready for your custom agents (orchestration)
 │   ├── hooks/                         ← ready for your custom hooks (orchestration)
 │   └── rules/                         ← discipline rules (one-page rule + quarterly maintenance)

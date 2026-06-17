@@ -22,6 +22,8 @@ Once your `marketing/` is populated and you don't need the reference anymore, de
 - [`competitors/`](./competitors/) — who you're up against
 - [`brand/`](./brand/) — how you look + sound
 - [`funnel/`](./funnel/) — your GTM motion
+- [`win-loss/`](./win-loss/) — why deals close + churn (situational — needs sales-call transcripts)
+- [`expert-pov/`](./expert-pov/) — founder beliefs + OBI (situational — needs founder input)
 - [`goals/`](./goals/) — your KPIs
 - [`rules/`](./rules/) — project guardrails
 

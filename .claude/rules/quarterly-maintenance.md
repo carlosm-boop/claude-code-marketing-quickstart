@@ -28,6 +28,8 @@ Not a team. A person. Skills, agents, MCP connections, context files, voice rule
 | `.claude/skills/product-messaging/` | {Name} | Pre-seeded |
 | `.claude/skills/tov-guidelines/` | {Name} | Pre-seeded |
 | `.claude/skills/brand-kit/` | {Name} | Pre-seeded |
+| `.claude/skills/win-loss-analysis/` | {Name} | Pre-seeded (situational) |
+| `.claude/skills/expert-pov/` | {Name} | Pre-seeded (situational) |
 | `.claude/skills/{your skill}/` | {Name} | (populated in this repo + onward) |
 | `.claude/agents/{your agent}/` | {Name} | (populated in this repo) |
 | `.mcp.json` + `.claude/connections.md` | {Name} | Integrations layer overall |

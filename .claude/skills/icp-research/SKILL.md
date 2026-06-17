@@ -53,7 +53,7 @@ The article's Example 1 Day 5 skill. Reads your website + win-loss patterns (if 
 
 1. Inputs: your website URL (required). Optional: list of representative customer URLs, win-loss patterns from prior cycle, competitor aggregate.
 2. Reads (Exa MCP for fresh data): website case studies, customer pages, testimonials, blog posts, About / Solutions pages.
-3. Optionally reads: `marketing/competitors/aggregate.md` (if locked) to inform "anti-ICP" framing; recent win-loss data from `marketing/icp/win-loss.md` (if `/win-loss-analysis` has run).
+3. Optionally reads: `marketing/competitors/aggregate.md` (if locked) to inform "anti-ICP" framing; recent win-loss data from `marketing/win-loss/win-loss.md` (if `/win-loss-analysis` has run).
 4. Produces a structured ICP with these sections (matches the PulseAnalytics example at `marketing/icp/ICP.md`):
    - **Firmographics** — company type, revenue stage, team size, funding, geography, industry
    - **Champion persona** — title, tenure, reporting, owns, their week, JTBD, job-context triggers, pain points (priority order), decision criteria
@@ -82,7 +82,7 @@ See [`marketing/icp/ICP.md`](../../../marketing/icp/ICP.md) for the PulseAnalyti
 
 ## Dependencies
 
-- **Reads from:** your website URL (required); `marketing/competitors/aggregate.md` (optional, recommended); `marketing/icp/win-loss.md` (optional, when `/win-loss-analysis` is wired)
+- **Reads from:** your website URL (required); `marketing/competitors/aggregate.md` (optional, recommended); `marketing/win-loss/win-loss.md` (optional, recommended — produced by `/win-loss-analysis`)
 - **Reads via Exa MCP (optional):** website + recent customer-facing pages
 - **Writes to:** `marketing/icp/ICP.md` (canonical, every downstream skill reads here)
 
@@ -97,7 +97,7 @@ Edit pain-point priority order based on real customer conversations as they happ
 ```
 Day 1-3: /competitor-research × N → per-competitor files
 Day 3:   /competitor-aggregate → competitor canonical
-Day 4:   /win-loss-analysis (excluded from V2 default) → win-loss data
+Day 4:   /win-loss-analysis → win-loss canonical (marketing/win-loss/win-loss.md)
 Day 5:   /icp-research (THIS SKILL) → canonical ICP
 Week 2:  /positioning reads ICP.md + competitor aggregate
 ```
