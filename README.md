@@ -1,3 +1,5 @@
+![claude-code-marketing-quickstart cover](.github/cover.png)
+
 # Claude Code Marketing Quickstart
 
 A fork-and-go starter repo for marketers building an AI-native marketing operating system on Claude Code. Built around the **4-systems framework**: Context · Action · Orchestration · Integrations.
