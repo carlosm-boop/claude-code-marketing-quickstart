@@ -25,3 +25,6 @@ __pycache__/
 *.pyc
 .venv/
 venv/
+
+# Holding pen used when a sandboxed session cannot delete files directly
+_to_delete/
