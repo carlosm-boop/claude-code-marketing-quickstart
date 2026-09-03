@@ -1,0 +1,20 @@
+company,domain,employees,founded,ownership,funding,stage,hq,type,why_kept,unknowns
+Amber,amberstudent.com,942,2016,PRIVATELY_HELD,21000000,PRIVATE_EQUITY_ROUND,"London, United Kingdom, Europe",MARKETPLACE,student accommodation marketplace,
+CSI,csiweb.com,2320,1965,PRIVATELY_HELD,,PRIVATE_EQUITY_ROUND,"Paducah, Kentucky, United States (North America)",FINTECH/PAYMENTS/LOGISTICS/MOBILITY,"community-bank core software, real txn volume",
+Cabify,cabify.com,4510,2011,PRIVATELY_HELD,599591919,DEBT_FINANCING,"Madrid, Spain, Europe",LOGISTICS/MOBILITY,"mobility platform, $600M, ES",
+Docplanner,docplanner.com,3921,,PRIVATELY_HELD,,,"Weteringschans 165 c, WeWork Building, Amsterdam, North Holland, Netherlands, Europe",LOGISTICS/MOBILITY/TRAVEL/VERTICAL-SAAS,"health booking platform, 20M bookings/month",CAPITAL?
+EIS Ltd,eisgroup.com,989,2008,PRIVATELY_HELD,,,"San Francisco, California, United States (North America)",INSURTECH,insurance platform — strong,CAPITAL?
+ESW,esw.com,945,2010,PRIVATELY_HELD,,,"Dublin, Ireland, Europe",LOGISTICS/MOBILITY,cross-border e-commerce enablement,CAPITAL?
+Entrata,entrata.com,2500,2003,PRIVATELY_HELD,707000000,PRIVATE_EQUITY_ROUND,"Lehi, Utah, United States (North America)",FINTECH/PAYMENTS/VERTICAL-SAAS,property management + rent payments,
+ITILITE,itilite.com,460,2017,PRIVATELY_HELD,46271725,SERIES_C,"2093a Philadelphia Pike, Suite 224, Claymont, Delaware, United States, North America",FINTECH/PAYMENTS/TRAVEL/VERTICAL-SAAS,corporate travel + corporate cards,
+Job&Talent,jobandtalent.com,3987,2009,PRIVATELY_HELD,1726511177,SERIES_F,"Paseo de la Castellana, 93, 4º Planta, Madrid, Madrid, Spain, Europe",LOGISTICS/MOBILITY,"staffing marketplace, $1.7B Series F",
+Minted,minted.com,568,2007,,297100000,SERIES_E,"San Francisco, California",MARKETPLACE,design marketplace,
+OfferUp,offerup.com,337,2011,PRIVATELY_HELD,380985067,VENTURE_ROUND,"1745 114th Ave SE, Bellevue, Washington, United States, North America",MARKETPLACE,local marketplace,
+PeoplePerHour,peopleperhour.com,4020,2007,PRIVATELY_HELD,10525066,VENTURE_ROUND,"16 Great Chapel Street, London, England, United Kingdom, Europe",MARKETPLACE,"freelance marketplace, UK",
+RELEX Solutions,relexsolutions.com,2474,2005,PRIVATELY_HELD,814482906,DEBT_FINANCING,"Helsinki, Uusimaa, Finland (Europe)",LOGISTICS/MOBILITY/VERTICAL-SAAS,retail & supply-chain planning (ADJACENT),
+RGI Group,rgigroup.com,1000,1987,PRIVATELY_HELD,0,PRIVATE_EQUITY,"Milano, Mi, Italy (Europe)",INSURTECH,insurer digital transformation — strong,
+Sitly,sitly.nl,1000,2012,PRIVATELY_HELD,,,"Amsterdam, North Holland, Netherlands (Europe)",MARKETPLACE,babysitter marketplace,CAPITAL?
+Teachers Pay Teachers,teacherspayteachers.com,4310,2006,PRIVATELY_HELD,64000000,PRIVATE_EQUITY_ROUND,"New York, New York, United States (North America)",VERTICAL-SAAS,PE-owned educator marketplace,
+Zinnia,zinnia.com,2451,2005,PRIVATELY_HELD,300000000,DEBT_FINANCING,"Greenwich, Connecticut, United States (North America)",INSURTECH,L&A insurance platform — strong,
+fabric,fabric.inc,563,2016,,293500000,SERIES_C,"Seattle, Washington",LOGISTICS/MOBILITY,headless commerce platform (ADJACENT),
+italki,italki.com,4282,2007,PRIVATELY_HELD,,,"Madrid, Spain (Europe)",MARKETPLACE,language-learning marketplace,CAPITAL?

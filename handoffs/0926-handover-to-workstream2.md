@@ -142,3 +142,74 @@ the failing check. Worth a spot audit of private-status provenance across the ro
 it. Categories are in the campaign doc — current clients, active opportunities, Labs and design partners
 (lending bank, Medora, CoE universities), active MongoDB co-sell accounts, competitors — but the account
 names are presumably in HubSpot. C1's guardrail requires suppression before any send.
+
+---
+
+# ADDENDUM — later 3 September, after the consolidation
+
+## 8. Nineteen more accounts, from data already paid for
+
+`data/0926-new-accounts-for-roster.csv` — 19 accounts with a reason per keep. Derived by consolidating **all 16
+sourcing CSVs into 296 unique companies** (`data/0926-consolidated-graded-296-v2.csv`, every rejection carries
+its reason) and grading them against C1's gates by hand rather than accepting Origami's `Fit Check`. **Zero
+credits.**
+
+Strongest: **Zinnia · EIS Ltd · RGI Group** (three insurtech platforms) · **Job&Talent · Cabify · Docplanner**
+(20M bookings/month) · **italki · Teachers Pay Teachers · PeoplePerHour · OfferUp · Minted · Sitly · Amber**
+(marketplaces) · **Entrata · CSI** (real payment volume) · **RELEX · fabric** (flagged ADJACENT) · **ESW ·
+ITILITE**.
+
+**Running tally for the three files that carry it:**
+
+| Cohort | Count | Status |
+|---|---|---|
+| Original roster | 32 → **31** | Pantheon reclassified anti-ICP (item 2) |
+| Vinted, ShiftKey | +2 | C1 gates cleared, gate evidence in item 1 |
+| Cost-test accounts | +7 | Gate evidence attached, awaiting your gates |
+| Consolidation accounts | +19 | Graded, awaiting your gates |
+| **Potential total** | **59** | |
+
+59 accounts is roughly a week and a half of C1 at its own 25–40 contacts/day, and about 40% of the 143 the
+first 500-send calibration window needs.
+
+## 9. Twenty were cut, and three of them are a warning for the roster
+
+Cut list with reasons is in the consolidated CSV. Three matter to you: **Fiverr (NYSE: FVRR)**, **ACV Auctions
+(NASDAQ: ACVA)** and **OLX** (wholly-owned by Prosus NV, listed) all passed a mechanical private-status check
+and were caught only on manual review. ACV Auctions had *already* been excluded once, back in pull 4.
+
+Combined with Origami's explanation of the mechanism (item 6 — two checks disagreed and the permissive one
+won), the conclusion is: **any roster account whose private status came from an Origami column rather than a
+verification is carrying that defect.** Pushpay is the known live case. Worth a provenance spot-audit.
+
+## 10. A finding that may apply to Model B, and it is free to test
+
+I measured **sole-cause rejections** across the 296: for each filter, how many companies it uniquely rejects —
+i.e. how many more would qualify if you deleted it.
+
+| Filter | Rejects | Sole cause |
+|---|---|---|
+| **Company type / transaction volume** | 232 | **110** |
+| Public / SPAC-bound | 31 | 5 |
+| Not-a-company | 101 | 4 |
+| Founded year | 5 | 1 |
+| **Geography** | 2 | **0** |
+| **Headcount** | 6 | **0** |
+| **Capital (Series C+ / $50M+)** | 17 | **0** |
+
+**Company type does essentially all the discriminating. Headcount, geography and capital uniquely reject
+nobody.** Two days of argument about 200–2,500 versus 200–5,000, and about $100M versus $50M, was argument
+about filters with no discriminative power. Five separate recurrences of sort-under-cap were all caused by
+capping on headcount — the filter that did the most damage did the least work.
+
+**The question for you: does the same hold inside Model B?** SCL is 5 points and AGE is 10. If neither
+separates your tiers, they are noise carrying 15 points. The test is the same and costs nothing — for each
+signal, count the accounts whose tier would change if you deleted it. Worth running before rules 4 and 5 are
+finalised.
+
+**Two bugs in my own grader, disclosed because they are the same bugs this trial keeps cataloguing.** First
+pass returned 24 qualified; the corrected pass returned 53. Cause 1: geography rejected US companies whose HQ
+string carries a state but no country ("San Francisco, California") — 14 false rejections including Carta,
+Cover Genius, ezCater, Zeta and FarEye, all already on your roster. Cause 2: **I failed blank funding instead
+of marking it UNKNOWN** — the exact rule that once collapsed 59 of 60 accounts, reintroduced by me. Capital
+data is 58% populated for funding and 68% for stage, so a third of any corpus will be blank on it.
