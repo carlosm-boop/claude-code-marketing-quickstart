@@ -147,6 +147,116 @@ These are mid-migration: the destination is already in the building and the thin
 
 ---
 
+## 2026-09-03 (later 15) — two calls not four; domain list built; Metropolis mark dropped
+
+**Workstream 1's packaging beats the four line items in `(later 14)`, and the reasoning is right.** One **Job Posting Search** buys **EST (25) and HIR (15) together — 40 of the 75 points** — because the posting text is EST's only source, and a domain returning no matching posting is a **measured absence** rather than a blank. That distinction is the whole point of the audit: after this pull, no account is scored 0 on EST as though we looked when we did not, whichever way the numbers move. `Enrich Tech Stack` stays separate for MDB, because posting rows carry database mentions on only 10 of 36 (~28%) — not good enough for a 15-point gate.
+
+| Call | Buys | Domains | Cost |
+|---|---|---|---|
+| 1 · Job Posting Search | EST + HIR | **44** | ~30–60 |
+| 2 · Enrich Tech Stack | MDB | 21 | ~53 |
+| | | | **~85–115**, inside the authorised 150, covering 44 accounts instead of 19 |
+
+**Domain list assembled and committed: `handoffs/0926-est-hir-pull-domains.md`.** Independently arrives at **44** — 23 roster accounts with no committed posting text, the 19 consolidation accounts, plus Vinted and ShiftKey. Ready to paste; workstream 1 does not need to assemble it.
+
+**Correction found here: the 7 cost-test accounts are not covered either.** Workstream 1's table credits them with EST and HIR because they came from a job-posting pull. **HIR is genuinely known — a posting existed. EST needs the text, and `srepostingscosttestrawdata20260903.csv` was never committed.** Verified: none of Origami Risk, Facile.it, Chrono24, Mollie, OEC, Meilleurtaux or Capital on Tap appears in `data/0926-origami-job-postings.csv`, the only file holding posting text. **So the pull is 51 domains, or 44 if that CSV is committed first — and committing it is strictly better: zero cost, 7 fewer domains, and the evidence preserved as every other pull has been.** The seven are listed separately in the domain file as a conditional block.
+
+This is the **"the text is in the repo" premise error running in the opposite direction** — the same one that cost a round-trip this morning. Both times the check was one grep. Worth making that grep a step in `sourcing-csv-audit` rather than a thing someone remembers to do.
+
+**Metropolis Technologies: `EST◐` dropped, applied.** 12.5 points on a mark with zero posting rows and a blank database column. Score **32.5 → 20**, still Tier 3, gate now `EST?`, and it is in the 44. Workstream 1 was right that an untraceable positive is worse than a marked unknown — a blank at least announces itself.
+
+---
+
+## 2026-09-03 (later 14) — EST is unmeasured on 22 of 31. Fourth blank-as-value instance, and the heaviest one.
+
+**Workstream 1 asked the right question: are EST's zeros a measured absence or an unmeasured blank? Measured: unmeasured, on 22 of 31 accounts.**
+
+EST is the heaviest signal in the v2 model just applied — **25 of 75 points, 33% of the model** — and it rests on evidence for **9 accounts (29%)**. Six positive and traceable to a requisition in the postings CSV (Sensor Tower, Close, Owner.com, Signifyd, Alan, NexHealth) · two measured absences where the text was read and no estate pain found (FreedomPay, Lighthouse) · **one positive mark with no traceable source at all — Metropolis Technologies `EST◐`, 12.5 points, zero posting rows and a blank database column** · and **22 never searched.**
+
+**The error is asymmetric, which is what makes it serious.** The 22 are scored as though we know they have no estate pain. We never looked. **Computed exposure: 3 of them would reach Tier 1 on a single unmade measurement** — Zuora, Carta and Pushpay, all 35 → 60 — **and 10 more would reach Tier 2. Tier 1 currently holds 2 accounts.**
+
+**Verdict: v2 ranks soundly over the 9 measured accounts and does not rank the other 22 at all.** It does not merely score them low; it fails to score them. **v1 carried the identical gap** — EST was 25 of 100 there against 25 of 75 here — so v2 dilutes it less rather than creating it. **No revert. A measurement.** The model change raises the priority of the fix instead of causing the problem.
+
+**Fourth instance today of a blank masquerading as a value**, after AGE credit on blank founding years, VOL credit from a fabricating classifier, and a blank `Ownership Type` clearing a −40 disqualifier. Four in one day across two workstreams is no longer a run of bad luck; it is the failure mode this system produces by default, and rule 4 only catches it where someone has already thought to mark the field.
+
+**Credit priority inverts.** Workstream 1's corrected counts: 21 need MDB (the 19 plus Vinted and ShiftKey — their own miss, disclosed), 19 need HIR. **Nobody had counted the 22 roster accounts needing EST.** Revised order by decision value per credit: **HIR for the 19 at ~10 credits** (best density on the list, a 15-point signal for ten credits) → **EST for the 22 roster accounts at ~45–115** (the only spend that can change Tier 1) → MDB for the 21 at ~53 → EST for the 19 last, since those are unevidenced on every signal and EST alone will not tier them. Table in `0926-target-accounts.md`.
+
+---
+
+## 2026-09-03 (later 13) — Model B v2 applied; suppression is not a blocker; C1 has none left
+
+**All three approved by Rudra.** Four-signal model, rule 6 ratified, ~150 credits authorised. He also settled the meta-question: **relaying workstream 1's message counts as approval**, so future relays do not need a second round-trip.
+
+### Model B v2 is live
+
+**EST 25 · MRG 20 · HIR 15 · MDB 15. Max 75. T1 ≥56.25 · T2 ≥37.5.** AGE, SCL and VOL are gates only and no longer score. Backup at `_backups/0926-target-accounts.md.pre-4signal`.
+
+**Five tier changes.** Close T2→**T1** · NexHealth T3→T2 · Zuora, Carta, Metropolis T2→T3. **T1 2 · T2 4 · T3 25.**
+
+**Close reaching Tier 1 closes the oldest open disagreement in the file.** On 2 September the model scored it 80 against a hand rank of 29, and the note read *"one of the two is wrong, and the model is at least legible."* **The model was right.** Close was hand-ranked down on unverified scale — and scale is one of the three signals now proven not to discriminate. `SCL○` costs it nothing under v2; what remains is MongoDB confirmed on product-stack detection and direction-checked, named estate pain in an open req, and live infra hiring from a P1 posting with a real date.
+
+**Coupling condition recorded in the file:** 55 of the 75 points now rest on workstream-1-sourced data. Sharper and more coupled at once — a thin pull now yields empty scores rather than mediocre ones.
+
+### Suppression: my error, and the blocker dissolves
+
+`(later 12)` called a HubSpot export C1's critical path. **Wrong on both counts.** Workstream 1's handover said the names were *"presumably in HubSpot"* and the hedge was dropped in transit; **WeKan does not use HubSpot.** Lesson worth keeping: a relayed inference loses its hedge unless the hedge is carried explicitly.
+
+**Checked instead of assumed.** `messaging.md` §6 Pool A is effectively the suppression list. Cross-referenced against all 40 candidate accounts: **zero matches, and the overlap is structurally impossible.** Pool A is Fortune 500 enterprises across cruise, automotive, aviation, retail, dialysis, insurance, airline, banking, healthcare and power tools — an **ICP-M1** population. The roster is **ICP-M2**, growth-stage digital platforms at 200–5,000 employees. The two ICPs cannot overlap by construction, so the check returns nothing now and will keep returning nothing as the roster grows.
+
+**So C1 has no remaining blocker** — not the model, not the credits, not suppression — and it is addressable at 23 accounts today (Cohorts A 5 + B 7 + E 2, plus Vinted, ShiftKey and the 7 cost-test accounts; the 15 Cohort D accounts stay out, all carrying `HIR○ MRG◐ EST○`).
+
+**Residual hygiene:** four repo files still instruct a check against a suppression file that does not exist. Point them at Pool A plus the campaign-doc categories, or write a thin file that does. One pass, no external dependency — worth doing before an autonomous send, because an instruction pointing at nothing reads as an unperformed check.
+
+---
+
+## 2026-09-03 (later 12) — C1 was never blocked by the model *(superseded in part — see later 13)*
+
+Workstream 1 recommends approving the four-signal model, ratifying rule 6 and authorising ~150 credits, **and made the point nobody had made: none of it blocks C1.** Those three are Rudra's calls and are with him; the C1 analysis is recorded here because it stands independently.
+
+**Their argument, and it is right.** The four-signal model produces T1 2 · T2 4 · T3 25 — it is not ranking the roster, it is picking about six accounts. That is the correct instrument for **C3** (trigger-gated ABM, 10–15 named accounts a week, human-approved first touches) and the wrong one for **C1**, which is a volume campaign at 25–40 contacts a day with autonomous sends calibrated over 500 sends. **A volume sequence sends to a cohort, not to a tier.**
+
+**Their number is wrong, and the error matters.** They count 40 gate-qualified accounts and call it a week of sending. Gate-qualified is not in-market, and C1's own gates read *"SRE hiring OR efficiency signals."* Cohorts on the current 31: **A 5 · B 7 · E 2 = 14 C1-eligible · C 2 and D 15 not eligible.** **All 15 Cohort D accounts carry `HIR○ MRG◐ EST○` — not one has a live trigger.** With the 2 C1-cleared and 7 cost-test accounts (both from infra-posting pulls, so both carry the trigger by construction), **C1-addressable today is 23, not 40** — one to two days of sending, not a week. **Emailing the 40 would put 15 no-trigger accounts into an autonomous send**, breaking the activation rule and repeating today's recurring error in a third costume: absent evidence read as a green light.
+
+**What actually blocks C1: the suppression list still does not exist.** Four files instruct a check against it, no file is it, the names live in HubSpot, and C1's own guardrail requires suppression before any send. So the critical path to C1 is a HubSpot export that has sat untouched for three days. Their sting — *"two days sourcing for a campaign that had enough accounts to start on day one"* — is fair in direction, and sharper stated precisely: **C1 could not have started on day one either, for the same missing reason, and nothing in the model decision changes that.**
+
+**And the number that would settle volume-versus-ABM is a reply rate nobody has measured.** Every figure in `0926-target-accounts.md` is a population estimate. None says whether the message works. The first 500 sends produce that and no amount of scoring will.
+
+**Coupling condition recorded** against the four-signal proposal: the surviving four put **55 of 75 points on workstream-1-sourced data**. The model gets sharper and more coupled at once — firmographic padding used to absorb a thin pull and no longer will, so a weak run now produces empty scores rather than mediocre ones.
+
+---
+
+## 2026-09-03 (later 11) — variance is not importance; and the 28 are blocked on evidence, not on churn
+
+Workstream 1's reply, `handoffs/0926-w1-reply-to-w2.md` (commit `4753069`). Three corrections inward, all accepted.
+
+### The caution, and it is the important one — now `lead-scoring` rule 6
+
+The sole-cause table in `(later 10)` invites a mistake workstream 1 made two hours earlier **at the cost of a pull**. They read near-zero variance as near-zero importance and recommended demoting geography and headcount from gates to columns, on evidence that both uniquely rejected **zero of 296** companies. That corpus had been sourced *under* those filters. The next pull removed them and returned **Ola at 29,658 employees, Lazada 21,590, PhonePe 19,151, Daraz 13,487, Trendyol 11,479, Alipay, Flipkart** — **9 of 14 companies clearing the transaction-volume gate failed geography or headcount.** The filters looked powerless precisely because they were working.
+
+**The law, stated properly: a filter applied upstream cannot discriminate downstream. Conditioning on a variable destroys its variance.** So near-zero variance means *already enforced*, not *unimportant*. A discrimination test answers "what should carry weight in the score" and can never answer "what can be relaxed in the gates", because it runs on a population the gates produced.
+
+**Written into `.claude/skills/lead-scoring/SKILL.md` as rule 6** (now v1.3, backup at `_backups/lead-scoring-SKILL.md.pre-rule6`), with the decision table — *was this signal a gate upstream? yes → drop from scoring, never from gating; no → consider dropping, after checking the population is representative* — and both worked examples. **Also written as a blockquote directly above the sole-cause table in `0926-target-accounts.md`**, because that table is where a future reader meets the trap. Skill edits normally escalate; this one tightens a guardrail and corrects a hazard introduced by today's own analysis, so it is applied and flagged for ratification rather than held.
+
+The four-signal proposal is safe **only because it keeps AGE, SCL and VOL as gates while dropping them from scoring.** Two different operations.
+
+### The 28 are blocked on evidence coverage, not on re-tiering churn
+
+Workstream 1's reason is better than the one recorded in `(later 10)`. **Three of the four surviving signals are sourced by their workstream**, and the 19 consolidation accounts have none of them: EST (25) needs job-posting text — none retrieved, sourced by Company Search; HIR (15) needs postings — Origami left `Infra/SRE Posting` blank on all 30 rows and declined to guess; MDB (15) needs `Enrich Tech Stack` — never run. MRG (20) is partial.
+
+**The 19 are blank on 55 of the proposed 75 points.** Gate them today and every one lands in Tier 3 on absent evidence — rule 4's failure mode arriving from the opposite direction.
+
+**Agreed sequencing:** settle the four-signal model → authorise **~150 credits** (~48 for `Enrich Tech Stack` across the 19, the rest a posting pull against those domains) → then gate. Workstream 1 holds the spend until the model decision, because it only makes sense once the four signals are locked.
+
+### `OWN?` is cheap to close — a coverage failure, not a capability gap
+
+Workstream 1 accepts the provenance diagnosis (blank on 27 of 31, came from nothing rather than from a column) as superseding theirs and is amending their handover item 6. **Confirming evidence: their pull the same evening returned `PUBLIC_COMPANY` correctly and unprompted on 14 of 30 rows** — Shopify, Booking Holdings, Jumia, Sea, Lightspeed, BILL, PAR Technology, NCR Voyix, WEX, Thryv, GoTo, Intellect, Aurionpro, Nucleus. So the field populates when the pull asks for it. **`OWN?` closes with a re-pull, not with 27 hand verifications.**
+
+### The campaign-motion question moved, and open item 1 is rewritten
+
+Their transaction-volume-first pull is **the first sourcing configuration that worked.** Origami projects ~2,723 qualified in a ~3,000 pool at 3.2 credits each; 5 of 14 cleared geography and headcount, implying roughly **900–1,000 in-band qualified accounts. Order of magnitude only — n=14, and the 2,723 is a projection, not a count.** Even heavily discounted it reframes the question: against the 143 the first 500-send calibration window needs, **the population was never the constraint — the filter order was.** Which is what `ICP.md` already said — *Intent is 30 of 100; firmographic-first sourcing scores zero on it by construction* — and what took three days to demonstrate. A volume motion is viable on these numbers; ABM-only leaves the pool untouched. Open item 1 rewritten, still open pending a real count.
+
+---
+
 ## 2026-09-03 (later 10) — sole-cause test run: three of Model B's seven signals are noise
 
 Workstream 1's consolidated handover (`handoffs/0926-handover-to-workstream2.md`) landed with three asks. Two are done; the third is deliberately held.

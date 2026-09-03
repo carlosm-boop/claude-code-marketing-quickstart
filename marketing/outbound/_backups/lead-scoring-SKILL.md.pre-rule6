@@ -1,6 +1,6 @@
 ---
 name: lead-scoring
-version: '1.3'
+version: '1.2'
 last_updated: 2026-09-03
 author: wekan
 description: Build a scored, prioritized target-account list from firmographic and technographic signals. Reads the ICP and positioning, defines weighted scoring criteria, sources accounts via origami.chat and web research, and writes a ranked list with the trigger evidence behind each score. Triggers - "lead scoring", "target account list", "account prioritization", "who should we go after", "build a prospect list", "score my accounts"
@@ -90,7 +90,7 @@ Model A above is M1-shaped (legacy estate, EOL pressure). M2 scores differently:
 - Production telemetry access will not be granted (gov/defence data platforms, some regulated data vaults). Assessment-by-hearsay fails.
 - Founded 2019 or later.
 
-**Six rules that cost real credits to learn**
+**Five rules that cost real credits to learn**
 
 1. **A blank field is UNKNOWN, not FAIL.** Return the row with the field marked unknown and let a human judge. Silently dropping rows for missing data once caused 59 of 60 accounts to be reported as failing on a screening column that had never been populated.
 2. **Never accept a derived judgment column from the sourcing tool.** Take facts (founded year, headcount, funding, stage, ownership, HQ, job-posting text, tech-stack enrichment); do the scoring here. A transaction-volume classifier failed three times in three different ways, the third time marking 21 companies "verified" when 20 of them had no supporting text at all.
@@ -109,23 +109,6 @@ Model A above is M1-shaped (legacy estate, EOL pressure). M2 scores differently:
    *Approved 2026-09-03.* **Owner.com** carried 15 MongoDB points while its own Staff Database Engineer requisition asked for *"deep expertise with a major relational engine (Postgres strongly preferred)"* and named *"migrating workloads (e.g., MongoDB → Postgres)"* as a plus. Best estate evidence on the roster and a MongoDB disqualifier, in one document. The signals are separable and both readings are correct: `EST●` holds at 25 because the pain is real and named; MDB goes to 0 because the direction is away. **The check is free where requisition text is already held** — read the target's own words before the co-sell weight scores.
 
    Scope note: direction is a **disqualifying test applied on positive evidence**. Absence of a stated migration is not UNKNOWN — it is the absence of a disqualifier — so an account with no requisition on file keeps its presence score. This is the one place rules 4 and 5 pull against each other. **Reconciled by Rudra 2026-09-03 in favour of this reading**, on the grounds that zeroing a detector-confirmed signal because a *second, different* question is unanswered would be a penalty for absence of evidence — which rule 4 itself forbids. Recorded in `marketing/latest.md` 2026-09-03 `(later 8)`.
-
-6. **Near-zero variance means "already enforced", not "unimportant." Never read a discrimination test as permission to relax a gate.**
-
-   *Added 2026-09-03 at workstream 1's request, after both workstreams measured the same phenomenon and one of them drew the wrong conclusion from it.*
-
-   **The law:** a filter applied upstream cannot discriminate downstream. Conditioning on a variable destroys its variance. So when a signal is near-constant across a *scored* population, the first question is not "is this signal useless?" but **"was this signal a gate during sourcing?"**
-
-   | Was it a gate upstream? | What near-zero variance means | What to do |
-   |---|---|---|
-   | **Yes** | The gate is working. The variance was destroyed by selection, not by the signal being weak. | **Drop it from scoring. Never drop it from gating.** Removing the gate restores the variance immediately. |
-   | **No** | It genuinely fails to separate this population. | Consider dropping it — after checking the population is representative. |
-
-   **Measured on ICP-M2, 2026-09-03.** Model B's three near-constant signals — VOL (0 points on 32/32), SCL (5 points on 28/32), AGE (10 points on 20/32, and all 12 off-mode accounts are blanks rather than genuinely post-2018 companies) — were **all three sourcing gates**: the volume qualifier, the 200–2,500 / $100M+ gate, and the founded-≤2018 gate. The four that discriminate (EST, MRG, HIR, MDB) were never gates; they are trigger and technographic evidence found *after* the population was fixed. So Model B was paying 25 of 100 points to re-score decisions already made.
-
-   **The worked example of getting this wrong, from workstream 1 the same day.** A sole-cause analysis over 296 sourced companies showed geography and headcount uniquely rejecting **zero**, and the recommendation was to demote both from gates to columns. That corpus had been sourced *under* those filters. The next pull removed them and returned **Ola at 29,658 employees, Lazada 21,590, PhonePe 19,151, Daraz 13,487, Trendyol 11,479, Alipay, Flipkart** — **9 of 14 companies that cleared the transaction-volume gate failed geography or headcount.** The filters looked powerless precisely because they had been working.
-
-   **So a sole-cause or variance table answers "what should carry weight in the score." It never answers "what can be removed from the gates."** Those are different operations and no discrimination test can distinguish them, because the test is run on a population the gates already produced.
 
 3. **Source accounts** — origami.chat for the account universe **and for technographic signals** — its Enrich Tech Stack call costs 2.5 credits per company and returns the MongoDB/Postgres presence Model B weights at 15. Its Job Posting Search costs 1 credit per posting, so scale the trigger pull deliberately. Reasoning, filtering and export are free — only new data costs. TheirStack goes deeper once wired; WebSearch / WebFetch otherwise: job postings naming legacy stacks, engineering blogs, conference talks, EOL/migration discussion, funding and earnings signals.
 4. **Score and rank.** Every score cites the evidence that produced it. No evidence, no points — never infer a signal to make a number look better.
