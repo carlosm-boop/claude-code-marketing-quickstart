@@ -14,7 +14,7 @@ Not just another dashboard. Not another Mixpanel-vs-Amplitude tradeoff. A differ
 
 VP Marketing or Head of Demand Gen at a growth-stage B2B SaaS company ($5M-$50M ARR, 20-150 employees). The kind of operator whose CEO asks "what's driving pipeline this quarter?" in Monday standup and who has spent the last 18 months stitching together Salesforce + GA4 + a spreadsheet to answer the question.
 
-See [`ICP.md`](./ICP.md) for the full profile.
+See [`ICP.md`](../icp/ICP.md) for the full profile.
 
 ## Status-quo alternatives
 

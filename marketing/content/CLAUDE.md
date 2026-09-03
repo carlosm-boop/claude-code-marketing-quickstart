@@ -8,6 +8,6 @@ This lane follows the same arc as every execution lane: **research** → **strat
 - [`strategy/`](./strategy/) — plan, calendar, decide what to ship
 - [`execution/`](./execution/) — the actual artifacts you ship
 
-**Skills that produce content here:** `/content-strategy` (planning), `/aeo-content` (writing), `/aeo-strategy` (citation gap analysis).
+**Skills that produce content here:** `/content-audit` (research), `/content-strategy` (planning), `/aeo-content` (writing).
 
 **For the format:** see [`../../pulse-analytics-example/content/`](../../pulse-analytics-example/content/) — same structure, populated with PulseAnalytics examples.

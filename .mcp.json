@@ -1,25 +1,28 @@
 {
-  "mcpServers": {
-    "exa": {
-      "type": "http",
-      "url": "https://mcp.exa.ai/mcp",
-      "headers": {
-        "Authorization": "Bearer ${EXA_API_KEY}"
-      }
-    }
+  "_readme": "No MCP servers are required. Claude Code's built-in WebSearch and WebFetch cover every research skill in this repo, and Gmail / Google Calendar / Google Drive / Slack are connected as claude.ai connectors. Full picture: .claude/connections.md",
+
+  "mcpServers": {},
+
+  "_already_connected_via_claude_ai": {
+    "_note": "Available in the Claude desktop app and Cowork WITHOUT any entry here. Do NOT duplicate them into mcpServers — that wires a second, unauthenticated path to the same service.",
+    "servers": ["Gmail", "Google Calendar", "Google Drive", "Slack"],
+    "_google_meet": "Meet recordings and transcripts save to the organiser's Google Drive, so the Drive connector already reaches them. This is the input for /win-loss-analysis."
   },
-  "_commented_optionals": {
-    "_note": "Uncomment any of these into mcpServers above as you wire additional MCPs. Full setup guide for 12 connectors in .claude/connections.md.",
-    "ga4": {
-      "type": "stdio",
-      "command": "npx",
-      "args": ["-y", "@google/mcp-ga4"],
-      "env": {
-        "GA4_PROPERTY_ID": "${GA4_PROPERTY_ID}",
-        "GA4_CREDENTIALS_JSON": "${GA4_CREDENTIALS_JSON}"
-      }
-    },
+
+  "_wekan_stack_no_mcp_available": {
+    "_note": "Checked against the connector registry 2026-08-31: NO MCP connector exists for any of these. All have REST APIs — reach them through an n8n / Make webhook bridge, with the human review gate from marketing/rules/escalation.md in front. Do not invent package names for them.",
+    "origami.chat": { "role": "pull — lead sourcing", "status": "in use", "path": "manual export into marketing/outbound/research/" },
+    "theirstack": { "role": "pull — technographic signals", "status": "planned", "path": "REST API via n8n/Make" },
+    "hubspot": { "role": "pull + push — Smart CRM", "status": "planned", "path": "REST API via n8n/Make" },
+    "smartlead": { "role": "push — email sequences", "status": "planned", "path": "REST API via n8n/Make, or paste" },
+    "heyreach": { "role": "push — LinkedIn outreach", "status": "planned", "path": "REST API via n8n/Make" },
+    "customer.io": { "role": "push — lifecycle messaging", "status": "planned", "path": "REST API via n8n/Make" }
+  },
+
+  "_optional_verify_before_use": {
+    "_note": "Not part of the WeKan stack today. Package names NOT verified — run `npm view <package> version` before promoting anything here into mcpServers.",
     "gsc": {
+      "_when": "Only once SEO work starts. Until wired, /seo-strategy returns [UNAVAILABLE] for search volumes and says so.",
       "type": "stdio",
       "command": "npx",
       "args": ["-y", "@google/mcp-gsc"],
@@ -28,28 +31,24 @@
         "GSC_CREDENTIALS_JSON": "${GSC_CREDENTIALS_JSON}"
       }
     },
-    "granola": {
-      "type": "stdio",
-      "command": "npx",
-      "args": ["-y", "@granola/mcp-server"],
-      "env": {
-        "GRANOLA_API_KEY": "${GRANOLA_API_KEY}"
-      }
-    },
-    "slack": {
+    "exa": {
+      "_when": "Optional. Overlaps origami.chat, and built-in WebSearch/WebFetch already cover this repo's research skills. See the Exa vs origami.chat note in .claude/connections.md before wiring.",
       "type": "http",
-      "url": "https://mcp.slack.com/mcp",
-      "headers": {
-        "Authorization": "Bearer ${SLACK_BOT_TOKEN}"
-      }
-    },
-    "firecrawl": {
-      "type": "stdio",
-      "command": "npx",
-      "args": ["-y", "@firecrawl/mcp-server"],
-      "env": {
-        "FIRECRAWL_API_KEY": "${FIRECRAWL_API_KEY}"
-      }
+      "url": "https://mcp.exa.ai/mcp",
+      "headers": { "Authorization": "Bearer ${EXA_API_KEY}" }
     }
-  }
+  },
+
+  "_retired": {
+    "_note": "Assumed by the upstream quickstart, NOT in the WeKan stack. Removed deliberately — do not reference these in skills or agents.",
+    "servers": ["granola", "gong", "notion", "linear", "ahrefs", "firecrawl", "ga4"]
+  },
+
+  "_wiring_priority": [
+    "1. Nothing — the research layer runs today on built-in WebSearch/WebFetch",
+    "2. Confirm Google Meet transcription is ON — unlocks /win-loss-analysis via the Drive connector",
+    "3. Google Search Console — only when SEO work actually starts",
+    "4. n8n/Make bridge — only when SmartLead or HeyReach go live",
+    "5. Exa — only if a free-tier trial beats origami.chat on something specific"
+  ]
 }

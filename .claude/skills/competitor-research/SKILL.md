@@ -3,8 +3,8 @@ name: competitor-research
 version: '1.0'
 last_updated: 2026-05-19
 author: genesys-growth
-description: Run deep research on a single competitor. Produces a dossier with executive summary, position + messaging, status-quo alternatives, key differentiators, pricing position, where-they-win / where-they-lose, threat assessment, and what to watch. Writes to marketing/competitors/MMYY-{competitor-slug}.md. Triggers - "competitor research", "competitive analysis", "research competitor X", "battlecard prep", "analyze [competitor name]"
-goal: Produce a deep dossier on a single competitor: positioning, messaging, status-quo, differentiators, pricing, where-they-win/lose, threat assessment.
+description: 'Run deep research on a single competitor. Produces a dossier with executive summary, position + messaging, status-quo alternatives, key differentiators, pricing position, where-they-win / where-they-lose, threat assessment, and what to watch. Writes to marketing/competitors/MMYY-{competitor-slug}.md. Triggers - "competitor research", "competitive analysis", "research competitor X", "battlecard prep", "analyze [competitor name]"'
+goal: 'Produce a deep dossier on a single competitor: positioning, messaging, status-quo, differentiators, pricing, where-they-win/lose, threat assessment.'
 outcome: marketing/competitors/MMYY-{competitor-slug}.md with executive summary + 11 dimensions of analysis.
 primitive: research
 ontology_type: competitor-intel
@@ -22,6 +22,9 @@ outputs:
       - sales-enablement
 owned_by_agent: researcher
 mcps_used:
+  - websearch
+  - webfetch
+optional_mcps:
   - exa
 triggers:
   slash_commands:
@@ -52,7 +55,7 @@ The first skill in the article's Example 1 chain. Reads a competitor URL + name,
 ## How it works
 
 1. Inputs: competitor name + competitor URL (required). Optional: industry context, key differentiator hypothesis you want to test.
-2. Reads (optional Exa MCP for fresh web data): competitor homepage, pricing page, about page, recent blog posts, recent LinkedIn activity.
+2. Reads (WebSearch / WebFetch for fresh web data): competitor homepage, pricing page, about page, recent blog posts, recent LinkedIn activity.
 3. Produces a 12-section dossier (matching the PulseAnalytics example at `marketing/competitors/0526-competitor-a.md`):
    - Executive summary (3-4 sentences)
    - Anchor + category
@@ -82,7 +85,7 @@ Or open-ended:
 
 ## Example output (against the PulseAnalytics example seed)
 
-See [`marketing/competitors/0526-competitor-a.md`](../../../marketing/competitors/0526-competitor-a.md) for a fully-populated example of what this skill produces. Notice:
+See [`marketing/competitors/0526-competitor-a.md`](../../../pulse-analytics-example/competitors/0526-competitor-a.md) for a fully-populated example of what this skill produces. Notice:
 
 - Anchor + threat level surfaced in the executive summary
 - Claims tagged with confidence levels
@@ -92,7 +95,7 @@ See [`marketing/competitors/0526-competitor-a.md`](../../../marketing/competitor
 ## Dependencies
 
 - **Reads from:** `marketing/positioning/positioning.md` (optional — gives the skill context on what differentiation matters); `marketing/icp/ICP.md` (optional — informs "where they win vs. lose" framing).
-- **Reads via Exa MCP (optional):** competitor's website, recent news, public reviews on G2/Reddit/Trustpilot.
+- **Reads via web research (WebSearch / WebFetch):** competitor's website, recent news, public reviews on G2/Reddit/Trustpilot.
 - **Writes to:** `marketing/competitors/MMYY-{slug}.md`
 
 ## Customization

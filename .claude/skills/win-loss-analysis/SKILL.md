@@ -21,7 +21,7 @@ outputs:
       - icp-research
 owned_by_agent: researcher
 mcps_used:
-  - granola
+  - google-drive
 triggers:
   slash_commands:
     - /win-loss-analysis
@@ -33,6 +33,20 @@ status: draft
 The Example 1 Day 4 skill. Reads your won + lost sales-call transcripts and writes a pattern-level analysis to `marketing/win-loss/win-loss.md`. This is the evidence base under positioning, messaging, and ICP — every claim in those docs should trace back to something a real buyer said here.
 
 ---
+
+## Where WeKan's transcripts come from
+
+**Google Meet.** Meet recordings and transcripts save automatically to the meeting organiser's Google Drive (a `Meet Recordings` folder, and transcript docs alongside). The **Google Drive connector is already connected**, so this skill can read them directly — no Granola, no Gong, no extra wiring.
+
+To run this skill:
+
+1. Confirm transcription was on for the calls (Meet has to be told to transcribe; recording alone does not always produce a transcript).
+2. Point the skill at the Drive folder or name the deals.
+3. It reads won and lost calls together — losses carry more signal than wins.
+
+If transcription was off historically, turn it on now and the evidence base starts accumulating from the next call. Five calls is enough to start; the analysis says so when the sample is too thin rather than overreaching.
+
+**PII:** transcripts contain names, and often pricing. Redact per `.claude/rules/pii-redaction.md` before anything derived from them is written to a canonical file.
 
 ## When to use
 
@@ -54,7 +68,7 @@ The Example 1 Day 4 skill. Reads your won + lost sales-call transcripts and writ
 
 ## How it works
 
-1. Inputs: sales-call transcripts (Gong, Fireflies, Otter, Granola, Zoom/Avoma VTT, or pasted text), each tagged with the deal outcome (won / lost / churned). Optional: `marketing/icp/ICP.md` to frame patterns by segment.
+1. Inputs: sales-call transcripts — **for WeKan these come from Google Meet via the Google Drive connector** (see the section above). Pasted text or any VTT export also works. Each transcript is tagged with the deal outcome (won / lost / churned). Optional: `marketing/icp/ICP.md` to frame patterns by segment.
 2. Normalize each transcript to speaker-attributed turns with timestamps where present.
 3. Pick a mode:
    - **Single** — deep analysis of one transcript
@@ -83,7 +97,7 @@ See [`marketing/win-loss/win-loss.md`](../../../pulse-analytics-example/win-loss
 ## Dependencies
 
 - **Reads from:** sales-call transcripts (required); `marketing/icp/ICP.md` (optional, for segment framing)
-- **Reads via Granola MCP (optional):** meeting transcripts, if wired
+- **Reads via Google Drive connector:** Google Meet transcripts (already connected — no extra wiring)
 - **Writes to:** `marketing/win-loss/win-loss.md` (canonical; positioning, messaging, and ICP read from here)
 
 ## Customization

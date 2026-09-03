@@ -1,0 +1,106 @@
+---
+name: lead-scoring
+version: '1.0'
+last_updated: 2026-08-31
+author: wekan
+description: Build a scored, prioritized target-account list from firmographic and technographic signals. Reads the ICP and positioning, defines weighted scoring criteria, sources accounts via origami.chat and web research, and writes a ranked list with the trigger evidence behind each score. Triggers - "lead scoring", "target account list", "account prioritization", "who should we go after", "build a prospect list", "score my accounts"
+goal: Turn the ICP into a ranked account list so outbound spends effort on accounts that actually match, with the evidence for each score visible.
+outcome: marketing/outbound/research/MMYY-target-accounts.md with a weighted scoring model and a ranked account table.
+primitive: research
+ontology_type: account-list
+review_gate: 1
+inputs:
+  required:
+    - icp-research
+  recommended:
+    - competitor-research
+    - positioning
+outputs:
+  - type: account-list
+    feeds_into:
+      - abm-campaign
+      - outreach-emails
+owned_by_agent: gtm-engineer
+mcps_used:
+  - websearch
+  - webfetch
+optional_mcps:
+  - exa
+triggers:
+  slash_commands:
+    - /lead-scoring
+status: draft
+---
+
+# lead-scoring — outbound research skill
+
+Converts `marketing/icp/ICP.md` into a weighted scoring model and a ranked account list. Every downstream outbound skill reads the output rather than re-deciding who to target.
+
+## When to use
+
+- Standing up a new outbound motion, before writing any sequence
+- Quarterly refresh of the target list
+- Entering a new segment or geography
+- After a positioning or ICP change that shifts who qualifies
+
+## When NOT to use
+
+- Before `/icp-research` has run — scoring against a draft ICP produces confident nonsense
+- For scoring inbound leads already in HubSpot (that's a CRM workflow, not this skill)
+- For per-account research depth (use `/abm-campaign` on the top N)
+
+## How it works
+
+1. **Read** `marketing/icp/ICP.md` (firmographics, anti-ICP), `marketing/positioning/positioning.md` (what we displace), `marketing/company/company.md` (current wedges).
+2. **Propose a weighted model** and confirm the weights with the user before scoring. Default starting weights for WeKan:
+
+   | Signal | Weight | Why |
+   |---|---|---|
+   | Legacy estate evidence (Oracle / MSSQL / C++ / stored-procedure logic) | 25 | The core qualifier |
+   | End-of-life pressure (Realm EOL, unsupported versions, licensing renewal) | 25 | The live wedge; adds a deadline |
+   | MongoDB ecosystem presence | 15 | Warm path via the partnership |
+   | Regulated / workflow-intensive vertical (BFSI, Healthcare) | 15 | Where the moat is real |
+   | Public AI mandate with no visible foundation work | 10 | The gap WeKan names |
+   | Scale (enterprise / upper mid-market) | 10 | Deal-size floor |
+   | **Anti-ICP hit** (staff-aug intent, pure greenfield, migration-only scope) | **−40** | Disqualifier, not a penalty |
+
+3. **Source accounts** — origami.chat for the account universe, TheirStack for technographic signals once wired, WebSearch / WebFetch otherwise: job postings naming legacy stacks, engineering blogs, conference talks, EOL/migration discussion, funding and earnings signals.
+4. **Score and rank.** Every score cites the evidence that produced it. No evidence, no points — never infer a signal to make a number look better.
+5. **Write** to `marketing/outbound/research/MMYY-target-accounts.md`: the model, the ranked table (account · score · tier · trigger evidence · suggested entry point), and an explicit **disqualified** section with reasons.
+
+## Invoke
+
+```
+/lead-scoring
+/lead-scoring focus on BFSI in North America, 40 accounts
+```
+
+## Output shape
+
+```
+## Scoring model
+{weights table, as confirmed}
+
+## Tier 1 — score 70+  (N accounts)
+| Account | Score | Trigger evidence (with source) | Entry point |
+
+## Tier 2 — score 45–69
+## Tier 3 — score 25–44 (nurture only)
+## Disqualified — anti-ICP hits, with the reason
+```
+
+## Dependencies
+
+- **Reads:** `marketing/icp/ICP.md` (required), `marketing/positioning/positioning.md`, `marketing/company/company.md`
+- **Reads via:** WebSearch / WebFetch across job boards, engineering blogs, news, EOL announcements. **TheirStack** (once wired) is the better source for technographic signals; **origami.chat** for sourcing the account universe.
+- **Writes:** `marketing/outbound/research/MMYY-target-accounts.md`
+
+## Guardrails
+
+- Evidence-bound per `.claude/rules/evidence-bound-outputs.md`. A signal with no citation does not score.
+- The anti-ICP list is a **hard filter**, not a weight to be outvoted.
+- No PII beyond publicly-listed role titles — see `.claude/rules/pii-redaction.md`.
+
+## Refresh cadence
+
+Quarterly, or on a major EOL announcement that opens a new cohort.

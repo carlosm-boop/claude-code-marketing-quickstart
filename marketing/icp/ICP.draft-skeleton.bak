@@ -1,0 +1,57 @@
+# WeKan.AI — ICP (DRAFT SKELETON — not canonical yet)
+
+*Seeded 2026-08-31 by inference from `company.md` and `positioning.md`. **This is not research.** Every section below is an internal assumption, not evidence. Run `/icp-research https://wekancode.com` to replace it, ideally after `/win-loss-analysis`.*
+
+---
+
+## Firmographics (assumed)
+
+| Dimension | Assumption | Confidence |
+|---|---|---|
+| Company type | Enterprise with a material legacy estate; Fortune 500 and upper mid-market | Medium |
+| Revenue stage | $500M+ revenue, or funded scale-ups with an inherited monolith | Low |
+| Geography | North America, Europe, APAC | High — matches delivery footprint |
+| Industry | BFSI and Healthcare (deep practices); transport, aviation, insurance, logistics (proven) ; manufacturing (emerging) | Medium |
+| Tech signal | Oracle / MSSQL / C++ / decades-old stored-procedure logic; MongoDB ecosystem; **end-of-life Realm deployments** | High — Realm is a live wedge |
+| Trigger | EOL/support deadline, licensing renewal, a board mandate on AI, a failed internal AI pilot | Medium |
+
+## Champion persona (assumed) — VP Engineering / Head of Platform
+
+- **Owns:** the modernization roadmap and the architecture that AI initiatives will have to run on
+- **Their week:** firefighting on a brittle core, defending timelines, being asked for AI outcomes the architecture cannot support
+- **JTBD:** get off the legacy foundation without a disruption event that costs them their job
+- **Pain, priority order:** (1) migration risk and downtime, (2) 18–36 month timelines, (3) losing context across vendor handoffs, (4) proprietary DB licensing cost
+- **Decision criteria:** demonstrated zero-regression cutovers, architecture-first method, one accountable partner
+- **Objection to expect:** "you're the MongoDB shop" — see `messaging.md` §7 words-to-avoid
+
+## Economic buyer (assumed) — CTO / CIO
+
+- **Motivation:** turn the AI mandate into business value rather than science projects; consolidate three vendors into one
+- **Decision criteria:** de-risked modernization, measurable ROI, delivery accountability, Fortune 500 references
+- **Frames the deal as:** capex on modernization justified by the AI outcomes it unlocks
+
+## Anti-ICP (assumed)
+
+- Companies wanting **staff augmentation** — bodies on a roadmap someone else owns
+- **Pure greenfield** builds with no legacy estate — WeKan's core differentiator does not apply
+- Buyers shopping for a **model or a chatbot** with no appetite for foundation work
+- Deals scoped as **database migration only**, with no arc beyond cutover
+- Organizations with **no executive mandate** for the AI transition — the program stalls at problem 1
+
+## Where they hang out
+
+`[UNAVAILABLE]` — needs real research. Hypotheses to test: MongoDB ecosystem events and .local conferences · CTO/architecture communities · Realm EOL discussion threads and migration forums · LinkedIn (founder-led POV content) · analyst and peer-referral channels.
+
+## Customer proof points
+
+`[UNAVAILABLE]` as named references. Use the anonymized Pool B outcomes in `messaging.md` §6. Firewall applies.
+
+## Voice of customer
+
+`[UNAVAILABLE]` — populate from `/win-loss-analysis`. **This is the highest-leverage missing input in the whole workspace:** it converts every assumption above into evidence.
+
+**The transcripts are reachable today.** Google Meet writes transcripts to the organiser's Google Drive, and the Drive connector is already live — no Granola, no Gong, no new tooling. The only precondition is that Meet transcription was switched on for those calls. Five calls is enough to start.
+
+## Owner
+
+Rudra. Status: DRAFT — do not let downstream skills treat this as canonical until `/icp-research` has run.

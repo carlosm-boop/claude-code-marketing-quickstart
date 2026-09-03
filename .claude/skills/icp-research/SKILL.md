@@ -22,6 +22,9 @@ outputs:
       - content-strategy
 owned_by_agent: researcher
 mcps_used:
+  - websearch
+  - webfetch
+optional_mcps:
   - exa
 triggers:
   slash_commands:
@@ -52,7 +55,7 @@ The article's Example 1 Day 5 skill. Reads your website + win-loss patterns (if 
 ## How it works
 
 1. Inputs: your website URL (required). Optional: list of representative customer URLs, win-loss patterns from prior cycle, competitor aggregate.
-2. Reads (Exa MCP for fresh data): website case studies, customer pages, testimonials, blog posts, About / Solutions pages.
+2. Reads (WebSearch / WebFetch for fresh data): website case studies, customer pages, testimonials, blog posts, About / Solutions pages.
 3. Optionally reads: `marketing/competitors/aggregate.md` (if locked) to inform "anti-ICP" framing; recent win-loss data from `marketing/win-loss/win-loss.md` (if `/win-loss-analysis` has run).
 4. Produces a structured ICP with these sections (matches the PulseAnalytics example at `marketing/icp/ICP.md`):
    - **Firmographics** — company type, revenue stage, team size, funding, geography, industry
@@ -83,7 +86,7 @@ See [`marketing/icp/ICP.md`](../../../marketing/icp/ICP.md) for the PulseAnalyti
 ## Dependencies
 
 - **Reads from:** your website URL (required); `marketing/competitors/aggregate.md` (optional, recommended); `marketing/win-loss/win-loss.md` (optional, recommended — produced by `/win-loss-analysis`)
-- **Reads via Exa MCP (optional):** website + recent customer-facing pages
+- **Reads via web research (WebSearch / WebFetch):** website + recent customer-facing pages
 - **Writes to:** `marketing/icp/ICP.md` (canonical, every downstream skill reads here)
 
 ## Customization

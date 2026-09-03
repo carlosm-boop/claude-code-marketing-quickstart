@@ -3,7 +3,7 @@ name: funnel-strategy
 version: '1.0'
 last_updated: 2026-05-19
 author: genesys-growth
-description: Maps your company's GTM motion (PLG, SLG, or Hybrid) to concrete funnel stages with inputs, outputs, and qualification criteria per stage. Detects motion type from website + Exa research, then produces pre-close + post-close stage definitions, the FETE mapping (Fit / Engagement / Tier / Eligibility), and closed-lost re-entry paths. Triggers - "funnel strategy", "funnel stages", "pipeline stages", "sales process", "lead qualification", "GTM motion mapping", or any work defining how leads flow through the business. Upstream - recommended company-context, icp-research. Downstream - feeds lifecycle-marketing, outreach-emails, content-strategy. NOT for lead scoring logic (use /lead-scoring) or lifecycle email campaigns (use /lifecycle-marketing).
+description: Maps your company's GTM motion (PLG, SLG, or Hybrid) to concrete funnel stages with inputs, outputs, and qualification criteria per stage. Detects motion type from website + web research, then produces pre-close + post-close stage definitions, the FETE mapping (Fit / Engagement / Tier / Eligibility), and closed-lost re-entry paths. Triggers - "funnel strategy", "funnel stages", "pipeline stages", "sales process", "lead qualification", "GTM motion mapping", or any work defining how leads flow through the business. Upstream - recommended company-context, icp-research. Downstream - feeds lifecycle-marketing, outreach-emails, content-strategy. NOT for lead scoring logic (use /lead-scoring) or lifecycle email campaigns (use /lifecycle-marketing).
 goal: Map a company's GTM motion to concrete funnel stages with qualification criteria per stage.
 outcome: A funnel-strategy.md file in `marketing/funnel/` that downstream skills (lifecycle, outbound, content) consume to align their work to the same funnel definition.
 primitive: research
@@ -22,6 +22,9 @@ outputs:
       - content-strategy
 owned_by_agent: researcher
 mcps_used:
+  - websearch
+  - webfetch
+optional_mcps:
   - exa
 triggers:
   slash_commands:
@@ -49,7 +52,7 @@ Infer and structure your sales funnel based on your GTM motion. Reads ICP + posi
 
 - **Recommended:** `marketing/icp/ICP.md` (the champion + economic buyer help identify stage transitions)
 - **Recommended:** `marketing/positioning/positioning.md` (status-quo alternatives often map to closed-lost re-entry signals)
-- Your company website URL (Exa fetches + reads it)
+- Your company website URL (WebFetch reads it)
 
 ## What it produces
 

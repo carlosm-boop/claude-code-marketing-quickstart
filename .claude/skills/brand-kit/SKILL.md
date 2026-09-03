@@ -21,6 +21,9 @@ outputs:
       - sales-deck
 owned_by_agent: researcher
 mcps_used:
+  - websearch
+  - webfetch
+optional_mcps:
   - exa
 triggers:
   slash_commands:
@@ -49,7 +52,7 @@ Compiles visual identity into a structured brand kit. Output format: DESIGN.md (
 ## How it works
 
 1. Inputs: screenshots of your product / website (primary, higher fidelity) OR website URL (fallback, lower fidelity).
-2. Reads: visual content via Claude's vision (screenshots) or Exa MCP web fetch (URL).
+2. Reads: visual content via Claude's vision (screenshots) or WebFetch (URL).
 3. Extracts: exact colors (hex codes), typography stack (font family + sizes + weights + line heights + letter spacing), spacing scale, corner radii, component patterns (button states, card styles, input styles, etc.).
 4. Produces a DESIGN.md-format brand kit:
    - **YAML token frontmatter** (machine-authoritative): colors, typography, rounded, spacing, components — token references use `{path.to.token}` syntax
@@ -75,7 +78,7 @@ See [`marketing/brand/brand-kit.md`](../../../marketing/brand/brand-kit.md) for 
 ## Dependencies
 
 - **Reads from:** source visual content (screenshots or URL — provided as input)
-- **Reads via Exa MCP (optional):** website if URL-fallback path is used
+- **Reads via web research (WebSearch / WebFetch):** website if URL-fallback path is used
 - **Writes to:** `marketing/brand/brand-kit.md` (canonical)
 - **Downstream readers:** `/landing-page-wireframe`, `/landing-page-copy`, `/ad-creative-brief`, `/sales-deck`, `/linkedin-carousels`, any visual-output skill
 

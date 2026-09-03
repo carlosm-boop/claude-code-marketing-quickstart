@@ -21,6 +21,9 @@ outputs:
       - content-strategy
 owned_by_agent: researcher
 mcps_used:
+  - websearch
+  - webfetch
+optional_mcps:
   - exa
 triggers:
   slash_commands:
@@ -53,7 +56,7 @@ Founder input is the raw material: existing content (LinkedIn posts, podcast tra
 ## How it works
 
 1. Inputs: founder content URLs and/or interview answers. Optional: `marketing/brand/brand-voice.md` for voice alignment.
-2. Reads (Exa MCP for public founder content): LinkedIn, podcasts, interviews, talks, prior writing.
+2. Reads (WebSearch / WebFetch for public founder content): LinkedIn, podcasts, interviews, talks, prior writing.
 3. Produces a structured POV with these sections (matches the PulseAnalytics example):
    - **Belief map** — core beliefs + the implicit assumptions under them + where each invites push-back
    - **Contrarian positions** — the hot takes, with what the consensus view is and why the founder departs from it
@@ -84,7 +87,7 @@ See [`marketing/expert-pov/expert-pov.md`](../../../pulse-analytics-example/expe
 ## Dependencies
 
 - **Reads from:** founder content + interview answers (required); `marketing/brand/brand-voice.md` (optional)
-- **Reads via Exa MCP (optional):** public founder content
+- **Reads via web research (WebSearch / WebFetch):** public founder content
 - **Writes to:** `marketing/expert-pov/expert-pov.md` (canonical; thought-leadership + founder content read from here)
 
 ## Customization

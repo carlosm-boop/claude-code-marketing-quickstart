@@ -4,15 +4,14 @@
 # This file (`env`, no extension, no leading dot) is committed as a template so anyone cloning
 # the repo can see what they need to set without it being hidden as a dotfile.
 #
-# Only EXA_API_KEY is required for the 15-minute tour. Other MCPs are commented out in .mcp.json
-# and only need their env vars set when you uncomment those MCPs.
-# Full 12-connector setup guide: .claude/connections.md
+# NOTHING IN THIS FILE IS REQUIRED. Claude Code's built-in WebSearch/WebFetch cover every
+# research skill, and Gmail / Calendar / Drive / Slack authenticate through claude.ai, not here.
+# Full picture: .claude/connections.md
 
-# === REQUIRED ===
-
-# Exa API key — for web search + page fetch via the Exa MCP
-# Get yours at: https://exa.ai (free tier OK)
-EXA_API_KEY=
+# === OPTIONAL — Exa ===
+# Overlaps origami.chat, which you already use. Built-in WebSearch/WebFetch cover this repo's
+# research skills. Only set this if a free-tier trial beats origami on something specific.
+# EXA_API_KEY=
 
 # === OPTIONAL — uncomment as you wire each MCP ===
 
@@ -37,4 +36,31 @@ EXA_API_KEY=
 
 # Firecrawl — heavy web crawl
 # Get API key from firecrawl.dev
-# FIRECRAWL_API_KEY=
+# FIRECRAWL_API_KEY
+
+# ==========================================================================
+# WeKan.AI stack — rev. 2026-08-31
+# ==========================================================================
+# Checked against the connector registry: origami.chat, TheirStack, HubSpot,
+# SmartLead, HeyReach and Customer.io have NO MCP connector. They are reached
+# by manual export/paste or an n8n / Make webhook bridge, so their API keys
+# live in n8n/Make — NOT here.
+#
+# Gmail, Google Calendar, Google Drive and Slack authenticate through
+# claude.ai. Google Meet transcripts arrive via the Drive connector.
+#
+# Retired from this repo: Granola, Gong, Notion, Linear, Ahrefs, Firecrawl, GA4.
+
+# --- Only when SEO work starts ---
+# Until this is set, /seo-strategy returns [UNAVAILABLE] for every search volume.
+# Site URL must exactly match the verified property, e.g. "sc-domain:wekancode.com"
+# GSC_SITE_URL=
+# GSC_CREDENTIALS_JSON=
+
+# --- Only when SmartLead / HeyReach go live ---
+# Webhook targets for reviewed artifacts leaving the repo. Manual trigger only —
+# the review gate in marketing/rules/escalation.md stays in front of every send.
+# N8N_WEBHOOK_SMARTLEAD=
+# N8N_WEBHOOK_HEYREACH=
+# N8N_WEBHOOK_HUBSPOT=
+# N8N_WEBHOOK_CUSTOMERIO=

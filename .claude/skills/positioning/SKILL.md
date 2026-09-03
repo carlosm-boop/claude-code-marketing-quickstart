@@ -22,6 +22,9 @@ outputs:
       - sales-enablement
 owned_by_agent: pmm
 mcps_used:
+  - websearch
+  - webfetch
+optional_mcps:
   - exa
 triggers:
   slash_commands:

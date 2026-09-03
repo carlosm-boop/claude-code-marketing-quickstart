@@ -21,6 +21,9 @@ outputs:
       - product-messaging
 owned_by_agent: researcher
 mcps_used:
+  - websearch
+  - webfetch
+optional_mcps:
   - exa
 triggers:
   slash_commands:
@@ -49,7 +52,7 @@ Analyzes existing content (your website, blog, recent LinkedIn posts, sales-call
 ## How it works
 
 1. Inputs: source content (one or more of: website URL, blog URL, LinkedIn handle, sales-call transcripts, founder writing samples).
-2. Reads (Exa MCP for fresh data): the source content. Patterns extracted include: vocabulary preferences, sentence-length defaults, headline conventions, em-dash usage, list-vs-prose preference, contraction frequency, persona pronouns, signature opening / closing patterns.
+2. Reads (WebSearch / WebFetch for fresh data): the source content. Patterns extracted include: vocabulary preferences, sentence-length defaults, headline conventions, em-dash usage, list-vs-prose preference, contraction frequency, persona pronouns, signature opening / closing patterns.
 3. Produces a two-phase output:
    - **Phase 1 — Voice analysis** (extracted patterns from source material with frequency scores): "uses em-dash with spaces 87% of the time across 30 LinkedIn posts; sentence case headings 100% of the time; banned-word violations 0 in last 10 posts"
    - **Phase 2 — Voice guidelines** (codified rules every content skill applies):
@@ -79,7 +82,7 @@ See [`marketing/brand/brand-voice.md`](../../../marketing/brand/brand-voice.md) 
 ## Dependencies
 
 - **Reads from:** source content (URL or files — provided as input); optionally `marketing/icp/ICP.md` (voice should match the ICP's vocabulary register)
-- **Reads via Exa MCP (optional):** the source content if it lives on the web
+- **Reads via web research (WebSearch / WebFetch):** the source content if it lives on the web
 - **Writes to:** `marketing/brand/brand-voice.md` (canonical)
 - **Downstream readers:** any content skill (LinkedIn, blog, newsletter, email), `/landing-page-copy`, future gate skills
 
