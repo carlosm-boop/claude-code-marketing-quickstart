@@ -373,6 +373,30 @@ This is the anti-ICP mirror of the blank-credit bug closed earlier today. There,
 
 **And it is cheap, because the field can be populated — confirmed by workstream 1 the same evening.** Their transaction-volume pull returned `PUBLIC_COMPANY` correctly and **unprompted on 14 of 30 rows** (Shopify, Booking Holdings, Jumia, Sea, Lightspeed, BILL, PAR Technology, NCR Voyix, WEX, Thryv, GoTo, Intellect, Aurionpro, Nucleus). **`OWN?` is a per-pull coverage failure, not a capability gap** — any re-pull can fill it, so this closes with a re-pull rather than 27 hand verifications.
 
+## EST and HIR measured for the 7 cost-test accounts — free, 2026-09-03
+
+Workstream 1 merged the cost-test posting text into `data/0926-origami-job-postings.csv` as `Pull = P9 cost-test` (36 → 58 rows, commit `37b10cf`) instead of committing a second text-bearing file — the better fix, because a second file preserves evidence while breaking the premise that made the one-grep check work. **With the text in the canonical file, both signals were measurable for free.**
+
+**EST: measured absence on all seven.** No estate-pain sentence in any of the seven postings, and one database named across all of them (BigQuery, Meilleurtaux). These are now **measured zeros rather than blanks** — the distinction the whole audit turned on. Origami Risk 7,011 chars · Meilleurtaux 6,848 · Facile.it 5,232 · Capital on Tap 4,911 · Mollie 4,870 · OEC 4,398 · Chrono24 3,838.
+
+**HIR: 4 of 7, not 7 of 7 — the leaky role term fired again.** Judged on description text, not titles:
+
+| Account | Posting | Infra terms | Non-infra terms | HIR |
+|---|---|---|---|---|
+| Capital on Tap | Site Reliability Engineer | 3 | 0 | **●** |
+| Origami Risk | Site Reliability Engineer | 3 | 0 | **●** |
+| Mollie | Platform Engineer II — Build | 4 | 1 | **●** |
+| OEC | Senior Platform Engineer (Cloud & AI) | 7 | 3 | **●** |
+| Facile.it | Platform Engineer — DevEx & Cloud Platform | 3 | 4 (`react`, `typescript`, `llm`, DevEx) | **○ leaky** |
+| Meilleurtaux | AI Platform Engineer — AZURE | 2 | 2 (`genai`, `llm`) | **○ leaky** |
+| Chrono24 | (Senior) AI Platform Engineer | **0** | 0 | **○ leaky** |
+
+**Second confirmed instance of the leaky "Platform Engineering" term**, after Lighthouse's Ember/React/TypeScript *Lead Platform Engineer*. It now has a measured rate on a fresh pull: **3 of 7**. The new variant is AI-platform roles rather than front-end ones — same term, different false positive.
+
+**Method note worth keeping.** A first pass over these seven judged 2 of 7 infra **from the titles alone** and was wrong; the description scan corrected it to 4. That is the repo's own rule — *never accept a role match on the title alone* — catching its author. The check costs one pass over text already held.
+
+**And the roster survives the same scrutiny: 0 of 6 HIR marks fail.** Sensor Tower, Close, Owner.com, Signifyd, Alan and FreedomPay all show 4–9 infra terms against 0–3 non-infra; NexHealth reads ambiguous at 2/0 but is not leaky. **The leaky term is hitting the newer pulls, not the P1 infra-hiring pull the roster was built from** — P1 used the tighter role list. Roster HIR evidence stands.
+
 ## Credit spend — revised priority, 2026-09-03
 
 Workstream 1's counts, corrected by them: **21 accounts need MDB** (the 19 consolidation accounts plus Vinted and ShiftKey, added after the 39-account enrichment) and **19 need HIR** (Vinted and ShiftKey already carry `Infra Posting = true` from the C1 pull). The original 31 and the 7 cost-test accounts already have both. **What nobody had counted: 22 roster accounts need EST.**
@@ -392,7 +416,7 @@ One **Job Posting Search** across the affected domains buys **EST (25) and HIR (
 
 | Call | Buys | Domains | Cost |
 |---|---|---|---|
-| 1 · Job Posting Search | **EST + HIR** | **44** | ~30–60 |
+| 1 · Job Posting Search | **EST only** — HIR now arrives free at search time, since the gated pull populates `Infra/SRE Posting` on every row | **44** | ~30–60 |
 | 2 · Enrich Tech Stack | MDB | 21 | ~53 |
 | | | | **~85–115** — inside the authorised 150, covering 44 accounts rather than 19 |
 

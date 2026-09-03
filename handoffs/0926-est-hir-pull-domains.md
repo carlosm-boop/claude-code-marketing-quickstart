@@ -59,19 +59,13 @@ shiftkey.com
 - **19** consolidation accounts from `data/0926-new-accounts-for-roster.csv` — blank on EST, HIR and MDB.
 - **2** C1-cleared accounts — Vinted and ShiftKey carry `Infra Posting = true` so HIR is known, but neither has posting text, so EST is unmeasured.
 
-## Add these 7 only if the cost-test raw CSV is not committed
+## The 7 cost-test accounts are OUT — resolved 2026-09-03
 
-```
-origamirisk.com
-facile.it
-chrono24.com
-mollie.com
-oeconnection.com
-meilleurtaux.com
-capitalontap.com
-```
+Struck. Workstream 1 merged the cost-test posting text into `data/0926-origami-job-postings.csv` as `Pull = P9 cost-test` (36 rows → 58, commit `37b10cf`), rather than committing a second text-bearing file. **That is the better fix and the reasoning matters:** committing a second file preserves the evidence but breaks the premise that made the one-grep check work — *"the postings CSV is the only file holding posting text."* The next person greps the canonical file, finds nothing, and buys a pull they did not need. Third time today that same premise error would have fired.
 
-`srepostingscosttestrawdata20260903.csv` holds the posting text for these seven and **is not in the repo**. None of them appears in `data/0926-origami-job-postings.csv`. Committing that CSV makes EST free for all seven and keeps this pull at 44; otherwise they join it and it becomes 51. **Commit the file — it costs nothing and preserves the evidence.**
+**EST and HIR for the seven were then measured here at zero cost — see `0926-target-accounts.md`.**
+
+**This file now contains exactly 44 domains.**
 
 ## Not in the pull
 

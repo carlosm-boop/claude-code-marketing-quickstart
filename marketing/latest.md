@@ -147,6 +147,27 @@ These are mid-migration: the destination is already in the building and the thin
 
 ---
 
+## 2026-09-03 (later 16) — the 7 measured free; leaky role term confirmed at 3 of 7; roster HIR clean
+
+**Workstream 1's fix beats the one proposed here.** They merged the cost-test posting text into `data/0926-origami-job-postings.csv` as `Pull = P9 cost-test` (36 → 58 rows, commit `37b10cf`) rather than committing a second text-bearing file. **Committing a second file preserves the evidence but breaks the premise that made the one-grep check work** — *the postings CSV is the only file holding posting text* — so the next person greps the canonical file, finds nothing, and buys a pull they did not need. Third time today that premise error would have fired. Their call, and it was right.
+
+**Both signals then measured for the seven at zero cost.**
+
+- **EST: measured absence on all seven.** No estate-pain sentence anywhere, one database named across seven postings. **Measured zeros, not blanks** — which is the distinction the entire audit turned on, and it now holds for 16 of 38 candidate accounts instead of 9 of 31.
+- **HIR: 4 of 7, not 7 of 7.** Capital on Tap, Origami Risk, Mollie and OEC are genuine infra roles on the description text. **Facile.it, Meilleurtaux and Chrono24 are leaky matches** — DevEx and AI-platform roles carrying `react`, `typescript`, `llm`, `genai`; Chrono24's description contains **zero** infrastructure terms.
+
+**Second confirmed instance of the leaky "Platform Engineering" term**, after Lighthouse's Ember/React/TypeScript req — and now with a rate on a fresh pull: **3 of 7**. The new false positive is AI-platform roles rather than front-end ones. Same term, new costume.
+
+**A first pass here judged 2 of 7 from titles alone and was wrong** — the description scan corrected it to 4. The repo's own rule, *never accept a role match on the title alone*, catching its author. Cost: one pass over text already held.
+
+**Roster HIR survives the same check: 0 of 6 marks fail.** Sensor Tower, Close, Owner.com, Signifyd, Alan and FreedomPay all read 4–9 infra terms against 0–3 non-infra; NexHealth is ambiguous at 2/0 but not leaky. **The leaky term hits the newer pulls, not the P1 infra-hiring pull the roster was built from.** Roster HIR evidence stands.
+
+**Call 1 is now EST-only** — HIR arrives free at search time, since the gated pull populates `Infra/SRE Posting` on every row. A 15-point signal now attaches to every new account at no marginal cost.
+
+**`handoffs/0926-est-hir-pull-domains.md` corrected to exactly 44** — the conditional 7-account block is struck.
+
+---
+
 ## 2026-09-03 (later 15) — two calls not four; domain list built; Metropolis mark dropped
 
 **Workstream 1's packaging beats the four line items in `(later 14)`, and the reasoning is right.** One **Job Posting Search** buys **EST (25) and HIR (15) together — 40 of the 75 points** — because the posting text is EST's only source, and a domain returning no matching posting is a **measured absence** rather than a blank. That distinction is the whole point of the audit: after this pull, no account is scored 0 on EST as though we looked when we did not, whichever way the numbers move. `Enrich Tech Stack` stays separate for MDB, because posting rows carry database mentions on only 10 of 36 (~28%) — not good enough for a 15-point gate.
