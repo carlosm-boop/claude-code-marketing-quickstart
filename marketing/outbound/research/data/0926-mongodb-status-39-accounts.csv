@@ -1,0 +1,40 @@
+Company,Domain,Source,MongoDB,MongoDB Evidence,Legacy Relational,Mid-Migration,Group,Databases Detected
+Sensor Tower,sensortower.com,pursuit-order-32,yes,product stack,,,1,MongoDB;PostgreSQL;Redis;Elasticsearch;ClickHouse
+Owner.com,owner.com,pursuit-order-32,yes,product stack,,,1,MongoDB;Snowflake
+NexHealth,nexhealth.com,pursuit-order-32,no,,MSSQL;MySQL,,2,PostgreSQL;MySQL;MSSQL;Snowflake
+Pantheon,pantheon.io,pursuit-order-32,no,,MySQL,,2,MySQL;Cassandra;Redis;Elasticsearch;Snowflake;BigQuery
+Signifyd,signifyd.com,pursuit-order-32,no,,MySQL,,2,PostgreSQL;MySQL;Cassandra;DynamoDB;Elasticsearch
+Close,close.com,pursuit-order-32,yes,product stack,,,1,MongoDB;PostgreSQL;Redis;Elasticsearch;ClickHouse;Snowflake
+Workrise,workrise.com,pursuit-order-32,yes,job postings only,,,1,MongoDB;PostgreSQL;Elasticsearch;Snowflake;Databricks
+Pushpay,pushpay.com,pursuit-order-32,yes,product stack,MySQL,YES,1,MongoDB;PostgreSQL;MySQL;Cassandra;DynamoDB;ClickHouse
+Wallapop,wallapop.com,pursuit-order-32,no,,MySQL,,2,MySQL;Redis;Elasticsearch
+Cambridge Mobile Telematics,cmtelematics.com,pursuit-order-32,no,,,,3,Databricks
+Sure,sureapp.com,pursuit-order-32,no,,,,4,
+Fleetio,fleetio.com,pursuit-order-32,no,,,,2,PostgreSQL;Redis;Elasticsearch;Snowflake;BigQuery;Databricks
+Civitatis,civitatis.com,pursuit-order-32,no,,MySQL,,2,MySQL
+Hotel Engine,hotelengine.com,pursuit-order-32,no,,MySQL,,2,PostgreSQL;MySQL;DynamoDB;Redis;Elasticsearch;Snowflake
+Zeta,zeta.tech,pursuit-order-32,yes,product stack,MySQL,YES,1,MongoDB;PostgreSQL;MySQL;Redis
+iCapital,icapital.com,pursuit-order-32,yes,job postings only,MSSQL;MySQL,YES,1,MongoDB;PostgreSQL;MySQL;MSSQL;DynamoDB;Snowflake;BigQuery;Databricks
+Carta,carta.com,pursuit-order-32,yes,product stack,,,1,MongoDB;Snowflake
+Metropolis Technologies,metropolis.io,pursuit-order-32,no,,MySQL,,2,PostgreSQL;MySQL;Redis;Elasticsearch;Snowflake
+Housecall Pro,housecallpro.com,pursuit-order-32,no,,MySQL,,2,PostgreSQL;MySQL;Redis;Elasticsearch;Snowflake
+Zuora,zuora.com,pursuit-order-32,yes,product stack,MySQL,YES,1,MongoDB;PostgreSQL;MySQL;Cassandra;Redis;Elasticsearch;ClickHouse;Snowflake
+FarEye,fareye.com,pursuit-order-32,no,,,,4,
+Cover Genius,covergenius.com,pursuit-order-32,yes,product stack,,,1,MongoDB;PostgreSQL;Redis;Elasticsearch;Snowflake;BigQuery
+Zūm,ridezum.com,pursuit-order-32,no,,,,2,PostgreSQL;Snowflake
+ID.me,id.me,pursuit-order-32,yes,product stack,MySQL,YES,1,MongoDB;PostgreSQL;MySQL;Cassandra;DynamoDB;Snowflake;BigQuery
+Blockchain.com,blockchain.com,pursuit-order-32,no,,,,2,PostgreSQL;Redis;BigQuery
+Netradyne,netradyne.com,pursuit-order-32,yes,product stack,MySQL,YES,1,MongoDB;PostgreSQL;MySQL;Cassandra;DynamoDB
+Back Market,backmarket.com,pursuit-order-32,no,,,,2,PostgreSQL;Redis;BigQuery
+Weee!,sayweee.com,pursuit-order-32,no,,MySQL,,2,MySQL;BigQuery
+ezCater,ezcater.com,pursuit-order-32,yes,product stack,,,1,MongoDB;PostgreSQL;Snowflake;BigQuery;Databricks
+Lighthouse,mylighthouse.com,pursuit-order-32,no,,,,3,Elasticsearch
+Alan,alan.com,pursuit-order-32,no,,,,2,PostgreSQL;Redis;Snowflake
+FreedomPay,freedompay.com,pursuit-order-32,no,,,,3,Redis;Snowflake
+Origami Risk,origamirisk.com,cost-test-new,no,,,,2,PostgreSQL;Redis;Databricks
+Facile.it,facile.it,cost-test-new,no,,,,4,
+Chrono24,chrono24.com,cost-test-new,no,,,,3,Snowflake
+Mollie,mollie.com,cost-test-new,no,,MySQL,,2,MySQL
+OEC,oeconnection.com,cost-test-new,yes,job postings only,MSSQL;MySQL,YES,1,MongoDB;PostgreSQL;MySQL;MSSQL;DynamoDB;Redis;Elasticsearch;Snowflake;BigQuery
+Meilleurtaux,meilleurtaux.com,cost-test-new,no,,,,3,BigQuery
+Capital on Tap,capitalontap.com,cost-test-new,yes,product stack,,,1,MongoDB;Snowflake;BigQuery

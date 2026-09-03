@@ -7,6 +7,40 @@ Delta cache for the WeKan marketing OS. Newest at top. Agents read this before d
 
 ---
 
+## 2026-09-03 (later 8 · w1) — MongoDB is now data on all 39 accounts, and 7 are mid-migration
+
+**The 15-point MongoDB input is resolved across the whole roster.** `Enrich Tech Stack` run on the 39 accounts in `outbound/research/data/0926-enrich-targets.csv`. Result: **15 of 39 run MongoDB, 24 do not** — and "do not" is now a sourced negative rather than a blank. Clean output at `outbound/research/data/0926-mongodb-status-39-accounts.csv`; Origami's raw return preserved at `0926-enrich-targets-enriched-raw.csv`.
+
+Coverage went from 3/32 named (29 blank) to **39/39 determined**. Cost was one enrichment pass.
+
+**The extraction column was wrong on three accounts, and the standing rule caught it.** `Database Mentions Found` reported MongoDB at 12 companies. Parsing the raw `Tech Stack` and `Job Posting Tech Stack` text directly gives **15**. The three it missed — **Workrise, iCapital, OEC** — each have zero mongo hits in `Tech Stack` and 1-2 in `Job Posting Tech Stack`. **Origami's extractor scans one field and not the other.** iCapital's is explicit: `mongodb-atlas`, the managed service, which is the co-sell channel itself.
+
+This is the twelfth catalogued instance of *never accept a derived judgment column from the sourcing tool; take the facts and do the extraction here.* Cost: zero credits, one parse.
+
+**Checked before trusting it.** The three upgrades rest on `Job Posting Tech Stack`, and the tokens `dbt`, `gitHub-copilot`, `mongodb` appear in that order at all three companies, which looked like boilerplate. It is not: across the 10 accounts carrying that field, no pair exceeds Jaccard 0.5 and only **five** tools are common to all ten (AWS, Python, JavaScript, Salesforce, HubSpot). `mongodb` is not among them. The lists are company-specific.
+
+**Evidence-strength note for scoring.** 12 of the 15 are MongoDB in the detected product stack; **3 are job-postings-only** (Workrise, iCapital, OEC). A hiring-derived mention is softer than an observed production stack — a team is working with it, which is arguably the better *timing* signal but the weaker *estate* signal. The clean CSV carries `MongoDB Evidence` so the two are never conflated. Recommend they score as present-but-flagged, not as equal to a detected stack.
+
+**The most commercially interesting cut is new: 7 accounts run MongoDB alongside a legacy relational engine.**
+
+| Account | Legacy engine present |
+|---|---|
+| iCapital | MSSQL + MySQL |
+| OEC | MSSQL + MySQL |
+| Pushpay | MySQL |
+| Zeta | MySQL |
+| Zuora | MySQL |
+| ID.me | MySQL |
+| Netradyne | MySQL |
+
+These are mid-migration: the destination is already in the building and the thing being migrated off is still running. Both halves of the WeKan story observable in one account, and it maps straight onto the `Oracle replace with MongoDB & WeKan` narrative. **This should drive pursuit order** — it is a sharper discriminator than the MongoDB flag alone, which 15 accounts now share. Postgres was deliberately excluded from "legacy" here: Postgres + MongoDB is a common modern pairing and does not imply a migration.
+
+**Group distribution across the 39:** Group 1 (MongoDB) 15 · Group 2 (relational, no MongoDB) 16 · Group 3 (other data infra only) 5 · Group 4 (nothing named) 3. Group 4 is Sure, FarEye and Facile.it — three accounts where enrichment returned a stack with no database in it at all, which is a coverage gap rather than a finding.
+
+**Consequence for w2's blank-scoring finding.** `(later 6)` measured MongoDB blank on 29 of 32 and 35 of 100 points resting on inference. **15 of those points are now sourced for every account on the roster.** The remaining exposure is AGE (14/32 blank) and VOL (20/32 blank) — and VOL was retired as a gate in §7, so whether it should score at all is the open question, not whether to fill it.
+
+---
+
 ## 2026-09-03 (later 6) — the repo is uncommitted; context-refresh run; two verifications
 
 **Session opened from `handoffs/0926-handoff-gtm-execution.md`.** §8 item 2 executed, §8 item 4 finished properly, §8 item 7 closed on one of two and escalated on the other. Mode 3 confirmed for scoring and strategy; Mode 2 on anything carrying a client name or a metric.
