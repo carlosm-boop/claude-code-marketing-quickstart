@@ -7,6 +7,35 @@ Delta cache for the WeKan marketing OS. Newest at top. Agents read this before d
 
 ---
 
+## 2026-09-03 (later 9 · w1) — the age gate was never in the ICP, and the qualifier was carrying it
+
+**Tech-stack search validated as a capability; the query was wrong and the error was mine.** Origami *can* search by technology (0.5/result, combinable with size, country, ownership, confidence and a hiring boolean). First run — `data/privatedatabaseestate20260903.csv`, 25 companies at **1.2 credits per company against the 24 the trigger path had reached**, MongoDB exclusion clean, thin table honoured, 24 of 25 high-confidence on MSSQL, ~418 more projected.
+
+**Origami reported an 83% qualification rate. Against real ICP-M2 it is 4 of 25.** The prompt I supplied carried the firmographic filters and **omitted the industry qualifier and every exclusion** — cut while shortening the prompt after two long ones failed. Origami hit the filters it was given, correctly. The 21 failures: 7 consultancies and professional-services firms (including Osborne Clarke, a law firm founded **1748**) · 2 infrastructure vendors (Flexential, AMAX) · 3 hardware manufacturers · 3 captives of public parents · 1 state-owned utility · 1 asset manager · 3 traditional non-digital-native financial institutions · 2 compliance/gov software. Worth a look: Continental Finance, Exeter Finance, AMCS Group, Giacom.
+
+**Resolves the long-vs-short prompt argument.** Shorten by dropping what Origami already has saved — the firmographic gates. Never by dropping what it repeatedly gets wrong — industry type and exclusions. The long prompts were not verbose; they carried eight pulls of accumulated exclusions. I cut the load-bearing half.
+
+### The finding: `ICP.md` never contained an age gate
+
+Searched the file. **"Founded 2018 or earlier" does not appear in it, and never did.** What `ICP.md` states is *MVP-era architecture* and *"MSSQL/MySQL/Postgres monolith from the founding era"* — a condition about the **estate**, not the company's founding date. The 2018 threshold was invented in **P1** as a way to make an architectural condition searchable by a tool that cannot inspect an estate, and it has propagated through all 14 prompts, the handoff, and both sourcing skills without ever being written into the canonical ICP.
+
+**Why nobody noticed it is one-sided.** The threshold is a floor: it rejects companies too young to have a founding-era monolith. It has no ceiling. Pre-digital companies were being excluded by the **digital-native / transaction-volume qualifier**, not by age — so the age gate never had to hold that line. Drop the qualifier, as my prompt did, and the age gate admits an 18th-century law firm and a 1931 credit union.
+
+**A ceiling is the wrong fix.** An older company genuinely running a digital platform typically has the *deepest* legacy estate and is the stronger target. So the correction is documentation and direction, not a new threshold.
+
+**Applied to `marketing/icp/ICP.md`** (canonical — the guard will flag it):
+1. A `Company age` row in the M2 dimension table, recording the 2018 proxy, what it stands in for, and that it is a minimum with deliberately no upper bound.
+2. A note stating that age never excludes a pre-digital company, the qualifier does, with the 1748/1931 evidence — so the next person writing a prompt knows the qualifier cannot be trimmed.
+3. Five exclusion categories the ICP never named, all surfaced empirically by this search: professional-services firms · hardware and industrial manufacturers · traditional non-digital-native financial institutions · captive shared-service centres and country subsidiaries of public parents · state-owned utilities and public bodies. Each with its reason, per the standing rule.
+
+**Note for whoever owns the source document:** `ICP.md` now diverges from `WeKan_Consulting_Practice_ICPs.docx`. Three additions, all dated and marked derived. They should be pushed back upstream.
+
+**Public-status filter has now failed in six consecutive pulls.** This one is the starkest yet: **Monolithic Power Systems (NASDAQ: MPWR)** returned with `Ownership Type = Private`. Also `Founded Year` blank on **14 of 25**, so the age filter provably did not run on those rows — the same unenforced-gate failure as Lighthouse in P7. And `Ownership Type` is the literal string `Private` on all 25, with no PE/VC/bootstrapped distinction, so the funding-ownership gate is unevaluable from this output.
+
+**Method, confirmed twice more.** Origami answered two direct capability questions honestly: confidence is job-posting evidence strength and *"not a guarantee that the technology is deployed throughout production"*; and the hiring filter is a boolean "at least one current matching posting", not the retired aggregate. Consistent with the standing read — **reliable about itself, unreliable when judging companies.** Note the consequence for scoring: tech detection is posting-derived, so a stack hit is a hiring signal, never "estate confirmed".
+
+---
+
 ## 2026-09-03 (later 8 · w1) — MongoDB is now data on all 39 accounts, and 7 are mid-migration
 
 **The 15-point MongoDB input is resolved across the whole roster.** `Enrich Tech Stack` run on the 39 accounts in `outbound/research/data/0926-enrich-targets.csv`. Result: **15 of 39 run MongoDB, 24 do not** — and "do not" is now a sourced negative rather than a blank. Clean output at `outbound/research/data/0926-mongodb-status-39-accounts.csv`; Origami's raw return preserved at `0926-enrich-targets-enriched-raw.csv`.
@@ -38,6 +67,40 @@ These are mid-migration: the destination is already in the building and the thin
 **Group distribution across the 39:** Group 1 (MongoDB) 15 · Group 2 (relational, no MongoDB) 16 · Group 3 (other data infra only) 5 · Group 4 (nothing named) 3. Group 4 is Sure, FarEye and Facile.it — three accounts where enrichment returned a stack with no database in it at all, which is a coverage gap rather than a finding.
 
 **Consequence for w2's blank-scoring finding.** `(later 6)` measured MongoDB blank on 29 of 32 and 35 of 100 points resting on inference. **15 of those points are now sourced for every account on the roster.** The remaining exposure is AGE (14/32 blank) and VOL (20/32 blank) — and VOL was retired as a gate in §7, so whether it should score at all is the open question, not whether to fill it.
+
+---
+
+## 2026-09-03 (later 9) — VOL is dead across the whole roster; MDB gains an evidence tier
+
+**Two items relayed from workstream 1. One confirmed and applied, one wrong on its premise, and chasing the first invalidated something applied an hour earlier.**
+
+### VOL scores zero for all 32 accounts — the three `VERIFIED` values came from the fabricating classifier
+
+Tracking the evidence-tier question into `handoffs/0926-handoff-origami-sourcing.md` §7 turned up the source of `Transaction Evidence Review`: **a classifier that failed three ways, the third being fabrication — 20 of 21 rows marked "verified per-period volume" had no period phrase anywhere in the source text.** It is the canonical example behind `lead-scoring` rule 2. **The three `VERIFIED PER-PERIOD` values credited at 10 points each in `(later 8)` are withdrawn.** ID.me −10 (Tier 2 → Tier 3), Zūm −10, Weee! −10.
+
+**VOL now scores zero for every account on the roster, which makes it a dead signal** — it discriminates between nobody. Workstream 1 had already concluded *"retire VOL as a gate"* and moved it to a discovery question on the call; this is the same conclusion reached from the scoring side. **Model consequence: maximum achievable is 90, not 100**, so `T1 ≥75` has silently become 83% of achievable rather than 75%. Renormalising to the original intent (67 / 45) moves exactly one account — Metropolis Technologies 47 into Tier 2. Left unrenormalised, flagged so it is a choice and not a drift. **Rudra's call.**
+
+Silver lining: ID.me falling to Tier 3 resolves the Cohort-D-in-Tier-2 contradiction from `(later 8)` **on evidence rather than by overriding the tier.** No Cohort D account remains in Tier 2.
+
+### MDB now has two evidence tiers — confirmed from workstream 1, verified here
+
+`MongoDB Evidence` reads `job postings only` for **Workrise, iCapital** and, in the new cohort, **OEC**. For all three the product-stack detector returned **nothing**; MongoDB comes solely from `Job Posting Tech Stack`, a slug aggregate of **314 / 317 / 374 entries** scraped across every advert the company has posted. iCapital's contains **twelve database technologies**. That is a hiring corpus, not an estate — and a slug has no sentence behind it, so **rule 5 can never be satisfied from this source at any price.** Third instance of the same failure after Lighthouse's title-only role match and Chainlink's `oracle`.
+
+**Applied `MDB◑`, half credit.** Workrise −7.5, iCapital −7.5 → **iCapital falls out of Tier 2.** `◑` not `?` because the slug is real but cannot establish a production dependency — partial evidence, which is what half credit is for. **iCapital's co-presence flag is Tier B too** (its `MSSQL;MySQL` comes from the same list), so its entire MongoDB-plus-legacy story rests on slugs and must not drive a campaign.
+
+### The direction check on the co-presence accounts is not free
+
+Workstream 1 relayed that the text is in the repo. **Measured: it is not, for these accounts.** None of the six co-presence accounts has a row in `data/0926-origami-job-postings.csv`; five of six have a **blank** `Job Posting Tech Stack` as well, so there is no job-posting data of any kind for them. The 36 rows of requisition prose all belong to the hiring-led pulls — every co-presence account came from the scale-led and firmographic pulls. **The zero-cost check is exhausted at 3 of 13** (done in `later 8`: Owner.com reversed, Sensor Tower and Close neutral). Direction for the remaining ten costs a Job Posting Search, ~1 credit per posting. Request stands with workstream 1; the premise correction goes back the same way.
+
+| | 09-02 | after rules 4/5 | now |
+|---|---|---|---|
+| Tier 1 | 4 | 1 | **1** — Sensor Tower 77 |
+| Tier 2 | 12 | 8 | **6** — Owner.com 65 · Close 65 · Signifyd 65 · Alan 55 · Zuora 50 · Carta 50 |
+| Tier 3 | 16 | 23 | **25** |
+
+### Also picked up from the cost-test handoff — two new open items
+
+`handoffs/0926-costtest-graded-accounts.md` appeared today and had not been read here. **Its block has lifted:** it says *"do not score these until the proposed fourth rule is settled"*, and that rule was settled and applied today, so **the 7 new accounts are scoreable** (Mollie · Chrono24 · Facile.it · Meilleurtaux · Origami Risk · OEC · Capital on Tap) — AGE coverage 9/9 populated, far better than this roster's 14/32 blank. New open items 13 and 14 in `0926-target-accounts.md`. Item 14 is the one worth acting on: **stale public/private status is now a five-occurrence defect**, and anti-ICP fires at −40 on "publicly listed", so a stale ownership field is worth 40 points either way. Cheap pass — re-check listing status for every roster account carrying `MRG●` on a sponsor mandate.
 
 ---
 
