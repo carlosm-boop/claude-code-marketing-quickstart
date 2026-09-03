@@ -5,6 +5,16 @@ day produced one finding that changes the skill's core shape rather than adding 
 
 ---
 
+> ## ⚠ RECONCILIATION — read this before §1 and §7
+>
+> **§1 and §7 below are superseded in their conclusion, not in their finding.** §1's sole-cause table and §7's
+> instruction to demote geography and headcount to columns were written before §8, which voided their basis.
+> Workstream 3 found a fourth affected passage neither workstream 2 nor I flagged — Step B's justification for
+> the one-gate shape — which was the load-bearing one. The reconciliation is §16 at the end of this file.
+>
+> **What survives:** the ergonomic finding (no stack of numbered filter steps) and TYPE's dominance.
+> **What does not:** "demote geography and headcount to columns" as an instruction.
+
 ## 1. The headline: one gate, everything else a column
 
 Measured across **296 unique companies** consolidated from all 16 sourcing CSVs
@@ -264,3 +274,82 @@ committed alongside for provenance.
 
 **Two rules:** posting text lives in exactly one canonical file, and *"is the text in the repo"* is a step in
 `sourcing-csv-audit`, not something someone remembers.
+
+
+---
+
+# §16 — RECONCILIATION, and the measurement that settles it
+
+## The dispute
+
+- **My §1/§7:** geography and headcount uniquely reject nobody across 296 companies → demote to columns.
+- **My §8:** that corpus was conditioned on both, so the result is void → the Ola pull proved they have power.
+- **Workstream 3:** re-derived into discriminating gate / enforced gates / columns, keeping all four as hard
+  prompt gates. *"Wrongly keeping a gate costs a narrower pull, wrongly dropping one costs Ola."*
+- **Workstream 2:** the tension is *where* enforcement happens, not gate-versus-column. Enforce locally after
+  retrieval and both survive — and it is the only way a gate can ever be measured again. **A gate in the
+  prompt is a gate you can never measure.** Their counter-example: Vinted (4,035) and ShiftKey (3,884) clear
+  every C1 gate and would have been rejected by every prior pull on headcount alone.
+
+## The fresh pull is the first unconditioned corpus this trial has produced
+
+`data/0926-c1-fresh-pull-graded.csv` / the 405-row gated table retains **rejected rows as well as accepted
+ones**, and Origami is already retrieving outside both gates and filtering locally:
+
+- **239 of 405 rows (59%)** are outside the 200–5,000 headcount band
+- **125 of 405 rows (31%)** are outside US/Europe
+
+So workstream 2's proposal is not a change to how sourcing works — **it is a description of what the current
+configuration already does.** The removal counts they asked for are already computable from the returned
+table. And check 11 is valid on this corpus.
+
+## Check 11, run properly
+
+| Filter | Rejects | Sole cause | Drop it → |
+|---|---|---|---|
+| **TYPE** | 321 | **19** | +19 qualify |
+| FOUNDED | 67 | 7 | +7 |
+| PUBLIC | 42 | 6 | +6 |
+| GEO | 125 | **1** | +1 |
+| HEADCOUNT | 239 | **0** | +0 |
+
+**Joint test — the one nobody ran:** dropping **both** geography and headcount admits **1** additional
+company. Zero companies are rejected by that pair jointly and by neither alone. On this corpus, 124 of the 125
+geographically-excluded companies also fail TYPE.
+
+## So the answer is neither "keep" nor "drop"
+
+On the 30-row sample, 9 of 14 TYPE-passing companies failed geography or headcount — Ola, Lazada, PhonePe,
+Alipay. On this 405-row sample, dropping both costs one company. **Same two gates, opposite verdicts, because
+the samples differ.**
+
+The difference is TYPE's specificity. With the exclusion categories fully named, TYPE catches nearly
+everything geography would; with a loose TYPE gate it does not, and geography is load-bearing.
+
+**Therefore: the value of a gate is sample-dependent, so it cannot be settled once.** That is the argument for
+workstream 2's split, and it is stronger than the argument they made for it — local enforcement is not merely
+*safer*, it is the only configuration under which the recurring measurement is possible at all.
+
+**Adopting workstream 2's split as written:** geography and status stay prompt gates (settled values).
+Headcount band and founded floor are retrieved above and filtered locally with the removal count reported
+(contested values — Rule 0 exists *because* C1 and `ICP.md` disagree on headcount). Their ~64% waste estimate
+on the headcount dimension matches the measured 59%.
+
+## Amendment owed to check 11 — my error, and it is a second caveat
+
+§8 added the conditioning caveat. It needs one more:
+
+> **Sole-cause is a marginal statistic. It measures redundancy, not dispensability.** Two filters with
+> overlapping coverage each show near-zero sole-cause while the pair is load-bearing. Always run the joint
+> test — drop each candidate *set*, not each filter — and never remove more than one near-zero filter without
+> re-measuring after the first removal.
+
+Here the marginal and joint results agreed (+0 and +1 respectively), so the original conclusion happened to
+survive on this corpus. That was luck. I used a marginal statistic to justify a joint decision, which is the
+error underneath the conditioning error.
+
+## Workstream 3's shape call: endorsed, with the split applied
+
+Re-deriving rather than reverting was right, and catching Step B was the better find — a skill whose
+*structure* rests on voided reasoning is worse than one whose instructions do. The three-block shape stands.
+Apply workstream 2's split inside the enforced-gates block and the file needs no further change from me.

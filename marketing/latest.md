@@ -7,6 +7,22 @@ Delta cache for the WeKan marketing OS. Newest at top. Agents read this before d
 
 ---
 
+## 2026-09-03 (later 8) — the retraction landed; both skills at v1.2
+
+**Item 8 of the workstream-3 handover is a correction, and it was live in the skills.** Workstream 2 flagged three passages teaching the retracted sole-cause conclusion. There was a **fourth neither workstream flagged**: `origami-sourcing` Step B justified the whole one-gate shape with *"headcount, geography and capital uniquely reject nobody — every company they catch is already caught by type."* Same void reasoning, in the passage that sets the skill's shape.
+
+**The conditioning law is now a named rule in both skills** — "the second rule" in `origami-sourcing`, a block above check 11 in `sourcing-csv-audit`, with the decision table from `lead-scoring` rule 6 and the Ola/Lazada/PhonePe pull as the worked example. Check 11 stays; it now reports a **validity verdict per filter**, and a zero on a filter the corpus was built under is labelled an artefact, not a finding.
+
+**The shape was re-derived rather than reverted, and this is a judgment worth reviewing.** §7 of the handover said one gate plus a column list. §8 voids the basis for demoting geography and headcount specifically. Those two are in tension and neither handover reconciled them. The skill now carries **three blocks: the discriminating gate (company type, 110 sole-cause — that finding survives, since it discriminates inside an already-conditioned corpus), the enforced gates (geography, headcount band, status, founded floor — kept as hard gates, with an explicit note that near-zero discrimination is not permission to remove them), and the columns.** The ergonomic finding survives untouched: no stack of numbered filter steps. **Safe reading chosen deliberately** — the cost of wrongly keeping a gate is a narrower pull, the cost of wrongly dropping one is Ola.
+
+**Everything else landed.** `origami-sourcing`: A0 pre-flight question (what decision, at what threshold — C1 needed 143 against a most-pessimistic 862), A1 enumerate-vs-sample purchasing table, A2 the repo grep, constraints 20-24 (absence from enumerating calls only · fresh draw on gate change · projections state their sample basis · price per row · one canonical text file), cost model repriced per row with the 3.2-vs-5.3 per-lead trap explained, `Infra/SRE Posting` moved out of the enrichment budget, four new failure entries (17 sole-cause trap, 18 gate re-scores old sample, 19 projections as counts, 20 absence from a sampling call), and the leaky-term entry now carries the 3-of-7 rate with all three variants.
+
+**`sourcing-csv-audit`: checks 12-15** — company-set drift, type conformance, blanks clearing disqualifiers, is-the-text-in-the-repo. Plus the absence-asymmetry rule as the fourth member of the UNKNOWN family, and retrieval-path-per-value in Step 1.
+
+**Still open, unchanged:** `lead-scoring`'s lane overlap, the 21-vs-23 skill count, `orchestration.md`'s stale ICP.md line, and no withdrawal banner inside the v3 prompt file.
+
+---
+
 ## 2026-09-03 (later 7) — the skill's shape changed: one gate, everything else a column
 
 **Both sourcing skills at v1.1, implementing `handoffs/0926-handover-to-workstream3.md`.** This was a shape change, not an addition to a constraint list.
