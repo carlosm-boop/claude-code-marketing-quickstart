@@ -7,6 +7,45 @@ Delta cache for the WeKan marketing OS. Newest at top. Agents read this before d
 
 ---
 
+## 2026-09-03 (later 10 · w1) — the database-estate search was sourcing ICP-M1 inside ICP-M2's headcount band
+
+**Refined run: 3 qualified of 30 sampled, ~10 credits each. Do not scale — and the reason is not the filter ordering.**
+Survivors in `data/privatedatabaseestaterefined20260903.csv`: **Trust Payments** (UK payments acquirer, real card volume — the strong one) · **Reward** (card-linked offers on bank transaction feeds — plausible) · **BD Media | BD Logistics** (**exclude**: the pipe is two brands under one parent, and it is Belgian physical leaflet distribution, not a digital platform). ~2 real accounts from 30.
+
+### The diagnosis
+
+`ICP.md` gives **M1's** technographic signature as *"Legacy core with heavy **PL/SQL / T-SQL** stored procedures"*. PL/SQL is Oracle; T-SQL is Microsoft SQL Server. **Oracle + MSSQL is M1's fingerprint, verbatim.** M1's size band is **2,500+ employees**.
+
+Every run today searched that M1 tech signature inside **M2's** headcount band (200–2,500 — which is M1's floor), behind a `private, not publicly listed` filter that excludes most large enterprises. The intersection is companies that fit neither ICP. That is why the output was persistently insurance carriers, utilities, manufacturers, logistics and professional-services firms: **the tech filter pulled toward M1 while the size and ownership filters fought it.**
+
+The industries that kept surfacing — SECURA, Talcott, Everwise Credit Union, APG Austrian Power Grid, TMEIC, E80 Group, Exeter Finance — are BFSI, energy, manufacturing and logistics. **Those are M1's named industries.** The market was reporting where Oracle/MSSQL estates live; the filters kept discarding the answer. None of them appeared as an M1 lead only because the 2,500 cap excluded M1's population by construction.
+
+Compounding it: M2's own monolith is *"MSSQL/**MySQL/Postgres** monolith from the founding era"*. The search covered one third of that list. MSSQL and "digital-native" are close to anti-correlated — post-2010 platforms are Postgres/MySQL/Mongo shops; MSSQL and Oracle concentrate in traditional enterprises, i.e. M1.
+
+**Origami's vertical-first proposal is right on ordering** (scarcest filter first — the third instance today of *most selective goes first*, after never-sort-on-the-capped-dimension and trigger-before-firmographics). It is just not sufficient, because the tech filter was pointed at the wrong ICP.
+
+### Two searches now specified
+
+**Search A — ICP-M1, the primary ICP, never sourced once.** Same tech filter, band corrected: Oracle or MSSQL high-confidence · **2,500+ employees** · NA/EU · BFSI, travel/aviation, retail & CPG, healthcare, manufacturing/energy, logistics · **drop the private-only filter** — M1 is mostly listed companies · keep consultancies and captive service centres excluded, but manufacturers, utilities and traditional insurers are **in scope** for M1, not out. Recommended first: primary ICP, stronger entry offer and proof points (the 25-year Oracle RMS modernization is M1's), and today's accidental evidence says the population is reachable.
+
+**Search B — ICP-M2, vertical-first.** As Origami proposed, plus **MySQL and Postgres added** to the database filter, and **no `vertical SaaS` search term** — it is not a real taxonomy value and it acted as a catch-all in P3, admitting legal tech, digital media, parking and intranet software. Ask Origami for its filterable industry values first; that question is free.
+
+### Systematic defect across all three tech-search runs
+
+**`Ownership Type` returned the literal string `Private` on every row** — no PE / VC / bootstrapped sub-type. M2's funding gate (`$100M+ with latest round Series C or later, OR PE-owned, OR bootstrapped and profitable`) has therefore been **unevaluable on every account these searches produced**, including all three survivors. Free question: can Origami return the ownership sub-type? If not, that gate stays permanently open on tech-search output and must be closed by hand or by a second call.
+
+Also recurring: `Founded Year` blank on 2 of 3 (11 of 30 in the sampled set, flagged not failed — correct behaviour). **Trust Payments illustrates why the proxy is weak**: a 2019/2020 rebrand of a much older business, so the entity reads young while the estate is old. Consistent with the `(later 9)` finding that founding year is a proxy for estate age, not the thing itself.
+
+---
+
+## 2026-09-03 (later 6) — skills now cite ICP.md for gate semantics, not just gate values
+
+**`origami-sourcing` updated** after the age proxy landed in `ICP.md`. Four changes: a *cite-a-gate-never-re-derive-one* rule in Step A naming the floor-not-a-range semantics; the worked-example commentary re-anchored on `ICP.md` ICP-M2; constraint 16 (lift gates verbatim with their stated semantics — a floor is not a range, a band is not a sort key, a qualifier is not optional); and failure case 12, the law-firm-founded-1748 result, which is the evidence that **the digital-native qualifier, not the age gate, is what excludes pre-digital companies.**
+
+**Three of the four items flagged in (later 5) are now closed** — the 7,377 confidence downgrade, §9's numbering, and the commit backlog (all three commits landed). Still open: `lead-scoring`'s lane overlap with `origami-sourcing`, the 21-vs-23 skill count in both `CLAUDE.md` files, and the stale *"ICP.md is a draft skeleton today"* line in `orchestration.md` — which is now conspicuously wrong, since ICP.md is the file the skills cite for gate semantics.
+
+---
+
 ## 2026-09-03 (later 9 · w1) — the age gate was never in the ICP, and the qualifier was carrying it
 
 **Tech-stack search validated as a capability; the query was wrong and the error was mine.** Origami *can* search by technology (0.5/result, combinable with size, country, ownership, confidence and a hiring boolean). First run — `data/privatedatabaseestate20260903.csv`, 25 companies at **1.2 credits per company against the 24 the trigger path had reached**, MongoDB exclusion clean, thin table honoured, 24 of 25 high-confidence on MSSQL, ~418 more projected.

@@ -83,6 +83,8 @@ Establish, by asking the operator or by reading the ICP:
 
 Gates come from `marketing/icp/ICP.md` for the named ICP - lift its trigger list, qualifiers and disqualifiers rather than inventing them. If that file is marked DRAFT, say so in the output rather than presenting inference as research.
 
+**Cite a gate, never re-derive one.** ICP.md now documents each gate's semantics as well as its value, and the semantics are what a prompt gets wrong. ICP-M2's *Founded 2018 or earlier* is defined there as a **floor with no upper bound** - the sourcing proxy for MVP-era architecture, which needs elapsed time. Read as a range it would exclude exactly the older digital platforms that carry the deepest estates. If a threshold in a prompt does not match ICP.md, ICP.md wins; if ICP.md has no note on it, ask before inventing the semantics.
+
 **Evidence status.** This procedure is derived from one worked run, ICP-M2. The other five WeKan ICPs are untested against it. State that when applying it to a new ICP.
 
 ## Step B - the template
@@ -188,7 +190,7 @@ Both are verbatim and committed. Read the one whose shape matches the pull.
 | `P10` | Census qualify pull, four steps. The only prompt in the corpus that worked on first return | `handoffs/0926-origami-prompt-log.md` §P10 |
 | Prompt v3 | 300-posting sample, seven steps. Adds draw rule, role-filter audit, requisition dedup, verbatim dates, the a-h report block and two free questions | `handoffs/0926-origami-300-posting-prompt-v3.md` |
 
-`P10` is the shape to copy when the decision is *which accounts*. v3 is the shape to copy when the decision is *how many*, because that is when units, divisors and duplication start deciding the answer. Note what v3's gates do: founded-year and headcount are **bands**, funding is a three-way OR so a profitable bootstrapper is not lost to a funding filter, and the ADJACENT flag converts an exclusion into a judgment call routed back to the operator.
+`P10` is the shape to copy when the decision is *which accounts*. v3 is the shape to copy when the decision is *how many*, because that is when units, divisors and duplication start deciding the answer. Note what v3's gates do: the age gate is a **floor** and headcount a **band** - never sort keys, and never a range (see `ICP.md` ICP-M2, *"The age test is a floor, not a range"*). Funding is a three-way OR, so a profitable bootstrapper is not lost to a funding filter. The ADJACENT flag converts an exclusion into a judgment call routed back to the operator.
 
 ## Step C - standing constraints
 
@@ -209,6 +211,7 @@ Every prompt, no exceptions. Numbering is referenced from `marketing/latest.md` 
 13. **One row per unit, never per company, and deduplicate to distinct units with visible working.** Rows are not requisitions. The index double-counts; 14-29% of one pull's rows carried no new requisition, all charged.
 14. **Denominate the report in the unit the decision uses, and request the divisor.** Ask what the population figure itself counts. A population in postings against a threshold table in accounts converts to anything until the ratio is known.
 15. **No boolean without its verbatim quote**, and name every known leaky term with the false positive it produced.
+16. **Lift gates from `ICP.md` verbatim, with their stated semantics.** A floor is not a range, a band is not a sort key, and a qualifier is not optional. Never restate a threshold from memory.
 
 ## Step D - cost and sizing
 
@@ -252,6 +255,8 @@ All are measured and reproducible from the committed corpus.
 9. **The index double-counts requisitions.** One company's posting returned twice with byte-identical 8,238-character descriptions under two source IDs; another twice with near-identical bodies. 14-29% of a pull's rows carried no new requisition. This is also the mechanism behind failure 6's magnitude outlier - the count was not merely wrong, it was counting the same requisition repeatedly.
 10. **A date field that is really a timestamp.** `Date Posted` returned 17 distinct dates spanning two months on Company Search, and the pull date on every single row of two Job Posting Searches. The recency half of the trigger - 15 points in Model B - is unverifiable from that output. Company Search proves the tool can return real dates, so this is a path defect, not a capability gap.
 11. **Unit mismatch.** A population in postings and a threshold table in accounts. Same qualify rate resolved to "ABM only", "hybrid" or "volume viable" depending on a divisor that had not been requested. The divisor is the decision.
+
+12. **A floor gate without its qualifier admits anything old.** *Founded 2018 or earlier* has no upper bound by design, so the **digital-native qualifier is load-bearing** - it, not the age gate, is what excludes pre-digital companies. Dropped from a real search on 3 September 2026, the age gate happily returned a law firm founded in 1748 and a credit union founded in 1931. Age never excludes; the qualifier does. Carry it in every prompt.
 
 ## Provenance
 
