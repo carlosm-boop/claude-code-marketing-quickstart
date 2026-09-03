@@ -7,6 +7,30 @@ Delta cache for the WeKan marketing OS. Newest at top. Agents read this before d
 
 ---
 
+## 2026-09-03 (later 11 · w1) — Rule 0: the campaign governs sourcing; Pantheon is anti-ICP, not suppression
+
+**Settled with Rudra and written into the sourcing handoff as Rule 0.** When sourcing for a named campaign, use the **campaign's** numbers. `ICP.md` defines who is a good-fit customer; the campaign spec defines who enters the sequence. Cross-check for conflicts, resolve them explicitly, never silently pick one. Campaign gates live in the `WeKan Outbound Campaign Prioritization` project doc — **read it before writing a prompt for any campaign.**
+
+**What this cost.** Ten Origami prompts were built at M2's qualification thresholds (200–2,500 employees, $100M+ raised) instead of C1's targeting thresholds (200–5,000, Series C+/$50M+) — every pull filtered at half the intended ceiling and half the funding floor. And all three tech-stack searches filtered `NOT MongoDB` while **C1 gates on Atlas / large cloud estate signals**, so they were excluding the campaign's own primary estate gate. The campaign doc was never opened by this workstream until now; "C1" was referenced throughout the handoff and taken to mean a single volume-email question.
+
+**Conflict audit.** Only M1 and M2 have size tables in `ICP.md`. M1 and C3 agree. M2 and C1 disagree on both headcount and funding. P2, A1, P1, A2 have no size tables — no collision possible yet, none reconciled either.
+
+**C1's volume question was already answered in the campaign doc.** C1 is priority 1, week 1, "lead volume campaign", calibrated over the **first 500 sends** with the rule *scale +50% if positive ≥2%, rework if <0.5%*. The threshold table in §2 of the sourcing handoff was re-deriving a decision the plan had already made. Useful arithmetic instead: 500 sends ÷ ~3.5 contacts per committee ≈ **143 accounts** to complete the first calibration window. The roster is 39 — about one week of C1 at its own 25–40 contacts/day. Sourcing is needed to feed calibration, not to decide whether to run it.
+
+### ESCALATION to workstream 2 — Pantheon, and it changes the count
+
+**Pantheon (`pantheon.io`) is not a suppression case. It is an anti-ICP disqualification.** Rudra confirms WeKan has never worked with them, so the client/relationship suppression check does not apply. But the reason it was held was never a relationship — it was recorded as *"check against the C1 competitor suppression list"* and *"running customer databases is their product"*. Those are two different mechanisms and the repo conflated them.
+
+The correct read: Pantheon is a managed hosting/PaaS platform, which is an explicit **ICP-M2 anti-ICP exclusion** — *"companies whose own product is infrastructure (databases, hosting, PaaS, developer platforms, observability, data connectivity, GPU compute, workflow orchestration)"*, worth −40 in Model B. Its own row already carries `ACC✕` and *"anti-ICP: infrastructure vendor"* at 35 points, Tier 3. It is also not plausibly a WeKan competitor: WeKan sells database modernization consulting, Pantheon sells WordPress and Drupal hosting. They do not compete for the same work.
+
+**So: drop it from the roster as anti-ICP, do not hold it pending a suppression check.** Per §10 this workstream does not edit roster files, so this is an escalation, not an edit.
+
+**Count consequence — three places carry the tally.** The cohort table reads `A 5 · B 7 · C 2 · D 15 · E 2 · suppression 1 = 32`, and Pantheon is that `suppression 1`. Reclassified, the roster is **31 qualified + 1 disqualified**, and the 39-account enrichment set becomes 38. `0926-target-accounts.md`, `0926-m2-pursuit-order-snapshot.md` and the published exec brief all need the change. Minor side note: the tech-stack enrichment spent ~2.5 credits on pantheon.io.
+
+**Still missing and it blocks sends, not sourcing:** the C1 suppression list itself does not exist in the repo. Four files instruct a check against it; no file is it. The categories are in the campaign doc — current clients, active opportunities, Labs and design partners (lending bank, Medora, CoE universities), active MongoDB co-sell accounts, competitors — but the account names are presumably in HubSpot.
+
+---
+
 ## 2026-09-03 (later 10 · w1) — the database-estate search was sourcing ICP-M1 inside ICP-M2's headcount band
 
 **Refined run: 3 qualified of 30 sampled, ~10 credits each. Do not scale — and the reason is not the filter ordering.**

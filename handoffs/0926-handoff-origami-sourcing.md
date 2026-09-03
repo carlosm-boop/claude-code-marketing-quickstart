@@ -166,6 +166,20 @@ Carry these into every Origami prompt for ICP-M2:
 7. Do not gate on revenue or transaction volume.
 8. **Lead with the MongoDB signal.** A company hiring an SRE *and* naming MongoDB in the posting hits Intent and Accessibility in the scoring model simultaneously — the trigger and the co-sell channel in the same account. The ICP's own signal library already lists job posts as a source for it.
 
+### Rule 0 — the campaign governs, not the ICP (settled 3 September)
+
+**When sourcing for a named campaign, use the campaign's numbers.** `ICP.md` defines who is a good-fit *customer*; the campaign spec defines who goes into the *sequence*. Those are different jobs and cold outbound deliberately targets wider than it qualifies. Cross-check the campaign gates against the ICP to surface conflicts, resolve any conflict explicitly, and never silently pick one.
+
+Source of campaign gates: `WeKan Outbound Campaign Prioritization` (Claude project doc, August 2026). **Read it before writing a prompt for any campaign.**
+
+**C1 (M2) targeting gates — these govern M2 sourcing:** 200–5,000 employees · US/EU · latest round Series C or later OR $50M+ raised OR PE-owned OR bootstrapped-profitable · private, not SPAC-bound · logistics & delivery, insurtech, fintech, marketplaces, SaaS · **gate on Atlas / large cloud estate signals** · SRE hiring *or* efficiency signals.
+
+**Why this is Rule 0.** Ten prompts in this trial were built at M2's *qualification* thresholds — 200–2,500 employees and $100M+ raised — instead of C1's *targeting* thresholds of 200–5,000 and Series C+/$50M+. Every pull was filtered at roughly half the intended headcount ceiling and half the funding floor, which under-filled the funnel by construction. Worse, three tech-stack searches filtered `NOT MongoDB` while C1 gates *on* Atlas signals — the searches were excluding the campaign's own primary estate gate.
+
+**Conflict audit, 3 September.** Only M1 and M2 carry size tables in `ICP.md`. M1 and C3 agree. M2 and C1 disagree on both headcount and funding. P2, A1, P1 and A2 have no size tables, so no collision is possible there yet — but none has been reconciled either, so the same conflict will appear if those tables are ever written.
+
+**Calibration consequence.** C1's baselines (reply 4–8%, positive 1.5–3%, ≥1 meeting per 60–80 contacts) assume C1's targeting gates. Sourcing at the tighter ICP thresholds feeds the sequence a higher-fit list than the baseline expects, so reply rate would beat baseline for reasons unrelated to the copy and the 30-day review would draw the wrong conclusion.
+
 ### ICP interpretation settled with Rudra (apply, don't relitigate)
 
 - **Industries.** M2 names six sectors (logistics & delivery, insurtech, fintech, marketplaces, vertical SaaS, travel tech) followed by "digital-native companies with real transaction volume." The **qualifier is the gate**; the six sectors are where that type is typically found. Consequence: Workrise and Metropolis qualify; Brainly does not (its volume is read traffic, not transactions).
