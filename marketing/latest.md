@@ -7,6 +7,20 @@ Delta cache for the WeKan marketing OS. Newest at top. Agents read this before d
 
 ---
 
+## 2026-09-03 (later 7) — the skill's shape changed: one gate, everything else a column
+
+**Both sourcing skills at v1.1, implementing `handoffs/0926-handover-to-workstream3.md`.** This was a shape change, not an addition to a constraint list.
+
+**`origami-sourcing`.** The seven-step gate stack is gone, replaced by **one gate plus a column list** — filter on what the company does, read everything else. The sole-cause measurement over 296 companies is in the skill: company type 110, geography and headcount and capital **zero each**. **Rule 0 added at the top of the trigger section** — read the campaign doc first, campaign gates govern, name campaign-vs-ICP conflicts explicitly instead of inheriting whichever document the author happened to be reading. Constraint 4 strengthened past "band and stratify": no sorting inside a band either, require the returned sequence, verify non-monotonic, state sampled min/max against band bounds as a coverage percentage — and prefer dropping the cap, since headcount rejects nobody. Three new constraints: 17 ask the tool about itself but never accept its verdict, 18 never search an industry label, 19 reject the polluted universe. Four new failure entries: universe pollution, industry-taxonomy collapse, fit verdicts silently discarding qualified accounts, and the public-status two-check conflict. Two of the handover's six were already in the file (requisition double-counting, `Date Posted`) and were enriched rather than duplicated.
+
+**Costs corrected, and this is the expensive lesson.** Pricing is now `rows × (retrieval + per-company enrichment)` with the observed spread in the skill: 1.2 credits/company for a thin tech-stack search, ~5.2/row trigger-first, **~24/qualified company** with full enrichment plus a fit verdict. **Prompt v3 is marked WITHDRAWN in the skill** — priced at 300 credits, ~1,560 at observed rates, and its shape is the gate stack the skill now rejects. Kept as provenance with the cost reason attached.
+
+**`sourcing-csv-audit`.** Check 11, filter discriminative power, with the instruction to run it *first* when a filter set is on trial — it is the only check that retires a rule rather than flagging a row. Two hard rules added: a zero-sole-cause filter is decorative, and never accept a fit verdict because it removes rows already paid for.
+
+**Still open from (later 5) and (later 6):** `lead-scoring`'s lane overlap, the 21-vs-23 skill count in both `CLAUDE.md` files, and `orchestration.md`'s stale "ICP.md is a draft skeleton" line. **New:** `0926-origami-300-posting-prompt-v3.md` has no withdrawal banner in the file itself — the skill marks it withdrawn, the file does not, and it reads as runnable.
+
+---
+
 ## 2026-09-03 (later 11 · w1) — Rule 0: the campaign governs sourcing; Pantheon is anti-ICP, not suppression
 
 **Settled with Rudra and written into the sourcing handoff as Rule 0.** When sourcing for a named campaign, use the **campaign's** numbers. `ICP.md` defines who is a good-fit customer; the campaign spec defines who enters the sequence. Cross-check for conflicts, resolve them explicitly, never silently pick one. Campaign gates live in the `WeKan Outbound Campaign Prioritization` project doc — **read it before writing a prompt for any campaign.**
@@ -130,6 +144,54 @@ These are mid-migration: the destination is already in the building and the thin
 **Group distribution across the 39:** Group 1 (MongoDB) 15 · Group 2 (relational, no MongoDB) 16 · Group 3 (other data infra only) 5 · Group 4 (nothing named) 3. Group 4 is Sure, FarEye and Facile.it — three accounts where enrichment returned a stack with no database in it at all, which is a coverage gap rather than a finding.
 
 **Consequence for w2's blank-scoring finding.** `(later 6)` measured MongoDB blank on 29 of 32 and 35 of 100 points resting on inference. **15 of those points are now sourced for every account on the roster.** The remaining exposure is AGE (14/32 blank) and VOL (20/32 blank) — and VOL was retired as a gate in §7, so whether it should score at all is the open question, not whether to fill it.
+
+---
+
+## 2026-09-03 (later 10) — sole-cause test run: three of Model B's seven signals are noise
+
+Workstream 1's consolidated handover (`handoffs/0926-handover-to-workstream2.md`) landed with three asks. Two are done; the third is deliberately held.
+
+### 1. Sole-cause test on Model B — their hypothesis was half right, and then more right than their own test showed
+
+They measured sole-cause rejections across 296 companies: **headcount, geography and capital uniquely rejected nobody**, company type did all the discriminating. Their question was whether SCL (5 pts) and AGE (10 pts) are the same inside Model B.
+
+**Method note.** Deleting a signal lowers every score, so with fixed thresholds a heavy signal looks important merely by being heavy. The test deletes each signal *and* renormalises the tier cuts to the same proportion of the new achievable max. Both versions are in `0926-target-accounts.md`; the renormalised one is the answer.
+
+| Signal | Wt | Modal value | Sole-cause tier changes |
+|---|---|---|---|
+| EST | 25 | 0 on 24/32 | **14** |
+| MRG | 20 | 10 on 18/32 | **7** |
+| HIR | 15 | 0 on 24/32 | **7** |
+| MDB | 15 | 0 on 20/32 | **6** |
+| AGE | 10 | 10 on 20/32 | 3 |
+| SCL | 5 | **5 on 28/32** | **1** |
+| VOL | 10 | **0 on 32/32** | **0** |
+
+- **VOL — provably noise.** Zero variance. Confirms from the model side what the evidence side found this morning.
+- **SCL — very nearly noise.** 28 of 32 score the identical 5 points. One sole-cause tier change on the whole roster.
+- **AGE — looks like it discriminates, and does not.** 12 accounts sit off the mode, and **all 12 are `AGE?`, blank `Founded Year`. Not one is genuinely 2019-or-later**, because that is an anti-ICP exclusion filtered out at sourcing. AGE's entire spread is data coverage, not age. Verify the 12 blanks and it becomes a constant 10.
+
+**The generalisation is the keeper: every dead signal was also a sourcing gate.** VOL was the volume qualifier, SCL the 200–2,500 / $100M+ gate, AGE the founded-≤2018 gate. The population was already filtered on all three, so it is near-constant on all three by construction — **Model B is re-scoring decisions made upstream and paying 25 of 100 points for it.** The four that discriminate — EST, MRG, HIR, MDB — are exactly the four that were never gates: trigger and technographic evidence found *after* the population was fixed. Same shape as workstream 1's finding one level up.
+
+**Proposed and not applied — needs Rudra.** Reduce Model B to those four (EST 25 · MRG 20 · HIR 15 · MDB 15, max 75, cuts 56.25 / 37.5); AGE, SCL and VOL stay gates, which is what they already are. Moves five accounts: **Close → Tier 1**, settling the model-versus-hand-ranking disagreement in the model's favour; NexHealth → Tier 2; Zuora, Carta, Metropolis → Tier 3. Tiers become T1 2 · T2 4 · T3 25.
+
+### 2. Private-status provenance audit — the defect is the opposite shape to the one predicted
+
+**`Ownership Type` is blank for 27 of 31 roster accounts.** Their private status did not come from an Origami column; it came from nothing. The −40 "publicly listed or SPAC-bound" exclusion was never evaluated against a populated field for 87% of the roster. **This is the anti-ICP mirror of the blank-credit bug** — there a blank earned scoring credit, here a blank earns a clean bill of health on a disqualifier.
+
+Graded: 3 accounts have a populated ownership field · 26 rest on an indirect private-market `Funding Stage` (inference, not verification) · **2 carried real risk and both are now verified private.** **Engine** — the only account with Ownership Type, Funding Stage *and* Total Funding all blank — is private, Series C, Permira lead. **Pushpay** — the one positive `POST_IPO_EQUITY` marker — was NZX-listed 2014, ASX `PPH` from 12 Oct 2016, **delisted from both May 2023** on the Sixth Street / BGH Capital take-private. Its conclusion on the roster was right; the check that produced it was not, and that take-private is its `MRG●` trigger.
+
+**Net: no roster account is currently public.** Conclusions hold, enforcement does not. Recommended: stop treating a blank `Ownership Type` as a pass — mark it `OWN?` the way `AGE?` and `VOL?` are marked, which is rule 4 applied to the anti-ICP side where it currently does not reach.
+
+### 3. Gating the 28 pending accounts — held, deliberately
+
+19 consolidation + 7 cost-test + 2 C1-cleared. **Held pending the model decision above.** Tiering 28 new accounts on a model carrying 25 points of known noise means re-tiering all 59 afterwards. Workstream 1 said the sole-cause test was worth running *before* rules 4 and 5 were finalised; the same logic applies harder here.
+
+### Roster arithmetic corrected in two of three files
+
+**Pantheon reclassified from "suppression check first" to a straight anti-ICP disqualification and removed from the roster** — hosting and PaaS is an explicit M2 exclusion, WeKan has never worked with them so suppression does not apply, and it does not compete with WeKan for the same work. Roster **32 → 31 + 1 disqualified**; Tier 3 25 → 24; disqualified count 88 → 89. Corrected in `0926-target-accounts.md` and the `0926-m2-pursuit-order-snapshot.md` banner, which now also carries the full arithmetic: **31 scored + 2 C1-cleared + 7 cost-test + 19 consolidation = 59 potential, 28 pending gates.**
+
+**Third file still stale: the published exec brief** (`claude.ai/code/artifact/19952fa8-…`). Deliberately not republished yet — the roster is mid-revision pending the four-signal decision, and republishing twice for one tally is waste. One pass once the model is settled.
 
 ---
 

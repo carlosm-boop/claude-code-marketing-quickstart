@@ -2,7 +2,7 @@
 
 *Written 2026-09-02 by `/lead-scoring` Model B. Reads `../../icp/ICP.md` (ICP-M2), `../../positioning/positioning.md`, `../../messaging/messaging.md`, `../../company/company.md`. Every score cites the evidence that produced it; no evidence, no points.*
 
-**Provenance.** Derived from the September 2026 ICP-M2 sourcing trial: 120 unique companies screened across eight Origami pulls yielding 17 CSVs — two firmographic screens, one amended screen, one banded stratified sample, a transaction-evidence audit, a correction test and a trigger-first SRE sample. 32 qualified. 400 credits. (Canonical tally, settled 2026-09-02; the 120 is a clean domain dedupe across all 17 source files and supersedes the earlier 119 and 124.) Full per-account reasoning is maintained as the ICP-M2 Pursuit Order artifact; this file is the canonical extract every downstream outbound skill reads.
+**Provenance.** Derived from the September 2026 ICP-M2 sourcing trial: 120 unique companies screened across eight Origami pulls yielding 17 CSVs — two firmographic screens, one amended screen, one banded stratified sample, a transaction-evidence audit, a correction test and a trigger-first SRE sample. **31 qualified + 1 disqualified** (Pantheon, reclassified anti-ICP 2026-09-03). 400 credits. (Canonical tally, settled 2026-09-02; the 120 is a clean domain dedupe across all 17 source files and supersedes the earlier 119 and 124.) Full per-account reasoning is maintained as the ICP-M2 Pursuit Order artifact; this file is the canonical extract every downstream outbound skill reads.
 
 > **Proof firewall.** Anonymised proof only. Use `messaging.md` §6 Pool B wording. Named clients are added by Rudra by hand; no skill assembles the pairing.
 
@@ -111,7 +111,7 @@ Persona sequences and signal monitoring per `ICP.md`, not named-account ABM.
 
 **The three accounts that dropped out of Tier 1 are still good prospects.** Owner.com holds `EST●` at 25 — the best-named estate pain on the list — and lost its MongoDB weight, not its qualification. The M2 entry offer does not require MongoDB, so what changes is the **opening**, not the fit: `0926-abm-owner-com.md` must not lead with the partnership credential. Close and Signifyd fell only on signals that were never evidenced for anyone.
 
-## Tier 3 — score <50  (25 accounts)
+## Tier 3 — score <50  (24 accounts)
 
 Nurture and trigger-monitoring only. Not sequence-eligible.
 
@@ -136,7 +136,6 @@ Nurture and trigger-monitoring only. Not sequence-eligible.
 | **Back Market** · `backmarket.com` | 25 | 30 | `VER● AGE● SCL● VOL? EST○ MRG◐ HIR○ ACC● MDB○` | firmographics only — no trigger | D — watchlist, no trigger |
 | **Blockchain.com** · `blockchain.com` | 25 | 30 | `VER● AGE● SCL● VOL? EST○ MRG◐ HIR○ ACC◐ MDB○` | firmographics only — no trigger | D — watchlist, no trigger |
 | **Fleetio** · `fleetio.com` | 15 | 35 | `VER◐ AGE? SCL● VOL? EST○ MRG◐ HIR○ ACC● MDB○` | firmographics only — no trigger; `AGE?` Founded Year blank | D — watchlist, no trigger |
-| **Pantheon** · `pantheon.io` | 15 | 35 | `VER○ AGE? SCL● VOL? EST● MRG◐ HIR● ACC✕ MDB○` | named estate pain in an open req; live infra hiring; **anti-ICP: infrastructure vendor**; access obstacle flagged; `AGE?` Founded Year blank | Suppression check first |
 | **Wallapop** · `wallapop.com` | 15 | 35 | `VER● AGE? SCL● VOL? EST○ MRG◐ HIR○ ACC● MDB○` | firmographics only — no trigger; `AGE?` Founded Year blank | D — watchlist, no trigger |
 | **Engine (formerly Hotel Engine)** · `hotelengine.com` | 15 | 30 | `VER● AGE? SCL● VOL? EST○ MRG◐ HIR○ ACC● MDB○` | firmographics only — no trigger; `AGE?` Founded Year blank | D — watchlist, no trigger |
 | **Sure** · `sureapp.com` | 15 | 30 | `VER● AGE? SCL● VOL? EST○ MRG◐ HIR○ ACC● MDB?` | firmographics only — no trigger; **MongoDB UNKNOWN — detector returned no primary database**; `AGE?` Founded Year blank | D — watchlist, no trigger |
@@ -190,11 +189,13 @@ Second proof point applies to: Owner.com · Alan · Sure · Cover Genius · NexH
 
 ## Disqualified — anti-ICP hits and structural exclusions
 
-Eighty-eight of the 120 screened companies were excluded. Reasons cluster, and each cluster is a filter the next sourcing run should apply rather than a judgment to repeat by hand.
+Eighty-nine of the 120 screened companies were excluded — 88 at screening plus Pantheon, reclassified 2026-09-03. Reasons cluster, and each cluster is a filter the next sourcing run should apply rather than a judgment to repeat by hand.
 
 **Infrastructure vendors — suppliers, not prospects** — Temporal · CData · Port.io · Hydrolix · Fluidstack · Skyflow · CloudLinux · Tines · WEKA · AntemetA · Chainlink Labs · InterSystems · Supabase · Collibra · Movu Robotics · ACS
 
-Their customers are ICP-M2. Deepest in-house platform benches, lowest winnability, and in some cases competitors. Pantheon scores 75 on signals and is held at −40 for the same reason.
+Their customers are ICP-M2. Deepest in-house platform benches, lowest winnability, and in some cases competitors.
+
+**Pantheon — reclassified 2026-09-03 from "suppression check first" to a straight anti-ICP disqualification, and removed from the roster.** Rudra confirms WeKan has never worked with them, so relationship suppression does not apply. The recorded reason had been competitor status, which does not hold either: Pantheon sells managed WordPress and Drupal hosting, WeKan sells database modernization consulting, and they do not compete for the same work. What Pantheon **is** is hosting and PaaS — an explicit M2 anti-ICP exclusion at −40. It scored 55 on signals before the penalty, 15 after. **Do not hold it pending a suppression check that will never resolve.** Its former row: `VER○ AGE? SCL● VOL? EST● MRG◐ HIR● ACC✕ MDB○`, cohort "suppression check first" — that cohort is now empty.
 
 **No single estate, no single margin owner** — Red Ventures · Telia Cygate · E.ON Software Development · HCLTech Germany · Neotalent Conclusion · Commerzbank Digital Technology Centre Bulgaria
 
@@ -223,6 +224,64 @@ Government and public-safety data platform. Assessment-by-hearsay fails — an e
 **Estate too small or wrong shape** — Brainly · First Due · Kantata · Envoy · LumApps · Uberall · Trackforce · Luminance · onXmaps · Laravel · Vimeo · Intercom · Showpad · Salsify · Fullstory · Mural · Simpplr · Accela · H1 · FSP
 
 Records-management and workplace software at low write volume, consultancies, or read-heavy content platforms where per-cluster savings cannot fund a program.
+
+## Sole-cause test on Model B — run 2026-09-03, and three of seven signals are noise
+
+Requested by workstream 1, which had measured sole-cause rejections across 296 companies and found that **headcount, geography and capital uniquely rejected nobody** — company type did essentially all the discriminating. Their question: does the same hold inside Model B, where SCL is 5 points and AGE is 10?
+
+**Method note, because the naive version of this test is misleading.** Deleting a signal lowers every score, so with thresholds held fixed a heavy signal looks important merely by being heavy. The test below deletes each signal *and* renormalises the tier thresholds to the same proportion of the new achievable maximum (75% and 50%), which isolates discrimination from weight. Both versions are recorded; the renormalised one is the answer.
+
+| Deleted signal | Weight | Modal value | Accounts off the mode | Sole-cause tier changes |
+|---|---|---|---|---|
+| **EST** named estate pain | 25 | 0 on 24/32 | 8 | **14** |
+| **MRG** margin trigger | 20 | 10 on 18/32 | 14 | **7** |
+| **HIR** live infra hiring | 15 | 0 on 24/32 | 8 | **7** |
+| **MDB** MongoDB, direction-checked | 15 | 0 on 20/32 | 12 | **6** |
+| AGE founded ≤2018 | 10 | 10 on 20/32 | 12 | 3 |
+| SCL scale | 5 | **5 on 28/32** | 4 | **1** |
+| VOL transaction volume | 10 | **0 on 32/32** | **0** | **0** |
+
+### The answer: workstream 1 was right about SCL and VOL, wrong about AGE — and then more right than their own test showed
+
+- **VOL is provably noise.** Zero variance: every account scores 0. A signal with one value cannot separate anything. Already established from the evidence side; this confirms it from the model side.
+- **SCL is very nearly noise.** **28 of 32 accounts score the identical 5 points.** One sole-cause tier change in the whole roster (Close). At 88% modal it is a constant with rounding error attached.
+- **AGE looks like it discriminates, and it does not.** Three sole-cause tier changes, 12 accounts off the mode — but **all 12 are `AGE?`, blank `Founded Year`. Not one is a genuine 2019-or-later account**, because founded-2019+ is an anti-ICP exclusion and was filtered out at sourcing. **AGE's entire spread is data coverage, not age.** Verify the 12 blanks and every account resolves to ≤2018, AGE becomes a constant 10, and its variance goes to zero alongside SCL and VOL.
+
+### The generalisation, which is the part worth keeping
+
+**Every one of the three dead signals was also a sourcing gate.** VOL was the company-side-volume qualifier. SCL was the 200–2,500 / $100M+ / Series C+ gate. AGE was the founded-≤2018 gate. The filtering happened upstream, so the surviving population is near-constant on all three by construction — **Model B is re-scoring decisions already made, and paying 25 of 100 points for it.**
+
+The four signals that do discriminate — EST, MRG, HIR, MDB — are precisely the four that were **not** gates. They are trigger and technographic evidence discovered *after* the population was fixed. That is the same shape as workstream 1's finding one level up: the filter that did the most damage did the least work.
+
+**Proposed revision, not applied — this is a model change and needs Rudra.** Reduce Model B to the four discriminating signals (EST 25 · MRG 20 · HIR 15 · MDB 15, max 75, thresholds 56.25 / 37.5) and treat AGE, SCL and VOL as **gates only**, which is what they already are. On the current 31-account roster that moves five accounts: **Close 65 → Tier 1** (which finally settles the model-versus-hand-ranking disagreement recorded above, in the model's favour), NexHealth into Tier 2, and Zuora, Carta and Metropolis down to Tier 3. Tiers become T1 2 · T2 4 · T3 25.
+
+**Do this before gating the 28 pending accounts, not after.** Tiering 28 new accounts on a model carrying 25 points of known noise means re-tiering all 59 later.
+
+## Private-status provenance audit — run 2026-09-03, and the defect is the opposite shape
+
+Requested by workstream 1 after Origami supplied the mechanism behind the seven-occurrence public-status failure: *"'Latest Round' only checked whether a value existed; it did not penalize `POST_IPO_EQUITY`. The business check then accepted the later private-equity acquisition."* Two checks disagreed and the permissive one won. Their conclusion: any account whose private status came from an Origami column rather than a verification carries the defect.
+
+**Measured across all 31 roster accounts, the finding is worse than that and a different shape. `Ownership Type` is blank for 27 of 31.** For those accounts the private status did not come from an Origami column at all — **it came from nothing.** The anti-ICP exclusion "publicly listed or SPAC-bound", worth −40, was never evaluated against a populated field for 87% of the roster.
+
+This is the anti-ICP mirror of the blank-credit bug closed earlier today. There, a blank field earned scoring credit. Here, a blank field earns a **clean bill of health on a disqualifier**. Same root cause: absent evidence treated as a settled answer.
+
+### Graded, so the exposure is legible rather than alarming
+
+| Provenance tier | Accounts | Status |
+|---|---|---|
+| `Ownership Type` populated | 3 — Alan (`VC/private`), FreedomPay (`PE-owned`), Lighthouse (`VC/private`) | Sourced |
+| Positive post-IPO marker | 1 — **Pushpay** (`POST_IPO_EQUITY`) | **Verified 2026-09-03** |
+| No evidence of any kind | 1 — **Engine** (Ownership Type, Funding Stage *and* Total Funding all blank) | **Verified 2026-09-03** |
+| Indirect only: a private-market `Funding Stage` | 26 | Inference, not verification |
+
+**Both accounts carrying real risk are now verified private.**
+
+- **Engine** — the only roster account with no provenance whatsoever. Crunchbase: **private, Series C, Permira lead**, three rounds, Denver. Clean.
+- **Pushpay** — the known case, and the field that should have caught it is the one that didn't. Verified: listed on the **NZX in 2014**, on the **ASX from 12 October 2016 as `PPH`**, and **delisted from both in May 2023** on acquisition by Sixth Street Partners and BGH Capital. Private since. The conclusion on the roster was right; the check that produced it was not. Its `MRG●` sponsor-mandate trigger *is* that take-private, so the account is internally consistent.
+
+**Net: no roster account is currently public.** The gate's conclusions hold; its enforcement does not. The 26 inference-only accounts are low risk — a company closing a Series E or a private-equity round is not listed — but that is reasoning from a different field than the gate names, and it should be recorded as inference rather than passed off as a check.
+
+**Recommended, cheap:** stop treating a blank `Ownership Type` as a pass. Require either a populated ownership field or a verification before an account clears the public/SPAC exclusion, and mark the rest `OWN?` the way `AGE?` and `VOL?` are marked now. That is rule 4 applied to the anti-ICP side, where it currently does not reach.
 
 ## Open items
 

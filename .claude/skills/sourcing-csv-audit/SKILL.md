@@ -1,11 +1,11 @@
 ---
 name: sourcing-csv-audit
-version: '1.0'
+version: '1.1'
 last_updated: 2026-09-03
 author: wekan
-description: Audit a sourced account or posting list before anything downstream touches it. Classifies every column as factual, extraction, derived judgment, definition-unstable or retrieval artefact, then runs ten checks - coverage, cap-boundary clustering, self-contradicting rows, role match against body text, magnitude, cross-pull contradiction, duplicate units, date spread, unit and divisor integrity, exclusion accounting. Reports failures and recommends drops; never scores or tiers. Triggers - "here's the CSV Origami returned", "does this list look right", "audit this account list", "check this sourcing data", "is this data trustworthy", "can I gate on this column", "why is this count so high"
+description: Audit a sourced account or posting list before anything downstream touches it, and measure whether its filters do any work. Classifies every column as factual, extraction, derived judgment, definition-unstable or retrieval artefact, then runs eleven checks - coverage, cap-boundary clustering, self-contradicting rows, role match against body text, magnitude, cross-pull contradiction, duplicate units, date spread, unit and divisor integrity, exclusion accounting, and filter discriminative power. Reports failures, recommends drops, and demotes decorative filters to columns; never scores or tiers. Triggers - "here's the CSV Origami returned", "does this list look right", "audit this account list", "check this sourcing data", "is this data trustworthy", "can I gate on this column", "why is this count so high"
 goal: Establish which columns of a sourced list are safe to gate on and which must be dropped, before anyone scores or sequences it.
-outcome: marketing/outbound/research/MMYY-{source}-list-audit.md with a column trust table, the ten check results, the unknown bucket and recommended drops.
+outcome: marketing/outbound/research/MMYY-{source}-list-audit.md with a column trust table, the eleven check results, the sole-cause rejection table, the unknown bucket and recommended drops.
 primitive: research
 ontology_type: data-audit
 review_gate: 1
@@ -65,9 +65,9 @@ Measured across 8 Origami pulls on ICP-M2 (September 2026): of the 65 companies 
 
 Publish the classification. It is what tells the operator which columns they may gate on.
 
-## Step 2 - the ten checks
+## Step 2 - the eleven checks
 
-Run all ten. Report each as pass, fail or not applicable, with row counts.
+Run all eleven. Report each as pass, fail or not applicable, with row counts.
 
 | # | Check | Why it is on the list |
 |---|---|---|
@@ -81,6 +81,9 @@ Run all ten. Report each as pass, fail or not applicable, with row counts.
 | 8 | Date spread against the pull timestamp | `Date Posted` gave 17 dates across two months on one search type and the pull date on every row of two others. A date column whose values all equal the retrieval date is UNKNOWN, not data |
 | 9 | Unit and divisor integrity | Is every count denominated in the unit the decision uses, is the divisor present, and does it reconcile against visible rows? A population in postings against a threshold in accounts resolved to three different strategic verdicts depending on a divisor nobody had requested |
 | 10 | Are excluded rows accounted for, and is any exclusion driven by a blank field? | A blank screen once collapsed 59 of 60 accounts to one qualified |
+| 11 | **Filter discriminative power** — for each filter, count **sole-cause rejections**: the companies it uniquely rejects, i.e. how many more would qualify if that filter were deleted | Measured over 296 companies: company type had **110** sole-cause rejections; geography, headcount and capital had **zero** each. A filter with no sole-cause rejections is decorative — demote it to a column. Highest-leverage check in the catalogue, and free |
+
+**Run check 11 first when a filter set is on trial.** It is the only check that can retire a rule rather than flag a row, and it runs on data already paid for. Method: build the full row set, apply every filter independently, and for each filter count the rows it rejects that no other filter rejects. Report the whole table, not just the failures — a zero is the finding.
 
 Checks 5, 7 and 8 tend to fire together. When they do, look for one mechanism rather than three defects: duplicate rows inflate a per-company count, which is what a magnitude outlier is usually made of.
 
@@ -122,7 +125,9 @@ Then stop. Scoring, tiering and messaging are downstream.
 - Rows are not units. Report the duplication rate before anyone divides by a row count.
 - Resolve identity on domain, never on name.
 - Report contradictions; never resolve one by taking the more recent value.
+- A filter with zero sole-cause rejections is decorative. Recommend demoting it to a column rather than defending it.
+- Never accept a fit verdict, screen or pass/fail column. It removes rows already paid for, and in one pull it discarded 27 of 30 with no reason — six of them qualified on inspection.
 
 ## Provenance
 
-Checks 1-6 and 10 are derived from the ICP-M2 Origami trial; 7, 8 and 9 were added 3 September 2026 from defects measured against the committed job-postings CSV at zero credits. Sources: `marketing/outbound/research/data/0926-origami-companies.csv` (with its `Field Conflicts` column), `marketing/outbound/research/data/0926-origami-job-postings.csv`, `handoffs/0926-origami-prompt-log.md`, `handoffs/0926-origami-300-posting-prompt-v3.md`, `handoffs/0926-handoff-origami-skill-spec.md`.
+Checks 1-6 and 10 are derived from the ICP-M2 Origami trial; 7, 8 and 9 were added 3 September 2026 from defects measured against the committed job-postings CSV at zero credits; 11 comes from the 296-company consolidation the same day (`handoffs/0926-handover-to-workstream3.md` §1). Sources: `marketing/outbound/research/data/0926-origami-companies.csv` (with its `Field Conflicts` column), `marketing/outbound/research/data/0926-origami-job-postings.csv`, `handoffs/0926-origami-prompt-log.md`, `handoffs/0926-origami-300-posting-prompt-v3.md`, `handoffs/0926-handoff-origami-skill-spec.md`, `handoffs/0926-handover-to-workstream3.md`, `marketing/outbound/research/data/0926-consolidated-graded-296-v2.csv`.
