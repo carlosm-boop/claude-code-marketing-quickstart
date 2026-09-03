@@ -35,62 +35,111 @@ The first pass treated a *predicted* production-access difficulty as an anti-ICP
 
 ## Evidence key
 
-`VER` industry · `AGE` founded ≤2018 · `SCL` scale · `VOL` per-period transaction volume · `EST` named estate pain · `MRG` margin trigger · `HIR` live infra hiring · `ACC` production access grantable
+`VER` industry · `AGE` founded ≤2018 · `SCL` scale · `VOL` per-period transaction volume · `EST` named estate pain · `MRG` margin trigger · `HIR` live infra hiring · `ACC` production access grantable · `MDB` MongoDB present
+
+`●` evidence in hand · `◐` partial evidence · `○` confirmed absent · `?` **UNKNOWN — no evidence either way, scores zero** (rule 4) · `✕` known obstacle (flag, not a disqualifier) · `⊘` signal present but **direction disqualifies it** (rule 5)
+
+`MDB●` confirmed present, direction acceptable · `MDB○` confirmed absent (a primary database was detected, MongoDB was not among it) · `MDB?` detector returned no primary database at all — absence of evidence, not evidence of absence · `MDB⊘` present but a migration *away* from MongoDB is named in the target's own words
 
 `●` evidence in hand · `◐` partial or inferred · `○` no evidence · `✕` known obstacle (flag, not a disqualifier)
 
-## Tier 1 — score 75+  (4 accounts)
+## Scores corrected 2026-09-03 — read this before the tables
+
+Two rules were approved and applied today, and together they moved **nine accounts down a tier**. Tier 1 went from four accounts to **one**.
+
+- **Rule 4 — UNKNOWN scores zero.** `◐` is partial evidence, never absent evidence. Gates now carry `?` where the source field was blank, held a status word instead of a value, or carried a value the tool itself labelled unverified.
+- **Rule 5 — direction-check the MongoDB weight.** Presence is not alignment. `MDB⊘` marks an account migrating *away* from MongoDB; the 15-point co-sell weight scores zero there.
+
+**What the audit found.** `Founded Year` is blank for 14 of 32 accounts, and AGE had been paying **the full 10 points** on eleven of those blanks. `Transaction Volume` contains **no volume figures at all** across the whole roster — 20 blank, 9 `UNVERIFIED`, 3 `VERIFIED` — with the substance sitting in `Transaction Evidence Review`: **3 accounts verified per-period, 5 cumulative-only, 3 no-evidence, 1 implausible, 20 blank.** VOL is a 10-point signal evidenced for **3 of 32 accounts** (ID.me, Weee!, Zūm). MongoDB had been scoring blanks at zero correctly all along, which is why the defect read as inconsistency across signals rather than one wrong constant.
+
+**The ranking held better than the scores.** Sensor Tower stays rank 1 under every correction. Its heavy signals are real: `EST●` from a live requisition, `HIR●` from a P1 posting with a genuine date, `MDB●` now confirmed and direction-checked. What it lost was 15 points resting on two empty columns. Sequencing judgment survives; **the numbers should not be quoted anywhere outside this repo until the verification set in open item 10 is closed.**
+
+## Tier 1 — score 75+  (1 account)
 
 Named-account ABM. Run `/abm-campaign` per account.
 
-| Account | Score | Gates | Trigger evidence | Cohort |
-|---|---|---|---|---|
-| **Sensor Tower** · `sensortower.com` | 92 | `VER◐ AGE● SCL◐ VOL◐ EST● MRG● HIR● ACC●` | **MongoDB present**; named estate pain in an open req; margin/sponsor trigger confirmed; live infra hiring | B — sponsor mandate |
-| **Owner.com** · `owner.com` | 85 | `VER● AGE◐ SCL● VOL● EST● MRG◐ HIR● ACC●` | **MongoDB present**; named estate pain in an open req; live infra hiring | A — hiring trigger |
-| **Close** · `close.com` | 80 | `VER◐ AGE● SCL○ VOL◐ EST● MRG◐ HIR● ACC●` | **MongoDB present**; named estate pain in an open req; live infra hiring | A — hiring trigger |
-| **Signifyd** · `signifyd.com` | 75 | `VER● AGE● SCL● VOL● EST● MRG◐ HIR● ACC✕` | named estate pain in an open req; live infra hiring; access obstacle flagged | A — hiring trigger |
+| Account | Score | 09-02 | Gates | Trigger evidence | Cohort |
+|---|---|---|---|---|---|
+| **Sensor Tower** · `sensortower.com` | 77 | 92 | `VER◐ AGE? SCL◐ VOL? EST● MRG● HIR● ACC● MDB●` | **MongoDB present**; named estate pain in an open req; margin/sponsor trigger confirmed; live infra hiring; MongoDB confirmed — direction checked, neutral; `AGE?` Founded Year blank; `VOL?` blank | B — sponsor mandate |
 
-## Tier 2 — score 50–74  (4 accounts)
+**One account, and it is the least-evidenced on the roster.** Blank founding year, blank transaction volume, revenue and funding both below the M2 size floor and both pre-acquisition, `SCL◐` on the private-equity limb alone, and `MRG●` at 20 points whose provenance is recorded only as "margin/sponsor trigger confirmed". Open item 10 lists the four verifications. **Its ABM plan should wait on them rather than be written and patched.**
 
-One unknown each. Resolve, then promote or drop.
+## Tier 2 — score 50–74  (8 accounts)
 
-| Account | Score | Gates | Trigger evidence | Cohort |
-|---|---|---|---|---|
-| **Alan** · `alan.com` | 65 | `VER● AGE● SCL● VOL● EST● MRG○ HIR● ACC◐` | named estate pain in an open req; live infra hiring | A — hiring trigger |
-| **Metropolis Technologies** · `metropolis.io` | 52 | `VER○ AGE◐ SCL● VOL● EST◐ MRG● HIR○ ACC●` | partial estate signal; margin/sponsor trigger confirmed | B — post-acquisition integration |
-| **NexHealth** · `nexhealth.com` | 52 | `VER◐ AGE● SCL✕ VOL◐ EST◐ MRG◐ HIR● ACC●` | partial estate signal; live infra hiring | A — hiring trigger |
-| **FreedomPay** · `freedompay.com` | 50 | `VER● AGE● SCL◐ VOL● EST○ MRG● HIR◐ ACC◐` | margin/sponsor trigger confirmed | B — sponsor mandate |
+Persona sequences and signal monitoring per `ICP.md`, not named-account ABM.
 
-## Tier 3 — score <50  (24 accounts)
+| Account | Score | 09-02 | Gates | Trigger evidence | Cohort |
+|---|---|---|---|---|---|
+| **Owner.com** · `owner.com` | 65 | 85 | `VER● AGE● SCL● VOL? EST● MRG◐ HIR● ACC● MDB⊘` | **MongoDB present**; named estate pain in an open req; live infra hiring; **`MDB⊘` — migration *away* from MongoDB named in its own requisition, co-sell weight zeroed (rule 5)**; `VOL?` blank | A — hiring trigger |
+| **Close** · `close.com` | 65 | 80 | `VER◐ AGE? SCL○ VOL? EST● MRG◐ HIR● ACC● MDB●` | **MongoDB present**; named estate pain in an open req; live infra hiring; MongoDB confirmed — direction checked, neutral; `AGE?` Founded Year blank; `VOL?` blank | A — hiring trigger |
+| **Signifyd** · `signifyd.com` | 65 | 75 | `VER● AGE● SCL● VOL? EST● MRG◐ HIR● ACC✕ MDB○` | named estate pain in an open req; live infra hiring; access obstacle flagged; `VOL?` blank | A — hiring trigger |
+| **Alan** · `alan.com` | 55 | 65 | `VER● AGE● SCL● VOL? EST● MRG○ HIR● ACC◐ MDB○` | named estate pain in an open req; live infra hiring; `VOL?` blank | A — hiring trigger |
+| **Zuora** · `zuora.com` | 50 | 45 | `VER◐ AGE● SCL● VOL? EST○ MRG● HIR○ ACC● MDB●` | margin/sponsor trigger confirmed; **legacy relational co-present**; MongoDB confirmed — **direction unverified, no requisition on file**; `VOL?` blank | C — re-score as M1 |
+| **iCapital** · `icapital.com` | 50 | 45 | `VER● AGE● SCL● VOL? EST○ MRG● HIR○ ACC◐ MDB●` | margin/sponsor trigger confirmed; **legacy relational co-present**; *job-posting evidence only*; MongoDB confirmed — **direction unverified, no requisition on file**; `VOL?` no evidence | C — re-score as M1 |
+| **Carta** · `carta.com` | 50 | 40 | `VER● AGE● SCL● VOL? EST○ MRG● HIR○ ACC● MDB●` | margin/sponsor trigger confirmed; MongoDB confirmed — **direction unverified, no requisition on file**; `VOL?` no evidence | E — efficiency reset |
+| **ID.me** · `id.me` | 50 | 35 | `VER◐ AGE● SCL● VOL● EST○ MRG◐ HIR○ ACC✕ MDB●` | access obstacle flagged; **legacy relational co-present**; MongoDB confirmed — **direction unverified, no requisition on file** | D — watchlist, no trigger |
+
+**The three accounts that dropped out of Tier 1 are still good prospects.** Owner.com holds `EST●` at 25 — the best-named estate pain on the list — and lost its MongoDB weight, not its qualification. The M2 entry offer does not require MongoDB, so what changes is the **opening**, not the fit: `0926-abm-owner-com.md` must not lead with the partnership credential. Close and Signifyd fell only on `VOL?`, a column that was never populated for anyone.
+
+## Tier 3 — score <50  (23 accounts)
 
 Nurture and trigger-monitoring only. Not sequence-eligible.
 
-| Account | Score | Gates | Trigger evidence | Cohort |
-|---|---|---|---|---|
-| **Pushpay** · `pushpay.com` | 45 | `VER◐ AGE● SCL● VOL● EST○ MRG● HIR○ ACC●` | margin/sponsor trigger confirmed | B — sponsor mandate |
-| **Zuora** · `zuora.com` | 45 | `VER◐ AGE● SCL● VOL● EST○ MRG● HIR○ ACC●` | margin/sponsor trigger confirmed | C — re-score as M1 |
-| **iCapital** · `icapital.com` | 45 | `VER● AGE● SCL● VOL● EST○ MRG● HIR○ ACC◐` | margin/sponsor trigger confirmed | C — re-score as M1 |
-| **Cambridge Mobile Telematics** · `cmtelematics.com` | 40 | `VER● AGE◐ SCL● VOL● EST○ MRG● HIR○ ACC●` | margin/sponsor trigger confirmed | B — sponsor mandate |
-| **Carta** · `carta.com` | 40 | `VER● AGE● SCL● VOL◐ EST○ MRG● HIR○ ACC●` | margin/sponsor trigger confirmed | E — efficiency reset |
-| **Workrise (now RigUp)** · `workrise.com` | 40 | `VER◐ AGE● SCL● VOL◐ EST○ MRG● HIR○ ACC●` | margin/sponsor trigger confirmed | E — efficiency mandate |
-| **Zūm** · `ridezum.com` | 40 | `VER◐ AGE● SCL● VOL◐ EST○ MRG● HIR○ ACC●` | margin/sponsor trigger confirmed | B — sponsor mandate |
-| **Civitatis** · `civitatis.com` | 35 | `VER● AGE◐ SCL● VOL◐ EST○ MRG● HIR○ ACC●` | margin/sponsor trigger confirmed | B — sponsor mandate |
-| **Fleetio** · `fleetio.com` | 35 | `VER◐ AGE● SCL● VOL● EST○ MRG◐ HIR○ ACC●` | firmographics only — no trigger | D — watchlist, no trigger |
-| **Housecall Pro** · `housecallpro.com` | 35 | `VER● AGE● SCL● VOL● EST○ MRG◐ HIR○ ACC●` | firmographics only — no trigger | D — watchlist, no trigger |
-| **ID.me** · `id.me` | 35 | `VER◐ AGE● SCL● VOL● EST○ MRG◐ HIR○ ACC✕` | access obstacle flagged | D — watchlist, no trigger |
-| **Pantheon** · `pantheon.io` | 35 | `VER○ AGE● SCL● VOL● EST● MRG◐ HIR● ACC✕` | named estate pain in an open req; live infra hiring; **anti-ICP: infrastructure vendor**; access obstacle flagged | Suppression check first |
-| **Wallapop** · `wallapop.com` | 35 | `VER● AGE● SCL● VOL● EST○ MRG◐ HIR○ ACC●` | firmographics only — no trigger | D — watchlist, no trigger |
-| **Weee!** · `sayweee.com` | 35 | `VER● AGE● SCL● VOL● EST○ MRG◐ HIR○ ACC●` | firmographics only — no trigger | D — watchlist, no trigger |
-| **Zeta** · `zeta.tech` | 35 | `VER● AGE● SCL● VOL● EST○ MRG◐ HIR○ ACC●` | firmographics only — no trigger | D — watchlist, no trigger |
-| **ezCater** · `ezcater.com` | 35 | `VER● AGE● SCL● VOL● EST○ MRG◐ HIR○ ACC●` | firmographics only — no trigger | D — watchlist, no trigger |
-| **Back Market** · `backmarket.com` | 30 | `VER● AGE● SCL● VOL◐ EST○ MRG◐ HIR○ ACC●` | firmographics only — no trigger | D — watchlist, no trigger |
-| **Blockchain.com** · `blockchain.com` | 30 | `VER● AGE● SCL● VOL◐ EST○ MRG◐ HIR○ ACC◐` | firmographics only — no trigger | D — watchlist, no trigger |
-| **Cover Genius** · `covergenius.com` | 30 | `VER● AGE● SCL● VOL◐ EST○ MRG◐ HIR○ ACC●` | firmographics only — no trigger | D — watchlist, no trigger |
-| **Engine (formerly Hotel Engine)** · `hotelengine.com` | 30 | `VER● AGE● SCL● VOL◐ EST○ MRG◐ HIR○ ACC●` | firmographics only — no trigger | D — watchlist, no trigger |
-| **Netradyne** · `netradyne.com` | 30 | `VER◐ AGE● SCL● VOL◐ EST○ MRG◐ HIR○ ACC●` | firmographics only — no trigger | D — watchlist, no trigger |
-| **Sure** · `sureapp.com` | 30 | `VER● AGE● SCL● VOL◐ EST○ MRG◐ HIR○ ACC●` | firmographics only — no trigger | D — watchlist, no trigger |
-| **Lighthouse** · `mylighthouse.com` | 20 | `VER● AGE● SCL● VOL◐ EST○ MRG○ HIR○ ACC●` | firmographics only — no trigger | D — watchlist, no trigger |
-| **FarEye** · `fareye.com` | 15 | `VER● AGE● SCL● VOL✕ EST○ MRG○ HIR○ ACC◐` | firmographics only — no trigger | D — watchlist, no trigger |
+| Account | Score | 09-02 | Gates | Trigger evidence | Cohort |
+|---|---|---|---|---|---|
+| **Metropolis Technologies** · `metropolis.io` | 47 | 52 | `VER○ AGE● SCL● VOL? EST◐ MRG● HIR○ ACC● MDB○` | partial estate signal; margin/sponsor trigger confirmed; `VOL?` blank | B — post-acquisition integration |
+| **Zūm** · `ridezum.com` | 45 | 40 | `VER◐ AGE● SCL● VOL● EST○ MRG● HIR○ ACC● MDB○` | margin/sponsor trigger confirmed | B — sponsor mandate |
+| **Pushpay** · `pushpay.com` | 40 | 45 | `VER◐ AGE? SCL● VOL? EST○ MRG● HIR○ ACC● MDB●` | margin/sponsor trigger confirmed; **legacy relational co-present**; MongoDB confirmed — **direction unverified, no requisition on file**; `AGE?` Founded Year blank; `VOL?` blank | B — sponsor mandate |
+| **Workrise (now RigUp)** · `workrise.com` | 40 | — | `VER◐ AGE? SCL● VOL? EST○ MRG● HIR○ ACC● MDB●` | margin/sponsor trigger confirmed; *job-posting evidence only*; MongoDB confirmed — **direction unverified, no requisition on file**; `AGE?` Founded Year blank; `VOL?` blank | E — efficiency mandate |
+| **FreedomPay** · `freedompay.com` | 40 | 50 | `VER● AGE● SCL◐ VOL? EST○ MRG● HIR◐ ACC◐ MDB?` | margin/sponsor trigger confirmed; **MongoDB UNKNOWN — detector returned no primary database**; `VOL?` blank | B — sponsor mandate |
+| **Zeta** · `zeta.tech` | 40 | 35 | `VER● AGE● SCL● VOL? EST○ MRG◐ HIR○ ACC● MDB●` | firmographics only — no trigger; **legacy relational co-present**; MongoDB confirmed — **direction unverified, no requisition on file**; `VOL?` cumulative only | D — watchlist, no trigger |
+| **ezCater** · `ezcater.com` | 40 | 35 | `VER● AGE● SCL● VOL? EST○ MRG◐ HIR○ ACC● MDB●` | firmographics only — no trigger; MongoDB confirmed — **direction unverified, no requisition on file**; `VOL?` cumulative only | D — watchlist, no trigger |
+| **Cover Genius** · `covergenius.com` | 40 | 30 | `VER● AGE● SCL● VOL? EST○ MRG◐ HIR○ ACC● MDB●` | firmographics only — no trigger; MongoDB confirmed — **direction unverified, no requisition on file**; `VOL?` cumulative only | D — watchlist, no trigger |
+| **Netradyne** · `netradyne.com` | 40 | 30 | `VER◐ AGE● SCL● VOL? EST○ MRG◐ HIR○ ACC● MDB●` | firmographics only — no trigger; **legacy relational co-present**; MongoDB confirmed — **direction unverified, no requisition on file**; `VOL?` cumulative only | D — watchlist, no trigger |
+| **NexHealth** · `nexhealth.com` | 37 | 52 | `VER◐ AGE? SCL✕ VOL? EST◐ MRG◐ HIR● ACC● MDB○` | partial estate signal; live infra hiring; `AGE?` Founded Year blank; `VOL?` blank | A — hiring trigger |
+| **Weee!** · `sayweee.com` | 35 | — | `VER● AGE● SCL● VOL● EST○ MRG◐ HIR○ ACC● MDB○` | firmographics only — no trigger | D — watchlist, no trigger |
+| **Cambridge Mobile Telematics** · `cmtelematics.com` | 25 | 40 | `VER● AGE? SCL● VOL? EST○ MRG● HIR○ ACC● MDB?` | margin/sponsor trigger confirmed; **MongoDB UNKNOWN — detector returned no primary database**; `AGE?` Founded Year blank; `VOL?` blank | B — sponsor mandate |
+| **Civitatis** · `civitatis.com` | 25 | 35 | `VER● AGE? SCL● VOL? EST○ MRG● HIR○ ACC● MDB○` | margin/sponsor trigger confirmed; `AGE?` Founded Year blank; `VOL?` blank | B — sponsor mandate |
+| **Housecall Pro** · `housecallpro.com` | 25 | 35 | `VER● AGE● SCL● VOL? EST○ MRG◐ HIR○ ACC● MDB○` | firmographics only — no trigger; `VOL?` blank | D — watchlist, no trigger |
+| **Back Market** · `backmarket.com` | 25 | 30 | `VER● AGE● SCL● VOL? EST○ MRG◐ HIR○ ACC● MDB○` | firmographics only — no trigger; `VOL?` no evidence | D — watchlist, no trigger |
+| **Blockchain.com** · `blockchain.com` | 25 | 30 | `VER● AGE● SCL● VOL? EST○ MRG◐ HIR○ ACC◐ MDB○` | firmographics only — no trigger; `VOL?` cumulative only | D — watchlist, no trigger |
+| **Fleetio** · `fleetio.com` | 15 | 35 | `VER◐ AGE? SCL● VOL? EST○ MRG◐ HIR○ ACC● MDB○` | firmographics only — no trigger; `AGE?` Founded Year blank; `VOL?` blank | D — watchlist, no trigger |
+| **Pantheon** · `pantheon.io` | 15 | 35 | `VER○ AGE? SCL● VOL? EST● MRG◐ HIR● ACC✕ MDB○` | named estate pain in an open req; live infra hiring; **anti-ICP: infrastructure vendor**; access obstacle flagged; `AGE?` Founded Year blank; `VOL?` blank | Suppression check first |
+| **Wallapop** · `wallapop.com` | 15 | 35 | `VER● AGE? SCL● VOL? EST○ MRG◐ HIR○ ACC● MDB○` | firmographics only — no trigger; `AGE?` Founded Year blank; `VOL?` blank | D — watchlist, no trigger |
+| **Engine (formerly Hotel Engine)** · `hotelengine.com` | 15 | 30 | `VER● AGE? SCL● VOL? EST○ MRG◐ HIR○ ACC● MDB○` | firmographics only — no trigger; `AGE?` Founded Year blank; `VOL?` blank | D — watchlist, no trigger |
+| **Sure** · `sureapp.com` | 15 | 30 | `VER● AGE? SCL● VOL? EST○ MRG◐ HIR○ ACC● MDB?` | firmographics only — no trigger; **MongoDB UNKNOWN — detector returned no primary database**; `AGE?` Founded Year blank; `VOL?` blank | D — watchlist, no trigger |
+| **Lighthouse** · `mylighthouse.com` | 15 | 20 | `VER● AGE● SCL● VOL? EST○ MRG○ HIR○ ACC● MDB?` | firmographics only — no trigger; **MongoDB UNKNOWN — detector returned no primary database**; `VOL?` blank | D — watchlist, no trigger |
+| **FarEye** · `fareye.com` | 15 | — | `VER● AGE● SCL● VOL? EST○ MRG○ HIR○ ACC◐ MDB?` | firmographics only — no trigger; **MongoDB UNKNOWN — detector returned no primary database**; `VOL?` implausible | D — watchlist, no trigger |
+
+### Cohort still overrides tier for sequencing
+
+**MongoDB presence is a Fit signal, not an Intent signal.** `ICP.md` is explicit that Intent is 30 of 100 and that firmographic-first sourcing scores zero on it by construction. After the corrections, **ID.me is the one Cohort D account left in Tier 2** — `EST○`, no trigger evidence, and an access obstacle flagged. Per the activation rule (one ICP × one trigger × one offer), an account with no trigger cannot be sequenced whatever its score.
+
+**Rule, unchanged: cohort governs motion, tier governs attention.** The tier tables are a triage ranking, not a send list. Zuora and iCapital remain Cohort C and route to the M1 re-score — and their MongoDB-plus-MSSQL co-presence is a stronger M1 shape than M2, which makes that re-score more attractive than it was this morning.
+
+## MongoDB enrichment — arrived and audited 2026-09-03
+
+**Source:** `0926-enrich-targets-enriched-raw.csv` (39 rows, 9 columns) and `0926-mongodb-status-39-accounts.csv`. Covers the 32 plus 7 net-new accounts from workstream 1's cost test. This closes open item 2 — the ~80-credit Enrich Tech Stack pull described there as "highest value per credit available".
+
+**Result: 13 of 32 confirmed MongoDB present, 14 confirmed absent, 5 UNKNOWN.** The three accounts this file already claimed MongoDB for — Sensor Tower, Owner.com and Close — are all **confirmed**. The top of the list was right.
+
+**Zero accounts entered Tier 1.** Eight promoted Tier 3 → Tier 2. The highest-weighted unscored signal in Model B, filled in across the whole roster, did not change who gets named-account ABM.
+
+### Four audit findings — read before using the column
+
+**1 · Five "no" values are UNKNOWN, not no.** The detector returned **no primary OLTP database whatsoever** for Cambridge Mobile Telematics (only `Databricks`), Lighthouse (only `Elasticsearch`), FreedomPay (`Redis;Snowflake`), Sure (empty) and FarEye (empty). No operating company has no database. Four of the five show `Database Mentions Found` empty — the detector produced nothing, which is a null result, not a negative. Recorded as `MDB?`. **The score is unaffected either way** — absent and absent-evidence both score zero — but the provenance record must not say "no MongoDB" as a fact.
+
+**2 · `Mid-Migration` is inference, not detection, and its name asserts a direction the data cannot support.** The flag is derived: MongoDB detected AND legacy relational detected. Six accounts in the 32 — Pushpay, Zeta, iCapital, Zuora, ID.me, Netradyne. But MongoDB alongside MySQL is **polyglot persistence**, the normal state of any ten-year-old platform. It is equally consistent with a migration in flight, a migration that stalled, a migration that finished and left legacy running, or two teams that never spoke. Per the standing rule against derived judgment columns, the flag is **renamed to co-presence** in the tables above: `legacy relational co-present`. The signal is real and valuable — ICP-M2's technographic marker is a founding-era relational core *plus* a MongoDB footprint, and co-presence hits both — but it needs the direction established before it drives a campaign.
+
+**3 · Direction is not academic. Owner.com is migrating *off* MongoDB.** From its own Staff Database Engineer requisition, already committed in `data/0926-origami-job-postings.csv`: *"Deep expertise with a major relational engine (**Postgres strongly preferred**) in high-volume production; experience migrating workloads (e.g., **MongoDB → Postgres**) a strong plus"*, alongside *"Lead the migration of product workloads"* and *"zero-downtime migrations on large, live tables"*. **This is a Model B design flaw, not a data error.** The MongoDB signal is worth 15 points as a co-sell path, but it is direction-agnostic: it pays the same whether an account is adopting MongoDB or retiring it. Owner.com collects 15 points for a footprint it is actively shrinking, at the account where WeKan's MongoDB credential is the *weakest* opening rather than the strongest. The ABM plan already frames the requisition correctly; the score does not. **Proposed: MDB scores 15 only where direction is toward MongoDB or neutral, and 0 where a named migration away from it exists.** Zero credits to check — the requisition text is already in the repo for every account in the postings CSV.
+
+**5 · Direction check run across all 13 MongoDB accounts — coverage is 3 of 13, and it found exactly one reversal.** The committed postings CSV holds requisition text for only three of the thirteen, because the other ten were sourced from the scale-led and firmographic pulls rather than the hiring-led one. Result: **Owner.com — migration away, confirmed** (`MDB⊘`, −15). **Sensor Tower — MongoDB named in its Platform Engineer req, no migration sentence → neutral, keeps 15.** **Close — MongoDB named in its Senior Backend Engineer req, no migration sentence → neutral, keeps 15.** The remaining ten have **no requisition on file, so direction is unverified** and they keep their presence score per rule 5's scope note. The check was worth running for free — it converted two accounts from assumed-neutral to checked-neutral — but it cannot reach the ten that matter most for the co-presence story. **Request to workstream 1: a Job Posting Search for the ten (Workrise, Pushpay, Zeta, iCapital, Carta, Zuora, Cover Genius, ID.me, Netradyne, ezCater), 1 credit per posting.** The Owner.com case shows a false positive here is worth 15 points on a hostile signal.
+
+**4 · The detector has measurable false negatives.** `Databases Detected` for Owner.com is `MongoDB;Snowflake` — Snowflake is a warehouse, so the entire detected OLTP estate is MongoDB. Yet Postgres is named verbatim in Owner.com's own open requisition as the preferred engine. **The detector missed a database the company advertises.** That downgrades confidence in every `MDB○` and in every blank `Legacy Relational`, including the six co-presence calls above: some of the fourteen "confirmed absent" may be the same miss in the other direction.
+
+### The seven net-new accounts are not scored
+
+Origami Risk · Facile.it · Chrono24 · Mollie · OEC · Meilleurtaux · Capital on Tap. Two carry MongoDB — **OEC** (`MSSQL;MySQL` co-present, job-posting evidence only) and **Capital on Tap**. None has been through the M2 gates: no VER, AGE, SCL, VOL, EST, MRG or HIR evidence exists for any of them. Per the workstream interface rule, account names plus sourced fact columns are accepted from sourcing and **scoring happens here** — so these seven enter as candidates for a gate pass, not as roster additions. OEC is the one worth looking at first on co-presence.
 
 ## Entry point — identical for every account
 
@@ -144,17 +193,37 @@ Records-management and workplace software at low write volume, consultancies, or
 ## Open items
 
 1. **The campaign-motion question is unresolved.** The trigger pool is ~7,400 job postings over 90 days, but only 2 of 30 sampled postings qualify strictly — a confidence interval consistent with anywhere between 40 and 800 qualified companies. A 300-posting sample (300 credits at 1 credit/posting) narrows it enough to decide volume-email versus ABM.
-2. **MongoDB presence is unknown for 29 of 32 accounts.** Origami's Enrich Tech Stack costs 2.5 credits per company — ~80 credits fills the highest-weighted unscored signal across the whole list. Highest value per credit available.
+2. ~~**MongoDB presence is unknown for 29 of 32 accounts.**~~ **Closed 2026-09-03 by the Enrich Tech Stack pull.** 13 confirmed present · 14 confirmed absent · 5 UNKNOWN. It resolved the highest-weighted unscored signal on the roster and **moved zero accounts into Tier 1.** See the enrichment section for the four audit findings and the direction check.
 3. ~~**Signifyd's figures carry two vintages.**~~ **Closed 2026-09-03 — immaterial confirmed, not assumed.** The `Field Conflicts` column records the drift as `Employee Count=500 | 495 ;; Total Funding=411000000 | 409000000 ;; Funding Stage=series_e | SERIES_E`. Note the conflicted figure is **total funding, not revenue.** Independent check: a round-by-round public record sums to ~$390M (seed $2M late 2012 · A $7M · B $20M 2016 · C $56M 2017 · D $100M 2018 · E $205M April 2021 at a $1.34B valuation). Every one of the three figures clears the SCL threshold of $100M+ at Series C+ by roughly 4×, so the drift cannot move the gate. Employees: Signifyd's own about page states **500+**, which contains both point estimates — record `500+ (company-stated)` and drop 495 and 500. Founded **2011**, confirming `AGE●` on evidence rather than on a blank field. **SCL rests on public funding data; the CSV's `Annual Revenue: 150M` is an unattributed vendor estimate and is not used.**
 4. **Two ICP interpretation calls are settled** and applied here: the industry list is indicative of "digital-native with real transaction volume" rather than closed, and US/Europe describes proof transferability rather than engineering location.
 
-5. **Owner.com's founding year — verified, and the AGE call is Rudra's.** `Founded Year` is **blank** in both committed CSVs, so `AGE◐` (5 of 10) was awarded on no evidence at all. Two sourced readings now exist. **2018** — the ProfitBoss founding (FOX Business, 11 Dec 2020), corroborated by Owner's own Series C memo: *"Building for restaurants for over 7 years"* (memo ~May 2025). **2020** — the Wikipedia infobox value, echoed by Owner's own job description in `data/0926-origami-job-postings.csv`: *"Since 2020, we've generated tens of millions"*. The rebrand to Owner.com came in 2021 (Business Insider, Sept 2021). **The gate turns on which reading holds: 2018 → `AGE●`, score 85 → 90. 2020 → `AGE○` plus the founded-2019-or-later anti-ICP hit at −40 → score 40, Tier 3, and `../strategy/0926-abm-owner-com.md` is void.** Recommendation: **2018, `AGE●`, score 90, no anti-ICP hit.** The company's own claim is the strongest source available; the 2018 ProfitBoss codebase *is* the MVP era; and the exclusion's stated purpose — "greenfield infrastructure has nothing to unwind" — is contradicted directly by a live Staff Database Engineer req naming a MongoDB-to-Postgres migration. Firing a −40 structural exclusion against direct estate evidence is the Signifyd calibration error in a mirror. **Not applied. Escalated.**
+5. ~~**Owner.com's founding year.**~~ **Closed 2026-09-03 — 2018 approved, `AGE●` applied (+5).** Owner.com then lost 15 to the direction rule and sits at 65, Tier 2 — it fell on MongoDB, not on age. Reasoning kept because the anti-ICP call turned on it: `Founded Year` is **blank** in both committed CSVs, so `AGE◐` (5 of 10) was awarded on no evidence at all. Two sourced readings now exist. **2018** — the ProfitBoss founding (FOX Business, 11 Dec 2020), corroborated by Owner's own Series C memo: *"Building for restaurants for over 7 years"* (memo ~May 2025). **2020** — the Wikipedia infobox value, echoed by Owner's own job description in `data/0926-origami-job-postings.csv`: *"Since 2020, we've generated tens of millions"*. The rebrand to Owner.com came in 2021 (Business Insider, Sept 2021). **The gate turns on which reading holds: 2018 → `AGE●`, score 85 → 90. 2020 → `AGE○` plus the founded-2019-or-later anti-ICP hit at −40 → score 40, Tier 3, and `../strategy/0926-abm-owner-com.md` is void.** Recommendation: **2018, `AGE●`, score 90, no anti-ICP hit.** The company's own claim is the strongest source available; the 2018 ProfitBoss codebase *is* the MVP era; and the exclusion's stated purpose — "greenfield infrastructure has nothing to unwind" — is contradicted directly by a live Staff Database Engineer req naming a MongoDB-to-Postgres migration. Firing a −40 structural exclusion against direct estate evidence is the Signifyd calibration error in a mirror. **Not applied. Escalated.**
 
 6. **Sensor Tower's two size figures are stale, and it is rank 1 with an ABM plan pending.** The CSV carries `Annual Revenue: 35.6M` and `Total Funding: 46000000` — both **below** ICP-M2's size floor of "$50M–$1B revenue or $100M+ raised". `SCL◐` currently stands on the `private_equity` ownership limb, which is sound, but the size limb fails on the data in hand. Both figures read as pre-transaction: the $45M Series B predates the private-equity acquisition and the subsequent combination with data.ai. `Founded Year` is blank for Sensor Tower too. **Verify current revenue, headcount and ownership before writing the ABM plan, not after.**
 
 7. **Close's SCL is scored `○` on a funding row this file already calls wrong.** The CSV reads `Total Funding: 250000 / Funding Stage: seed / Employee Count: 214` for a thirteen-year-old CRM. Model B's SCL carries a **bootstrapped-profitable** limb. If Close qualifies under it, SCL moves `○ → ●`, the score moves 80 → 85, and the model-versus-hand-ranking disagreement above resolves in the model's favour. One verification closes it and unblocks the second Tier 1 ABM plan.
 
-8. **Three of Model B's eight signals are largely scored without data — and blanks are quietly earning half credit.** Coverage across the 32 qualified rows in `data/0926-origami-companies.csv`: `Founded Year` blank **14/32** (AGE, 10 pts) · `Database Technology Mentions` blank **29/32** (MongoDB signal, 15 pts) · `Transaction Volume` blank **20/32** (VOL, 10 pts) · `Matching Posting Count` blank 29/32 (already retired). That is **35 of 100 points** resting largely on inference. The mechanism is a category slip: `lead-scoring` rule 1 (*"a blank field is UNKNOWN, not FAIL"*) and its corollary (*"UNKNOWN is not zero"*) were both written about **ranking** — don't sort a blank below a real value. Model B applies them as **scoring**, where "partial evidence scores half" turns every blank into `◐` and 5 points. **Proposed fourth rule: UNKNOWN scores zero — neither penalty nor credit. `◐` is for partial evidence, never for absent evidence.** Editing `lead-scoring/SKILL.md` is an escalation, so this is proposed, not applied.
+8. ~~**Blanks are earning credit.**~~ **Closed 2026-09-03 — approved and applied as `lead-scoring` rules 4 and 5** (`SKILL.md` v1.2, backup at `SKILL.md.pre-rules-45`). Nine accounts moved down a tier; Tier 1 went from four accounts to one. Superseded detail: Coverage across the 32 qualified rows in `data/0926-origami-companies.csv`: `Founded Year` blank **14/32** (AGE, 10 pts) · `Database Technology Mentions` blank **29/32** (MongoDB signal, 15 pts) · `Transaction Volume` blank **20/32** (VOL, 10 pts) · `Matching Posting Count` blank 29/32 (already retired). That is **35 of 100 points** resting largely on inference. The mechanism is a category slip: `lead-scoring` rule 1 (*"a blank field is UNKNOWN, not FAIL"*) and its corollary (*"UNKNOWN is not zero"*) were both written about **ranking** — don't sort a blank below a real value. Model B applies them as **scoring**, where "partial evidence scores half" turns every blank into `◐` and 5 points. **Proposed fourth rule: UNKNOWN scores zero — neither penalty nor credit. `◐` is for partial evidence, never for absent evidence.** Editing `lead-scoring/SKILL.md` is an escalation, so this is proposed, not applied.
+
+
+9. **Applied 2026-09-03 — kept as the record of what the correction cost.** Audited against the source CSV: **AGE credit was awarded on a blank `Founded Year` for 14 of 32 accounts**, and not at half — Sensor Tower, Close, Signifyd and eleven others took the **full 10 points** on an empty field. **VOL credit was awarded on a blank `Transaction Volume` for 20 of 32.** All four Tier 1 accounts are blank on **both** columns. **No Tier 1 account has a verified founding year or a verified transaction volume**; of the 18 accounts that do have a real `Founded Year`, none is Tier 1. That is selection, not coincidence — generous marks were assigned where evidence was absent, and accounts with populated rows were graded against actual values.
+
+   Applying the proposed rule (open item 8: UNKNOWN scores zero) to AGE and VOL only, and crediting the two founding years verified 2026-09-03:
+
+   | Account | Now | Blank-sourced points | Corrected | Tier |
+   |---|---|---|---|---|
+   | Owner.com | 85 | VOL 10 (AGE now **verified 2018**, +5) | **80** | T1 |
+   | Sensor Tower | 92 | AGE 10 + VOL 5 | **77** | T1 |
+   | Close | 80 | AGE 10 + VOL 5 | **65** | T2 |
+   | Signifyd | 75 | VOL 10 (AGE **verified 2011**) | **65** | T2 |
+
+   **Tier 1 goes from four accounts to two, and Owner.com becomes rank 1** — not because it improved, but because its founding year is the only one verified. **The ranking is more robust than the scores.** Tier 1's heavy signals are genuinely evidenced: EST from real requisitions, HIR from real P1 postings with real dates, MDB now confirmed — 55 of Sensor Tower's 92 rests on evidence. It is the last 17.5 that rests on two empty columns and a stale ownership figure. Sequencing judgment survives; the numbers should not be quoted.
+
+10. **Sensor Tower is rank 1 and the least-evidenced account on the roster.** Blank `Founded Year`, blank `Transaction Volume`, `Annual Revenue: 35.6M` and `Total Funding: 46000000` both below the M2 size floor and both pre-acquisition, `SCL◐` standing only on the `private_equity` limb, and `MRG●` at 20 points whose provenance is recorded only as "margin/sponsor trigger confirmed". **17.5 of its 92 traces to blank or stale source fields.** Its estate, hiring and MongoDB evidence is sound. Verify founding year, headcount, ownership and the margin trigger's source before the ABM plan, not after — one of those four either earns the rank or moves it.
+
+11. ~~**Direction check on the 13 MongoDB accounts.**~~ **Run 2026-09-03. Coverage 3 of 13.** One reversal (Owner.com, `MDB⊘`), two confirmed neutral (Sensor Tower, Close), ten with no requisition on file. **Open remainder: a 10-account Job Posting Search request sits with workstream 1** — see enrichment finding 5. Until it returns, ten accounts hold 15 points each on unverified direction; Owner.com is the proof that some of them may not deserve it.
+
+12. **`Legacy Relational` needs a second pass against requisition text, not the detector.** Finding 4 shows the detector missed Postgres at Owner.com. Every blank `Legacy Relational` is therefore suspect, which means the co-presence set may be larger than six. Same free source as item 11.
 
 ## Refresh
 

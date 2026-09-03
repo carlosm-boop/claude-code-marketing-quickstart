@@ -2,11 +2,7 @@
 
 *Written 2026-09-02 by `/abm-campaign`. Reads `../research/0926-target-accounts.md`, `../../icp/ICP.md` (ICP-M2), `../../positioning/positioning.md`, `../../messaging/messaging.md`, `../../company/company.md`.*
 
-**ICP-M2 · Model B score 65 (Tier 2) · Cohort A, hiring trigger · Motion C1**
-
-> **Rescored 2026-09-03. 85 → 65, and this plan still stands.** Founding year approved at 2018 (`AGE●`, +5); `VOL?` −10 on a column that holds no volume figures for any account on the roster; **`MDB⊘` −15 under new `lead-scoring` rule 5** — the 15-point MongoDB co-sell weight scores zero where a migration *away* from MongoDB is named in the target's own words, which is exactly what the requisition below does.
->
-> **The plan is unaffected because it never rested on the MongoDB weight.** It called the direction problem correctly on 2 September, before the score did. `EST●` holds at **25 — the best-named estate pain on the roster** — and that is what qualifies this account. Per `0926-target-accounts.md`, **cohort governs motion and tier governs attention**: Owner.com is Cohort A with a live hiring trigger, so it stays sequence-eligible on trigger evidence, not on tier. What the rescore removed was a reason to talk about MongoDB, and this plan already told us not to.
+**ICP-M2 · Model B score 85 (Tier 1) · Cohort A, hiring trigger · Motion C1**
 
 > **Proof firewall.** All proof points below come from `messaging.md` §6 Pool B, anonymised by industry. No WeKan client is named in this plan or its assets.
 
@@ -20,8 +16,7 @@
 | **Series D, $240M raise** | Own site ("the memo from Owner's $240M Series D raise"). **Origami reported Series B / $185.7M — stale by two rounds.** |
 | $1B+ in restaurant orders processed | Own site |
 | 445 employees | Origami hiring-led run |
-| **Founded 2018** — as ProfitBoss; renamed Owner.com in 2021 | **Resolved 2026-09-03, approved.** FOX Business (11 Dec 2020) on the ProfitBoss founding; corroborated by Owner's own Series C memo: *"Building for restaurants for over 7 years."* The Wikipedia infobox says 2020 and the requisition says *"Since 2020"* — both date the **brand**, not the codebase. `AGE●`, no anti-ICP hit. |
-| Series D lead: **Goldman Sachs Asset Management** | Crunchbase (8 rounds). Strengthens the CFO/efficiency angle — a growth-equity lead at a $1B+ valuation is the margin-scrutiny setup the ICP names as a trigger. |
+| Founded ~2018–2019 — sits exactly on the age boundary | **Unresolved. Confirm before the assessment is scoped.** |
 | **Open role: Staff Database Engineer — names Postgres OLTP scaling *and* a MongoDB-to-Postgres migration** | LinkedIn, Origami hiring-led run |
 
 **Why this is the strongest account on the M2 list.** The database work is not inferred, not implied by a technology list, and not a marketing claim. It is a named migration in an open senior requisition. Across 120 companies screened, no other account states its estate programme this plainly.
@@ -53,19 +48,6 @@ It has a documented answer in `company.md`: *"MongoDB-native but **not** MongoDB
 - **Do not lead with MongoDB mastery.** It is on the `messaging.md` §7 avoid list as "MongoDB-only framing", and here it actively argues against their decision.
 - Lead with **migration engineering** — zero regression, production safety, order-volume scale.
 - Raise the investor relationship *before they find it*, framed as depth on both sides of the migration. Discovering it themselves makes it a trap; naming it first makes it credibility.
-
-### The limit of that answer — know it before the technical working session
-
-The technical validator's objection below — *"Have you done Mongo-to-Postgres, or only the other direction?"* — is the sharpest question in this plan, and **the proof library cannot answer it directly.** Checked against `messaging.md` §6: every named migration in Pool B runs **off** a relational engine or optimises a MongoDB estate in place. The aviation proof is a licensing-cost reduction (leaving a commercial relational engine). The insurance proof is an MSSQL monolith re-engineered to microservices. The logistics proof is cluster optimisation on an existing MongoDB estate. The aggregate — 50,000+ tables, 10,000+ stored procedures — is relational-origin work by construction; stored procedures are a PL/SQL and T-SQL artefact.
-
-**There is no proof point describing a migration off MongoDB.** So belief 4 is an argument from **architecture, not track record**: Evolve is a modernization factory whose first engine pair was Oracle → MongoDB and which is expanding to any DB, codebase or workload. That is honest and it is defensible with a CTO. It is weaker than a named analogue, and it should not be dressed as one.
-
-**Handling, in order:**
-1. Say the true thing: the factory is engine-agnostic by design; the seven agents operate on schema, code and data-model analysis, none of which is engine-specific. The direction of this pair is new; the surface area is not.
-2. Redirect to what the assessment actually requires — reading their estate and quantifying the work. That does not require having done this exact pair before.
-3. **If WeKan has run a MongoDB → relational engagement, only Rudra can add it.** No skill or agent proposes that pairing, infers it, or asks for it. Escalate rather than improvise, per `brand-voice.md` §0.
-
-**This is not a first-touch blocker.** The technical validator appears at the working-session stage, not in email 1 — the same reasoning that retired the false escalation on 3 September. Do not hold the sequence for it.
 
 ## Belief shift
 
@@ -118,14 +100,13 @@ The CTO cares about velocity more than tidiness.
 
 - The migration is already contracted to another partner. Second-opinion angle exists but the odds drop sharply.
 - They want a contractor to fill the requisition, not a partner to run a programme — staff augmentation, global negative ICP.
-- ~~Founding year confirms as 2019 or later.~~ **Struck 2026-09-03 — resolved as 2018, approved. This account no longer has an age risk.**
+- Founding year confirms as 2019 or later. The ICP age gate is a hard filter, and this account sits on the boundary.
 - Production access refused outright after the technical working session — not merely withheld on the first call, which is normal and expected.
 - Migration already complete. Then the trigger is spent and the account moves to Cohort D.
 
 ## Open items
 
-1. ~~**Confirm the founding year.**~~ **Closed 2026-09-03 — 2018, approved. No age risk.**
-2. **Identify the CTO / VP Engineering and the requisition's hiring manager from public sources.** Now the top item. Public sources only, no scraped personal contact data — `escalation.md`.
-3. **Check whether the requisition is still open — the entire timing argument depends on it.** Posted 2026-07-31, so it is 34 days old at time of writing. This is the highest-decay item in the plan.
-4. ~~**Run Origami Enrich Tech Stack (2.5 credits).**~~ **Done 2026-09-03, and it returned less than the requisition already tells us.** Detected estate: `MongoDB;Snowflake` — Snowflake is a warehouse, so the entire detected OLTP estate is MongoDB. **The detector missed Postgres**, which this account's own advert names as the preferred engine. Nothing to add here, and a measured recall gap recorded in `../research/0926-target-accounts.md` enrichment finding 4. **The requisition remains the better source for this account than any enrichment.**
-5. **New — decide the belief-4 fallback before the technical working session,** not before email 1. See the limit section above.
+1. **Confirm the founding year.** It is the one gate this account might genuinely fail.
+2. Identify the CTO / VP Engineering and the requisition's hiring manager from public sources.
+3. Check whether the requisition is still open — the entire timing argument depends on it.
+4. Run Origami Enrich Tech Stack (2.5 credits) to see what else sits alongside Postgres and MongoDB.

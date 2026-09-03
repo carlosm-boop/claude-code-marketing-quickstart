@@ -1,4 +1,4 @@
-Company,Domain,Source,MongoDB,MongoDB Evidence,Legacy Relational,Mid-Migration,Group,Databases Detected
+Company,Domain,Source,MongoDB,MongoDB Evidence,Legacy Relational,Co-Presence (direction UNKNOWN),Group,Databases Detected
 Sensor Tower,sensortower.com,pursuit-order-32,yes,product stack,,,1,MongoDB;PostgreSQL;Redis;Elasticsearch;ClickHouse
 Owner.com,owner.com,pursuit-order-32,yes,product stack,,,1,MongoDB;Snowflake
 NexHealth,nexhealth.com,pursuit-order-32,no,,MSSQL;MySQL,,2,PostgreSQL;MySQL;MSSQL;Snowflake

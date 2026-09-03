@@ -41,6 +41,77 @@ These are mid-migration: the destination is already in the building and the thin
 
 ---
 
+## 2026-09-03 (later 8) — rules 4 and 5 approved and applied: Tier 1 is one account
+
+**Both rules approved by Rudra and written into `.claude/skills/lead-scoring/SKILL.md` (now v1.2, backup at `SKILL.md.pre-rules-45`).** The stale "119 companies / six runs" provenance in that file is corrected in the same pass, closing a `(later 6)` escalation.
+
+- **Rule 4 — UNKNOWN scores ZERO,** neither penalty nor credit. `◐` is partial *evidence*, never absent evidence. Rules 1 and 3's corollary were written about **ranking**; Model B was applying them as **scoring**. Corollary added: wrong-shape evidence is not partial evidence — a cumulative lifetime total against a per-period definition scores 0, not 5.
+- **Rule 5 — direction-check every technographic co-sell signal.** Presence is not alignment. A MongoDB footprint an account is retiring is worse than absence: it makes the partnership credential the weakest available opening.
+
+### The cost, and it is not small
+
+**Nine accounts moved down a tier. Tier 1 went from four accounts to one.**
+
+| | 09-02 | Corrected |
+|---|---|---|
+| Tier 1 | 4 | **1** — Sensor Tower 77 |
+| Tier 2 | 12 | **8** — Owner.com 65 · Close 65 · Signifyd 65 · Alan 55 · Zuora 50 · iCapital 50 · Carta 50 · ID.me 50 |
+| Tier 3 | 16 | **23** |
+
+**`Transaction Volume` contains no volume figures anywhere on the roster.** 20 blank, 9 `UNVERIFIED`, 3 `VERIFIED` — a status word, not a measurement. The substance is in `Transaction Evidence Review`: **3 verified per-period · 5 cumulative-only · 3 no-evidence · 1 implausible · 20 blank.** A 10-point signal evidenced for **3 of 32 accounts** (ID.me, Weee!, Zūm). AGE was paying the full 10 on a blank `Founded Year` for eleven accounts. MongoDB had been scoring blanks at zero correctly all along — hence the defect reading as inconsistency across signals rather than one wrong constant.
+
+**The ranking held better than the scores.** Sensor Tower is rank 1 under every correction; 55 of its old 92 was real evidence — `EST●` from a live requisition, `HIR●` from a P1 posting with a genuine date, `MDB●` confirmed and now direction-checked. It lost 15 points resting on two empty columns. **Sequencing judgment survives. The scores must not be quoted outside this repo until open item 10 closes** — Sensor Tower is simultaneously rank 1 and the least-evidenced account on the list.
+
+**Owner.com fell out of Tier 1 on MongoDB, not on age.** Its founding year was approved at 2018 (`AGE●`, +5) and it still dropped 85 → 65, because its own Staff Database Engineer requisition names *"migrating workloads (e.g., MongoDB → Postgres)"* and asks for *"deep expertise with a major relational engine (Postgres strongly preferred)"*. Best estate evidence on the roster and a MongoDB disqualifier in one document. **The signals are separable and both readings are right:** `EST●` holds at 25 because the pain is real and named; `MDB⊘` scores 0 because the direction is away. **It is still a good prospect — the M2 entry offer never required MongoDB — so what changes is the opening, not the fit. `0926-abm-owner-com.md` must not lead with the partnership credential.**
+
+### Direction check: run, coverage 3 of 13
+
+The committed postings CSV holds requisition text for only **3 of the 13** MongoDB-positive accounts; the other ten came from scale-led and firmographic pulls, which carry no postings. Owner.com — **reversal confirmed**. Sensor Tower and Close — MongoDB named, **no migration sentence, neutral, keep 15**. The remaining ten keep their presence score per rule 5's scope note, on **unverified direction**.
+
+**Open, and it is the live one:** rules 4 and 5 pull against each other on exactly those ten. Rule 4 says UNKNOWN scores zero; rule 5 says direction is a disqualifier tested only on positive evidence, so no requisition means no disqualifier. I have applied rule 5's reading and flagged it rather than silently choosing — **the tighter reading would take Tier 2 from 8 accounts to 4** (Zuora, iCapital, Carta and ID.me all fall to Tier 3). **Reconciled by Rudra 2026-09-03 in favour of rule 5's reading** — zeroing a detector-confirmed signal because a second, different question is unanswered would be a penalty for absence of evidence, which rule 4 itself forbids. No rescore needed; the applied tables stand. **Request queued for workstream 1: Job Posting Search on the ten, 1 credit per posting** — Owner.com is the proof that a false positive here is worth 15 points on a hostile signal.
+
+### Owner.com's ABM plan reframed — and it needed less than the rescore implied
+
+**The plan called the direction problem on 2 September, before the score did.** It already carries a section titled *"The objection to handle before anything else"* stating that WeKan is MongoDB-backed while Owner.com is migrating off MongoDB, and instructing *"do not lead with MongoDB mastery."* What was wrong was the 15-point score, not the strategy. Updated: header rescored 85 → 65 with a note that **cohort governs motion** so the account stays sequence-eligible on its Cohort A hiring trigger; founding year resolved to 2018 in the snapshot and the age disqualifier struck; Series D lead (Goldman Sachs Asset Management) added, which strengthens the CFO efficiency angle; open items 1 and 4 closed. Backup at `0926-abm-owner-com.md.pre-0903`.
+
+**One real gap found, and deliberately not escalated as a blocker.** The plan predicts the technical validator will ask *"Have you done Mongo-to-Postgres, or only the other direction?"* — and checked against `messaging.md` §6, **the proof library has no answer.** Every named migration in Pool B runs *off* a relational engine (the aviation licensing reduction, the insurance MSSQL-to-microservices re-engineering) or optimises a MongoDB estate in place (the logistics cluster work). The 50,000-table / 10,000-stored-procedure aggregate is relational-origin by construction — stored procedures are a PL/SQL and T-SQL artefact. **No proof point describes a migration off MongoDB.**
+
+So belief 4 is an argument from **architecture, not track record**: the factory's seven agents operate on schema, code and data-model analysis, none of it engine-specific, so the direction of this pair is new but the surface area is not. Honest, defensible with a CTO, and weaker than a named analogue — it must not be dressed as one. **Not escalated as a blocker**, because the technical validator appears at the working-session stage and not in email 1 — the same reasoning that retired the false escalation earlier today. Written into the plan as a stated limit with a three-step handling order, and a note that only Rudra may add a named engagement if one exists.
+
+**Also recorded:** the Enrich Tech Stack pull returned *less* for Owner.com than its own advert already gives us — detected estate `MongoDB;Snowflake`, with **Postgres missed entirely** despite being named as the preferred engine in the requisition. For this account the requisition beats any enrichment, which is the general lesson too.
+
+**Items closed in `0926-target-accounts.md`:** 2 (MongoDB unknown), 5 (Owner.com founding year), 8 (blank credit), 11 (direction check, partial). **Still open:** 1 (campaign motion), 6 and 7 (Sensor Tower and Close size checks), 10 (Sensor Tower's four verifications), 12 (`Legacy Relational` second pass).
+
+---
+
+## 2026-09-03 (later 7) — MongoDB resolved: 13 of 32, zero new Tier 1s, and the signal can fire backwards
+
+**Open item 2 is closed.** The ~80-credit Enrich Tech Stack pull landed: `data/0926-enrich-targets-enriched-raw.csv` (39 rows) and `data/0926-mongodb-status-39-accounts.csv`, both committed so nothing needs re-attaching. **13 of 32 confirmed MongoDB present · 14 confirmed absent · 5 UNKNOWN.** The three accounts already claimed — Sensor Tower, Owner.com, Close — are all confirmed. The top of the list was right.
+
+**The headline is what it did not buy. Zero accounts entered Tier 1.** Eight promoted Tier 3 → Tier 2: Pushpay 60 · Zuora 60 · iCapital 60 · Workrise 55 · Carta 55 · ID.me 50 · Zeta 50 · ezCater 50. Tier 2 grows 4 → 12, Tier 1 stays at 4, Tier 3 falls 24 → 16. The highest-weighted unscored signal in Model B, filled in across the whole roster, changed nobody's motion at the top. Second time this trial that closing the biggest data gap left the pursuit order intact — the constraint on this list was never coverage.
+
+**Two of the eight promotions are Cohort C.** Zuora and iCapital both promote on MongoDB *plus* co-present MSSQL/MySQL, which is an ICP-M1 shape, not M2. This strengthens §8.6 (re-score them as M1) rather than adding them to M2 sequences.
+
+### The finding that matters: the MDB signal is direction-agnostic
+
+**Owner.com is migrating off MongoDB.** From its own committed requisition: *"Deep expertise with a major relational engine (**Postgres strongly preferred**) in high-volume production; experience migrating workloads (e.g., **MongoDB → Postgres**) a strong plus."* Model B pays Owner.com 15 points for a MongoDB footprint it is actively shrinking — at the one account where WeKan's MongoDB credential is the weakest opening rather than the strongest. Design flaw, not data error. **Proposed: MDB scores 15 where direction is toward MongoDB or neutral, 0 where a named migration away from it exists.** Zero credits to check; requisition text is already in the repo.
+
+Three more audit findings, all in `0926-target-accounts.md` under the enrichment section: five "no" values are **UNKNOWN** (the detector returned no primary database at all for CMT, Lighthouse, FreedomPay, Sure, FarEye — score unaffected, provenance record corrected) · **`Mid-Migration` is inference** and renamed to *co-presence*, because MongoDB beside MySQL is polyglot persistence, not a migration in flight · **the detector has measurable false negatives** — it missed Postgres at Owner.com, a database named verbatim in their own advert, which downgrades confidence in all fourteen `MDB○` calls and every blank `Legacy Relational`.
+
+### And the blank-credit exposure is worse than reported this morning
+
+The `(later 6)` entry said blanks earn half credit. Audited properly against the source CSV, it is not half: **AGE took the full 10 points on a blank `Founded Year` for eleven accounts, including Sensor Tower, Close and Signifyd.** Totals: AGE credit on a blank `Founded Year` for **14 of 32**, VOL credit on a blank `Transaction Volume` for **20 of 32**. Correction to that entry: the MongoDB signal scored blanks at **zero**, correctly — so the model is *inconsistent across signals*, not uniformly generous. AGE is the worst offender, VOL the widest.
+
+**All four Tier 1 accounts are blank on both columns, and of the 18 accounts with a real `Founded Year`, none is Tier 1.** Selection, not coincidence. Applying the proposed rule to AGE and VOL, with the two founding years verified today: Owner.com **80** (T1, and rank 1) · Sensor Tower **77** (T1) · Close **65** (T2) · Signifyd **65** (T2). **Tier 1 goes from four to two.**
+
+**The ranking is more robust than the scores.** 55 of Sensor Tower's 92 rests on real evidence — EST from a live requisition, HIR from a P1 posting with a real date, MDB now confirmed. It is the last 17.5 that rests on two empty columns and a stale ownership figure. Sequencing judgment survives. The numbers should not be quoted in anything that leaves the building.
+
+**Sensor Tower is rank 1 and the least-evidenced account on the roster** — blank founding year, blank transaction volume, revenue and funding both below the M2 size floor and both pre-acquisition, `SCL◐` on the PE limb alone, and `MRG●` at 20 points whose provenance is recorded only as "margin/sponsor trigger confirmed". Its ABM plan should wait on four verifications, not proceed and be patched.
+
+**New open items 9–12** in `0926-target-accounts.md`: the blank-credit tier scenario · Sensor Tower's verification set · the free direction check on all 13 MongoDB accounts · a second pass on `Legacy Relational` against requisition text rather than the detector. **Seven net-new accounts** arrived with the enrichment (Origami Risk, Facile.it, Chrono24, Mollie, OEC, Meilleurtaux, Capital on Tap) — none has been through the M2 gates, so they enter as gate-pass candidates, not roster additions. OEC carries co-presence and is worth looking at first.
+
+---
+
 ## 2026-09-03 (later 6) — the repo is uncommitted; context-refresh run; two verifications
 
 **Session opened from `handoffs/0926-handoff-gtm-execution.md`.** §8 item 2 executed, §8 item 4 finished properly, §8 item 7 closed on one of two and escalated on the other. Mode 3 confirmed for scoring and strategy; Mode 2 on anything carrying a client name or a metric.
