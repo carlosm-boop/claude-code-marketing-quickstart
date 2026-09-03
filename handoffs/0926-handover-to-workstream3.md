@@ -143,3 +143,124 @@ Replace the v3 seven-step shape with:
 
 `P10` remains the reference for a trigger-first pull. The v3 block is provenance only — keep it, marked
 withdrawn, with the cost reason attached.
+
+---
+
+# ADDENDUM 2 — late 3 September. Read item 8 first; it corrects a check I gave you this morning.
+
+## 8. CORRECTION — audit check #11 is unsafe as I wrote it
+
+This morning I proposed **check #11: filter discriminative power via sole-cause rejections.** Compute, for each
+filter, how many companies it uniquely rejects; zero sole-cause means the filter is decorative.
+
+**As written, that check will mislead you, and it misled me the same day.**
+
+I ran it on 296 companies and found geography and headcount uniquely rejected **zero**. I told Rudra to demote
+both from gates to columns. That corpus had been sourced *under* geography and headcount filters, so their
+variance had already been destroyed by conditioning. The next pull removed them and returned **Ola at 29,658
+employees in India, Lazada 21,590 Singapore, PhonePe 19,151 India, Alipay China** — 9 of 14 qualified
+companies failing geography or headcount.
+
+**Amended check #11:**
+
+> Compute sole-cause rejections for each filter. **Then ask, for every filter showing near-zero sole-cause:
+> was this filter applied during the sourcing of this corpus?** If yes, the result is void — conditioning on a
+> variable destroys its variance, and near-zero sole-cause means *already enforced*, not *unimportant*. The
+> check is only valid for filters the corpus was NOT filtered by. To test a filter the corpus was built on,
+> you must draw a sample without it.
+
+Workstream 2 hit the identical trap from inside Model B — VOL, SCL and AGE all looked like noise and all three
+were sourcing gates. Their `lead-scoring` rule 6 carries both worked examples. **This skill needs the same
+rule, because this skill is where the check lives.**
+
+## 9. The enumerate/sample rule — a purchasing rule, not just a scoring one
+
+Refined by workstream 2 from a weaker version of mine. The operative property of a source is **whether it
+enumerates or samples.**
+
+| Origami call | Behaviour | Can establish presence | Can establish absence |
+|---|---|---|---|
+| `Enrich Tech Stack` | enumerates the detected stack | yes | **yes** — a populated list with X absent is sound |
+| Company Search | enumerates firmographics | yes | yes, when the field is populated |
+| Job Posting Search | **samples** whatever reqs exist | yes | **never** |
+| Web Research | samples | yes | never |
+
+**Prompt-authoring rule: if the deliverable is an absence, buy from an enumerating call. A sampling call can
+only ever establish presence.** No quantity of job adverts enumerates a database estate.
+
+Corollary for marks: **an absence from a sampling source is provisional, not absent.** Fourth member of the
+family, after blank-is-UNKNOWN, derived-columns-are-not-evidence, and a date column equal to the pull
+timestamp is UNKNOWN.
+
+## 10. New failure mode — adding a gate re-scores the old sample
+
+Asked to add two gates, Origami produced a "fresh gated table" that contained the **identical 30 companies**,
+byte-for-byte the same set, re-scored. Qualification fell 47% → 13%, which read as a collapse and was actually
+attrition on a sample drawn before the gates existed — 16 of its 30 rows in Asia, South America or Africa.
+
+**Prompt requirement: when adding or changing a gate, state explicitly "draw a NEW sample under all gates; do
+not re-use or re-score the previous table."** And an audit check: compare the company set against the previous
+pull before interpreting any rate change.
+
+## 11. Pool projections are not counts
+
+Three figures came out of one stale 30-row sample: **2,723 → 1,506 → 862**, each recomputed as gates were
+added, with Origami's own caveat that *"neither number should be treated as an exact TAM for campaign
+sizing."*
+
+**Rule: any projected pool figure must state its sample basis and the gates that sample was drawn under. A
+projection from a sample drawn under different gates is void.**
+
+## 12. Pre-flight question that would have saved most of a day
+
+Workstream 2's phrasing, and it is the best process finding of the day:
+
+> **Ask first what decision the number changes, and at what threshold it would change it.**
+
+C1's calibration window needs **143** accounts. Every configuration all day projected hundreds. The threshold
+was never in doubt; roughly ten hours went into refining a number whose decision had already been made. **Add
+this as the first question in the skill's trigger section, before any sizing or population pull.**
+
+## 13. The leaky role term now has a rate and a taxonomy
+
+"Platform Engineering" false-positives measured at **3 of 7** on pull P9. Three confirmed variants:
+
+1. **front-end / web platform** — Lighthouse, an Ember-to-React migration under "Lead Platform Engineer"
+2. **AI / ML platform** — Meilleurtaux "AI Platform Engineer – AZURE", Chrono24 "(Senior) AI Platform Engineer"
+   with **zero** infrastructure terms in the body
+3. **data / analytics platform** — Facile.it "Platform Engineer – DevEx & Cloud", 3 infra terms against 4
+   non-infra
+
+**All three belong in the template's exclusion list by name.** And the stronger fix: **require an
+infra-term-versus-non-infra-term count in the posting body for every row, and never judge the role from its
+title.** Workstream 2's own first pass judged 3 of 7 from titles and was wrong — the text check said 4 of 7
+clean. The title has been wrong every time it has been tested.
+
+## 14. Cost model, refined again
+
+**Origami's "credits per lead" is a derived figure that moves with your gate strictness, not with price.** It
+reported 3.2/lead on the ungated sample and 5.3/lead on the gated one — same cost, fewer qualified rows.
+
+**Rule: price a pull in credits per ROW retrieved. Credits per qualified lead is an output of the gates, not a
+property of the tool, and it will look worse every time you correctly tighten a filter.**
+
+Observed per-row rates: **1.2** (thin tech-stack Company Search, no enrichment) · **~1.5** (facts-first with
+description) · **~5.2** (trigger-first with per-company enrichment) · **~24 per qualified** (trigger-first with
+a fit verdict discarding most rows).
+
+**Also: HIR is now free at search time.** The gated pull populated `Infra/SRE Posting` on all 30 rows, having
+returned it blank on all 30 the pull before. A 15-point signal now attaches to every sourced account at zero
+marginal cost — so it comes out of the enrichment budget entirely.
+
+## 15. The canonical-text premise, and why it is load-bearing
+
+Workstream 2's one-grep check — *"is the posting text actually in the repo?"* — depends on there being exactly
+**one** file that holds posting text. It caught a real error twice today in opposite directions.
+
+When the cost-test CSV turned out to hold text for seven accounts, the fix was **not** to commit a second
+text-bearing file: that preserves the evidence and breaks the premise, so the next grep fails. Its 22 rows
+were merged into `0926-origami-job-postings.csv` (36 → 58, tagged `Pull = P9 cost-test`) with the raw file
+committed alongside for provenance.
+
+**Two rules:** posting text lives in exactly one canonical file, and *"is the text in the repo"* is a step in
+`sourcing-csv-audit`, not something someone remembers.

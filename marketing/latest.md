@@ -147,6 +147,54 @@ These are mid-migration: the destination is already in the building and the thin
 
 ---
 
+## 2026-09-03 (later 18) — gate declared after the pull; the asymmetry rule, sharpened
+
+**Workstream 1's sequencing amendment accepted, and it is the better call.** `EST●` is held by 6 accounts against 22 unmeasured and 9 single-source absences — **so the gate does not currently gate on estate pain, it gates on having been measured favourably once.** Declaring it today would write measurement luck into the model as policy. The 44-domain pull settles it: estate pain at 15 of 44 and the gate becomes a real qualifier; two more and it is a confirmed sampling artifact and the weight question reopens on evidence. **Same decision, one step later, against a measured population instead of a six-account accident.**
+
+### The general rule, with one sharpening
+
+Theirs: **evidence of presence and evidence of absence do not cost the same.** One estate-pain sentence establishes `EST●`; no amount of one posting establishes `EST○`. Positives cheap and sound, negatives expensive and weak — and a model scoring them symmetrically under-scores systematically.
+
+**Sharpening: "single-source" is a proxy. The operative property is whether the source *enumerates* or *samples*.** An enumerating source supports an absence; a sampling source does not.
+
+**MDB is the counter-example that proves it, and shows the system already got this right once.** `MDB○` rests on a detector that returned a populated list of primary databases with MongoDB absent from it — enumeration, so the absence is sound. The five `MDB?` are where the detector returned nothing, already marked unknown. **MDB's absence handling is correct. EST's is not, because a job advert samples an estate rather than enumerating one.**
+
+And the mirror is neat: for MDB the **positive** already carries its provenance (`MDB●` product-stack versus `MDB◑` slug, half credit); for EST the **absence** now needs to. **A mark should carry the quality of the source that produced it** — either side of the ledger.
+
+**Fourth member of the family:** blank is UNKNOWN not FAIL · a derived judgment column is never evidence · a date equal to the pull timestamp is UNKNOWN not data · **an absence from a sampling source is provisional, not absent.**
+
+### Sequence agreed
+
+1. **Run the EST pull** — `handoffs/0926-est-pull-prompt.md` against the 44. Nothing blocks it and it is what every remaining decision needs.
+2. **Then declare `EST● required for Tier 1`**, or reopen the weight if the pull shows the gate was an artifact.
+3. **Then `Enrich Tech Stack` on the 21** for MDB.
+
+Workstream 1 will log the asymmetry rule and the decision-threshold habit once the pull returns, so both go into `sourcing-csv-audit` with real numbers attached rather than as another pair of principles. **Their instinct to wait for the numbers is the same instinct as the amendment above, applied to their own work.**
+
+---
+
+## 2026-09-03 (later 17) — EST is a hidden Tier 1 gate; pool question closed
+
+**Workstream 1 cautioned that 25 points is heavy for a signal read from one job posting. The arithmetic is worse: `EST●` is a necessary condition for Tier 1.**
+
+Max reachable without EST is **MRG 20 + HIR 15 + MDB 15 = 50** against a Tier 1 cut of **56.25**. An account perfect on every other signal — margin trigger confirmed, live infra hiring, MongoDB present and direction-checked — **cannot leave Tier 2.** Both current Tier 1 members carry `EST●` because it is the only way in. **EST would have to drop to 15 points to break the gate**, demoting below HIR and MDB the signal `ICP.md` calls the core qualifier. **Breaking it is worse than owning it.**
+
+**Recommendation: declare the gate, fix the depth, leave the weight.**
+
+- **Declare it** — "Tier 1 requires `EST●`" as a stated rule rather than an emergent property of the arithmetic, which is a trap for the next reader of the tier table.
+- **New mark `EST⊗`** — measured absent, **single source, provisional** — distinct from `EST○`, measured absent across every posting a company has. Both score 0; `⊗` records that the measurement is one document deep. A company can carry a twenty-year estate and never mention it in one SRE req, and today that produces the same zero as a thorough search.
+- **Nine accounts currently hold a single-source absence** — FreedomPay, Lighthouse, and the seven cost-test accounts measured today — **all structurally capped at 50 of 75 on one requisition each.**
+
+**The pull is safe to run now and should not wait on this.** Workstream 1's prompt already returns one row per posting and demands a row for every domain including empty ones, so multi-source EST becomes measurable for the first time. Run it, then decide the weight against real data rather than ahead of it. Prompt committed at `handoffs/0926-est-pull-prompt.md` (`b5eb2b5`) with the leaky-term exclusions and the infra-versus-non-infra term counts this workstream's measurement argued for.
+
+### Open item 1 closed — stop measuring the pool
+
+Origami's answer: **all three figures (2,723 → 1,506 → 862) are projections off the same stale 30-row sample**, each recomputed from a draw whose 16 non-US/EU rows can never pass the gates, with its own caveat that neither should be treated as a TAM for campaign sizing. **The decision does not need the number.** C1's first calibration window needs **143**. The most pessimistic projection is **862** — wrong by four times over and still sufficient. The fresh gated draw is nice-to-know, not a blocker.
+
+**This question consumed most of 3 September and the answer was available from the ratio the whole time.** Worth remembering the next time a number is chased: ask first what decision it changes, and at what threshold it would change it.
+
+---
+
 ## 2026-09-03 (later 16) — the 7 measured free; leaky role term confirmed at 3 of 7; roster HIR clean
 
 **Workstream 1's fix beats the one proposed here.** They merged the cost-test posting text into `data/0926-origami-job-postings.csv` as `Pull = P9 cost-test` (36 → 58 rows, commit `37b10cf`) rather than committing a second text-bearing file. **Committing a second file preserves the evidence but breaks the premise that made the one-grep check work** — *the postings CSV is the only file holding posting text* — so the next person greps the canonical file, finds nothing, and buys a pull they did not need. Third time today that premise error would have fired. Their call, and it was right.
