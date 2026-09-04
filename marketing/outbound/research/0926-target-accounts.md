@@ -307,7 +307,9 @@ Three independent measurements disagreed by up to 12×, entirely on wording. Rec
 
 ### Frequency is not evidence — a metric built here inverted its own ranking
 
-A first attempt graded EST depth by *what share of a company's postings mention estate work.* It ranked **Vinted "thin" at 3%** — on the strength of *"Scaling database clusters (Vitess, MySQL) by introducing new sharding strategies,"* which is the single most specific estate sentence in the entire corpus — while grading a company "substantive" at 90% on *"our platform saw only 6 minutes of downtime."*
+A first attempt graded EST depth by *what share of a company's postings mention estate work.* It ranked **Vinted "thin" at 3%** while grading another company **"substantive" at 90%** on *"our platform saw only 6 minutes of downtime."*
+
+**Correction, 2026-09-04.** This passage used to cite Vinted as carrying *"Scaling database clusters (Vitess, MySQL) by introducing new sharding strategies."* **That sentence is in no data file** — only in this workstream's write-ups. The real corpus text is a **candidate requirement** (*"has managed database platforms at scale and understands the tradeoffs behind systems like Vitess, CockroachDB, Spanner..."*), and Vinted's `EST●` rested on a `[reliability/toil]` match on *"You avoid TOIL"*. The dated pull reads **`EST○` — absent across 67 requisitions**, and is correct. The conclusion holds; the example was a paraphrase presented as a quotation. See ADDENDUM 2 item 4 in the deltas file for the three real accounts that make the same point.
 
 **Rate measures how infrastructure-flavoured a hiring corpus is, not how strong the estate evidence is.** A large employer names its monolith in 3 of 67 adverts; a small one repeats a reliability line in 9 of 9. The repo's own rule — *the verbatim sentence, never the extracted count* — applies to metrics built here just as much as to columns arriving from the tool. Third time in two days the rule has caught its own author.
 

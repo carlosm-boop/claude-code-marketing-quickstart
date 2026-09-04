@@ -7,13 +7,33 @@ Delta cache for the WeKan marketing OS. Newest at top. Agents read this before d
 
 ---
 
+## 2026-09-04 (later 5) — workstream 1's 14 corrections applied; the precedence rule was backwards
+
+**All 14 rows of `data/0926-w1-master-corrections.csv` are in.** They did not edit the master CSV — correct discipline, and the corrections now load as **an input island with its own precedence tier**, so a rebuild reproduces them instead of a hand-edit burying them. Master is **116 rows**.
+
+**The finding that matters is about precedence, not data.** Workstream 1 caught **Alan** at `EST●` on a roster hand-read with an **empty `est_sentence`** and `est_retrieval` reading *"roster hand-read, pre-pull"* — and Alan was never in the 44-domain pull at all. They ran the pinned 9-term list against Alan's full P9 posting text, 24,714 characters dated 2026-09-02: **zero hits.** Alan is `EST○`, Tier 2 → Tier 3.
+
+**So the build had precedence backwards.** It preferred the roster over every measurement. The rule now, written into the script and the schema doc: **a measurement with a recorded retrieval path beats a roster hand-read that carries no sentence.** The roster is the narrative record of the reasoning; **it is not a retrieval path.** Order is now w1-corrections → dated 44-pull → roster-with-a-sentence → superseded undated pull → firmographics.
+
+**Seven cost-test accounts move from `UNSCORED` to measured `EST○ / HIR●`.** Workstream 1 ran the pinned list against committed P9 text for all 19 cost-test companies — 3.8k to 24.7k chars each — and got **zero hits across every one.** Mollie, Chrono24, Facile.it, Meilleurtaux, Origami Risk, OEC, Capital on Tap, all on postings within five days of the pull. **That is a downgrade in evidence and an upgrade in knowledge**: they were unmeasured, now they are measured-and-absent, and their ceilings rise from 35 to 55–75. This is the distinction `tier_confidence` was built to carry, arriving one build later as a live case.
+
+**Bondora is a row now, in a `REVIEW` bucket rather than given a tier.** Funding stage returned `Public`, ownership returned `private`, total funding blank — a contradiction between two columns, which is an unresolved **gate**, not a weak score. One web-research credit settles it. A tier number here would be a guess wearing a number's clothes.
+
+**Current state: T1 8 · T2 11 · T3 40 · REVIEW 1 · UNSCORED 56.** Evidence tiers A 14 · B 46 · C 56. Confidence `FIRM` 36 · `PROVISIONAL` 9 · `CANNOT REACH TIER 1` 14 · `UNSCOREABLE` 56 · `REVIEW` 1. **Tier 1 has not moved through any of this** — the eight are the roster's eight, and the 17 unsupported `MRG◐` marks remain the one thing that could take it to roughly 4.
+
+**Verification is at 11 checks and two have now earned their keep.** Check 8 (a posting-derived EST with no date window) found the recency-windowed file outside `data/`. Check 5 (score equals the sum of its marks) caught Bondora being scored before its marks were set — a build-order bug, not a data problem. Two new checks: every w1 correction landed on the row it names, and no corrected signal still reads `NOT RETRIEVED`.
+
+---
+
 ## 2026-09-04 (later 4) — the master account file exists; seven islands become one
 
 **`data/0926-master-accounts.csv`, 115 rows, built by `scripts/build-master-accounts.py`.** Schema and rules in `0926-master-accounts-schema.md`. The CSV is now the roster a sequence gets built from; `0926-target-accounts.md` stays the narrative record of why each mark is what it is. **The script is the only writer** — a correction goes into the source island and then into a rebuild, never into the CSV by hand.
 
 **Reconciliation is exact.** roster 31 (29 + Alan and FreedomPay shared with cost-test) · cost-test 9 (7 new) · consolidation 19 · c1-fresh-pull 56 · Vinted and ShiftKey, which had never landed in a file = **115**. Domain is the only join key. Zero duplicate domains, zero same-company-different-domain collisions. **Workstream 1's 9-vs-7 reconciliation confirmed independently by the build.**
 
-**Tier 1 is unchanged at 8** and is exactly the roster's eight, recomputed from the marks rather than copied. Tier 2 goes 9 → 15: six consolidation accounts (Cabify, Docplanner, Entrata, OfferUp, Teachers Pay Teachers, Vinted) reach it because the 44-domain pull gave them EST and HIR that the roster never scored. **Vinted lands at 40 carrying the corpus's most specific estate sentence** — the account the inverted depth metric graded "thin" at 3%.
+**Tier 1 is unchanged at 8** and is exactly the roster's eight, recomputed from the marks rather than copied. **Tier 2 goes 9 → 12**: three consolidation accounts (Docplanner, Entrata, OfferUp) reach it because the 44-domain pull gave them EST and HIR the roster never scored.
+
+**Built first against the undated pull, which over-credited.** Using `Claude outputs/0926-est-hir-results-44-dated.csv` instead — the recency-windowed version, found on disk outside `data/` — moved Tier 2 from 15 to 12 and evidence-tier A from 19 to 14. Cabify falls out on `EST⊘` (newest pain posting 2022-02-10), Teachers Pay Teachers on `EST⊗` (4 requisitions), **Vinted on `EST○` — absent across 67 requisitions.** The window is doing exactly the work it was added for, and open gap 1 is closed: the dated file was in the repo all along, in the wrong folder.
 
 **The column that matters most is `tier_confidence`, and it is new thinking, not a port.** Every row now carries `score_ceiling` — the maximum it can still reach given what has *actually been retrieved*. A score alone presents an **unmeasured** account as a **measured-and-weak** one. That is the UNKNOWN family at the level of the whole model rather than a single field, and it is the seventh instance. Distribution: `FIRM` 36 · `PROVISIONAL` 9 · `CANNOT REACH TIER 1` 7 · **`UNSCOREABLE` 63** — ceiling below the 37.5 Tier 2 line. Sixty-three of 115 accounts are not ranked low. They are not ranked.
 
@@ -255,7 +275,7 @@ They measured 16, this workstream 15. **The whole difference is the `cost optimi
 
 Workstream 1 catalogued it themselves: sole-cause on a corpus already conditioned on the filters under test · sole-cause used as a marginal statistic for a joint decision · estate pain read from boilerplate (`reliability` in 67% of postings) · estate pain read from four-year-old postings. **All four are computing on everything returned rather than on what is valid.**
 
-**The audit check: before computing any signal, state the retrieval path and the date range of the rows it rests on.** The retrieval-path half was already in `sourcing-csv-audit`; the date half is new. This workstream's own inverted depth metric — grading Vinted "thin" at 3% while it carried the corpus's single best estate sentence — is a fifth instance of the same family, so the check earns its place from both sides.
+**The audit check: before computing any signal, state the retrieval path and the date range of the rows it rests on.** The retrieval-path half was already in `sourcing-csv-audit`; the date half is new. This workstream's own inverted depth metric — grading Vinted "thin" at 3% on a frequency rate — is a fifth instance of the same family, so the check earns its place from both sides. (The "corpus's single best estate sentence" this line used to claim for Vinted was a paraphrase in no data file; corrected 2026-09-04.)
 
 ---
 
@@ -275,7 +295,9 @@ Workstream 1 catalogued it themselves: sole-cause on a corpus already conditione
 
 ### The finding worth keeping: frequency is not evidence, and the rule caught its author again
 
-A depth metric built here graded EST by *what share of a company's postings mention estate work.* It ranked **Vinted "thin" at 3%** — carrying *"Scaling database clusters (Vitess, MySQL) by introducing new sharding strategies,"* the most specific estate sentence in the corpus — and graded another company "substantive" at 90% on *"our platform saw only 6 minutes of downtime."* **Rate measures how infrastructure-flavoured a hiring corpus is, not how strong the evidence is.** Third time in two days the repo's own rule — the verbatim sentence, never the extracted count — has caught the person applying it.
+A depth metric built here graded EST by *what share of a company's postings mention estate work.* It ranked **Vinted "thin" at 3%** and another company **"substantive" at 90%** on *"our platform saw only 6 minutes of downtime."* **Rate measures how infrastructure-flavoured a hiring corpus is, not how strong the evidence is.** Third time in two days the repo's own rule — the verbatim sentence, never the extracted count — has caught the person applying it.
+
+**Corrected 2026-09-04: the Vitess/sharding quote this entry carried was a paraphrase presented as a quotation and is in no data file.** Vinted is `EST○`, absent across 67 requisitions. Full correction in the roster and in ADDENDUM 2 item 4.
 
 **Consequence: EST needs depth grading and does not have it.** Owner.com's `EST●` is a named MongoDB-to-Postgres migration in a senior req; several new Tier 1 entrants hold one keyword in a long corpus. Both score 25. MDB already grades positives by source; EST should too, on the specificity of the strongest sentence. Proposed, not applied — it is a human pass over 23 sentences, not a regex.
 

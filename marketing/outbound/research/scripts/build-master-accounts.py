@@ -36,7 +36,7 @@ print("roster parsed:", len(roster), file=sys.stderr)
 
 # ---- 2. EST/HIR pull + date windows
 est44 = {norm(r["Domain"]): r for r in rd(os.path.join(DATA,"0926-est-hir-results-44.csv"))}
-DATED = os.path.expanduser("~/mnt/claude-code-marketing-quickstart/Claude outputs/0926-est-hir-results-44-dated.csv")
+DATED = os.path.join(DATA,"0926-est-hir-results-44-dated.csv")
 est44d = {norm(r["Domain"]): r for r in rd(DATED)}
 def dated(d):
     """(iso date of the qualifying posting, sentence, pain_12m, pain_all, postings, reqs)"""
@@ -117,6 +117,39 @@ for ln in ct[:38]:
 for d,nm in (("vinted.com","Vinted"),("shiftkey.com","ShiftKey")):
     islands[d].add("c1-gated-CHAT-ONLY"); put(d, company=nm)
 print(f"fresh {len(fresh)} consol {len(consol)} costtest {len(costtest)} union {len(islands)}", file=sys.stderr)
+
+# ---- 5b. workstream 1's corrections: an input island, never a hand-edit of the CSV.
+# Precedence rule (added 2026-09-04, on w1's Alan finding): a MEASUREMENT with a recorded
+# retrieval path beats a roster HAND-READ that carries no sentence. The roster is the
+# narrative record; it is not a retrieval path.
+CORR, REVIEW = {}, {}
+_cp = os.path.join(DATA,"0926-w1-master-corrections.csv")
+if os.path.exists(_cp):
+    for r in rd(_cp):
+        d = norm(r["domain"])
+        if r["field"].strip() == "ROW MISSING":
+            REVIEW[d] = r; islands[d].add("w1-corrections-review")
+            put(d, company=r["company"])
+            continue
+        CORR[d] = r; islands[d].add("w1-corrections")
+    print(f"w1 corrections: {len(CORR)} overrides, {len(REVIEW)} review rows", file=sys.stderr)
+
+def apply_corr(d, o):
+    r = CORR.get(d)
+    if not r: return o
+    vals = [v.strip() for v in r["corrected_value"].split("/")]
+    path, win = r["retrieval_path"].strip(), r["window"].strip()
+    ev = r["evidence"].strip()
+    for v in vals:
+        for sig in ("EST","MRG","HIR","MDB"):
+            if v.startswith(sig):
+                k = sig.lower()
+                o[k+"_mark"] = v
+                o[k+"_retrieval"] = f"w1 correction 2026-09-04 - {path}"
+                if k+"_window" in o: o[k+"_window"] = win
+                if sig == "EST": o["est_sentence"] = ""   # measured absent: no sentence to carry
+    o["_corr_note"] = "W1 CORRECTION: " + ev
+    return o
 
 PE = ("PRIVATE_EQUITY","POST_IPO")
 def resolve(d):
@@ -213,13 +246,24 @@ for d in sorted(islands):
       "ownership_type":f.get("ownership",""), "latest_round":f.get("round",""),
       "total_funding":f.get("funding",""), "hq":f.get("hq",""), "industry":f.get("industry",""),
       "source_islands":";".join(sorted(islands[d]))}
-    row.update(resolve(d))
+    row.update(apply_corr(d, resolve(d)))
+    if d in REVIEW:
+        _p = f"w1 2026-09-04 - {REVIEW[d]['retrieval_path'].strip()}"
+        _w = REVIEW[d]["window"].strip()
+        row["est_mark"]="EST○"; row["est_retrieval"]=_p; row["est_window"]=_w; row["est_sentence"]=""
+        row["hir_mark"]="HIR●"; row["hir_retrieval"]=_p; row["hir_window"]=_w
+    if row.pop("_corr_note", None):
+        row["notes"] = (row["notes"] + " · " if row["notes"] else "") + CORR[d]["evidence"].strip()
     sc, tier, miss, ceil, conf = score_tier(row)
     row["score_75"] = sc
     row["score_ceiling"] = ceil
     row["tier"] = tier
     row["tier_confidence"] = conf
     row["unretrieved_signals"] = miss
+    if d in REVIEW:
+        row["tier"]="REVIEW"
+        row["tier_confidence"]=f"REVIEW BUCKET - an unresolved gate, not a score (ceiling {ceil:g})"
+        row["notes"]=REVIEW[d]["evidence"].strip()
     if row["est_mark"]=="EST●" and row["est_sentence"]:
         row["evidence_tier"]="A - named pain, sentence on file"
     elif row["est_retrieval"]!="NOT RETRIEVED":
