@@ -123,53 +123,208 @@ Workstream 1 asked whether EST's zeros are a measured absence or an unmeasured b
 
 **Tier 1 goes from 2 accounts to 10.** The gate was never gating on estate pain — it was gating on which nine accounts happened to have been measured. With 23 of 44 domains measured positive, it gates on the thing it names.
 
-## Tier 1 — score ≥56.25  (10 accounts)
+## Roster — EST measured, dated, and recency-windowed (4 September)
 
-Named-account ABM. Sized to C3's own cadence of 10–15 named accounts a week.
+**Tier 1 is 8 accounts.** The number moved three times in two days: 4 → 2 when unearned points came out, 2 → 10 when the estate signal was finally measured, 10 → 8 when a 12-month recency window was applied to that measurement. Every move was the same discipline.
 
-| Account | Score /75 | 03-09 | Gates | Trigger evidence | Cohort |
+**`EST⊘` — stale.** A new mark for pain language that exists but predates the window. Four roster accounts hold it: **Zuora** (newest estate posting 2022-05-24), **Back Market** (2022-02-21), **Netradyne** (2024-03-27), **Blockchain.com** (2024-08-24, zero inside the year against 43 requisitions). It scores zero like `○` and `⊗`, and the mark records *why* — a 2022 advert saying "we are modernizing our monolith" is as likely to mean they finished as that they are still in it. Same inversion as Owner.com migrating *off* MongoDB.
+
+## Roster — EST measured, dated, and hand-verified (4 September)
+
+**Tier 1 is 8 accounts.** The count moved four times in two days: 4 → 2 when unearned points came out · 2 → 10 when the estate signal was finally measured · 10 → 8 when a 12-month recency window was applied · and held at 8 through a hand-read of all 15 qualifying sentences. Every move was the same discipline.
+
+## Tier 1 — score ≥56.25  (8 accounts)
+
+Named-account ABM. Each holds estate language dated inside the last 12 months.
+
+| Account | Score /75 | prev | Gates | Trigger evidence | Cohort |
 |---|---|---|---|---|---|
 | **Sensor Tower** · `sensortower.com` | 75 | — | `VER◐ AGE? SCL◐ VOL? EST● MRG● HIR● ACC● MDB●` | **MongoDB present**; named estate pain in an open req; margin/sponsor trigger confirmed; live infra hiring; MongoDB confirmed — direction checked, neutral; `AGE?` Founded Year blank | B — sponsor mandate |
-| **Zuora** · `zuora.com` | 75 | 35 | `VER◐ AGE● SCL● VOL? EST● MRG● HIR● ACC● MDB●` | margin/sponsor trigger confirmed; **legacy relational co-present**; MongoDB confirmed — **direction unverified, no requisition on file** · **re-measured by the 04-09 pull** | C — re-score as M1 |
-| **Pushpay** · `pushpay.com` | 75 | 35 | `VER◐ AGE? SCL● VOL? EST● MRG● HIR● ACC● MDB●` | margin/sponsor trigger confirmed; **legacy relational co-present**; MongoDB confirmed — **direction unverified, no requisition on file**; `AGE?` Founded Year blank · **re-measured by the 04-09 pull** | B — sponsor mandate |
+| **Pushpay** · `pushpay.com` | 75 | — | `VER◐ AGE? SCL● VOL? EST● MRG● HIR● ACC● MDB●` | margin/sponsor trigger confirmed; **legacy relational co-present**; MongoDB confirmed — **direction unverified, no requisition on file**; `AGE?` Founded Year blank · **re-measured by the 04-09 pull** | B — sponsor mandate |
 | **Close** · `close.com` | 65 | — | `VER◐ AGE? SCL○ VOL? EST● MRG◐ HIR● ACC● MDB●` | **MongoDB present**; named estate pain in an open req; live infra hiring; MongoDB confirmed — direction checked, neutral; `AGE?` Founded Year blank | A — hiring trigger |
-| **ID.me** · `id.me` | 65 | 25 | `VER◐ AGE● SCL● VOL? EST● MRG◐ HIR● ACC✕ MDB●` | access obstacle flagged; **legacy relational co-present**; MongoDB confirmed — **direction unverified, no requisition on file** · **re-measured by the 04-09 pull** | D — watchlist, no trigger |
-| **ezCater** · `ezcater.com` | 65 | 25 | `VER● AGE● SCL● VOL? EST● MRG◐ HIR● ACC● MDB●` | firmographics only — no trigger; MongoDB confirmed — **direction unverified, no requisition on file** · **re-measured by the 04-09 pull** | D — watchlist, no trigger |
-| **Cover Genius** · `covergenius.com` | 65 | 25 | `VER● AGE● SCL● VOL? EST● MRG◐ HIR● ACC● MDB●` | firmographics only — no trigger; MongoDB confirmed — **direction unverified, no requisition on file** · **re-measured by the 04-09 pull** | D — watchlist, no trigger |
-| **Netradyne** · `netradyne.com` | 65 | 25 | `VER◐ AGE● SCL● VOL? EST● MRG◐ HIR● ACC● MDB●` | firmographics only — no trigger; **legacy relational co-present**; MongoDB confirmed — **direction unverified, no requisition on file** · **re-measured by the 04-09 pull** | D — watchlist, no trigger |
-| **Metropolis Technologies** · `metropolis.io` | 60 | 20 | `VER○ AGE● SCL● VOL? EST● MRG● HIR● ACC● MDB○` | partial estate signal; margin/sponsor trigger confirmed; **`EST?` — the `EST◐` mark was dropped 2026-09-03: 0 posting rows, blank `Database Technology Mentions`, source untraceable. 12.5 pts removed. In the 44-domain pull.** · **re-measured by the 04-09 pull** | B — post-acquisition integration |
-| **Cambridge Mobile Telematics** · `cmtelematics.com` | 60 | 20 | `VER● AGE? SCL● VOL? EST● MRG● HIR● ACC● MDB?` | margin/sponsor trigger confirmed; **MongoDB UNKNOWN — detector returned no primary database**; `AGE?` Founded Year blank · **re-measured by the 04-09 pull** | B — sponsor mandate |
+| **ID.me** · `id.me` | 65 | — | `VER◐ AGE● SCL● VOL? EST● MRG◐ HIR● ACC✕ MDB●` | access obstacle flagged; **legacy relational co-present**; MongoDB confirmed — **direction unverified, no requisition on file** · **re-measured by the 04-09 pull** | D — watchlist, no trigger |
+| **ezCater** · `ezcater.com` | 65 | — | `VER● AGE● SCL● VOL? EST● MRG◐ HIR● ACC● MDB●` | firmographics only — no trigger; MongoDB confirmed — **direction unverified, no requisition on file** · **re-measured by the 04-09 pull** | D — watchlist, no trigger |
+| **Cover Genius** · `covergenius.com` | 65 | — | `VER● AGE● SCL● VOL? EST● MRG◐ HIR● ACC● MDB●` | firmographics only — no trigger; MongoDB confirmed — **direction unverified, no requisition on file** · **re-measured by the 04-09 pull** | D — watchlist, no trigger |
+| **Metropolis Technologies** · `metropolis.io` | 60 | — | `VER○ AGE● SCL● VOL? EST● MRG● HIR● ACC● MDB○` | partial estate signal; margin/sponsor trigger confirmed; **`EST?` — the `EST◐` mark was dropped 2026-09-03: 0 posting rows, blank `Database Technology Mentions`, source untraceable. 12.5 pts removed. In the 44-domain pull.** · **re-measured by the 04-09 pull** | B — post-acquisition integration |
+| **Cambridge Mobile Telematics** · `cmtelematics.com` | 60 | — | `VER● AGE? SCL● VOL? EST● MRG● HIR● ACC● MDB?` | margin/sponsor trigger confirmed; **MongoDB UNKNOWN — detector returned no primary database**; `AGE?` Founded Year blank · **re-measured by the 04-09 pull** | B — sponsor mandate |
 
-## Tier 2 — score 37.5–56.24  (10 accounts)
+## Tier 2 — score 37.5–56.24  (9 accounts)
 
-| Account | Score /75 | 03-09 | Gates | Trigger evidence | Cohort |
+| Account | Score /75 | prev | Gates | Trigger evidence | Cohort |
 |---|---|---|---|---|---|
+| **Zuora** · `zuora.com` | 50 | — | `VER◐ AGE● SCL● VOL? EST⊘ MRG● HIR● ACC● MDB●` | margin/sponsor trigger confirmed; **legacy relational co-present**; MongoDB confirmed — **direction unverified, no requisition on file** · **`EST⊘` stale — estate language exists but predates the 12-month window** | C — re-score as M1 |
 | **Owner.com** · `owner.com` | 50 | — | `VER● AGE● SCL● VOL? EST● MRG◐ HIR● ACC● MDB⊘` | **MongoDB present**; named estate pain in an open req; live infra hiring; **`MDB⊘` — migration *away* from MongoDB named in its own requisition, co-sell weight zeroed (rule 5)** | A — hiring trigger |
 | **Signifyd** · `signifyd.com` | 50 | — | `VER● AGE● SCL● VOL? EST● MRG◐ HIR● ACC✕ MDB○` | named estate pain in an open req; live infra hiring; access obstacle flagged | A — hiring trigger |
-| **Carta** · `carta.com` | 50 | 35 | `VER● AGE● SCL● VOL? EST○ MRG● HIR● ACC● MDB●` | margin/sponsor trigger confirmed; MongoDB confirmed — **direction unverified, no requisition on file** · **re-measured by the 04-09 pull** | E — efficiency reset |
-| **Zeta** · `zeta.tech` | 50 | 25 | `VER● AGE● SCL● VOL? EST● MRG◐ HIR○ ACC● MDB●` | firmographics only — no trigger; **legacy relational co-present**; MongoDB confirmed — **direction unverified, no requisition on file** · **re-measured by the 04-09 pull** | D — watchlist, no trigger |
-| **Housecall Pro** · `housecallpro.com` | 50 | 10 | `VER● AGE● SCL● VOL? EST● MRG◐ HIR● ACC● MDB○` | firmographics only — no trigger · **re-measured by the 04-09 pull** | D — watchlist, no trigger |
-| **Back Market** · `backmarket.com` | 50 | 10 | `VER● AGE● SCL● VOL? EST● MRG◐ HIR● ACC● MDB○` | firmographics only — no trigger · **re-measured by the 04-09 pull** | D — watchlist, no trigger |
-| **Blockchain.com** · `blockchain.com` | 50 | 10 | `VER● AGE● SCL● VOL? EST● MRG◐ HIR● ACC◐ MDB○` | firmographics only — no trigger · **re-measured by the 04-09 pull** | D — watchlist, no trigger |
-| **Wallapop** · `wallapop.com` | 50 | 10 | `VER● AGE? SCL● VOL? EST● MRG◐ HIR● ACC● MDB○` | firmographics only — no trigger; `AGE?` Founded Year blank · **re-measured by the 04-09 pull** | D — watchlist, no trigger |
+| **Carta** · `carta.com` | 50 | — | `VER● AGE● SCL● VOL? EST○ MRG● HIR● ACC● MDB●` | margin/sponsor trigger confirmed; MongoDB confirmed — **direction unverified, no requisition on file** · **re-measured by the 04-09 pull** | E — efficiency reset |
+| **Housecall Pro** · `housecallpro.com` | 50 | — | `VER● AGE● SCL● VOL? EST● MRG◐ HIR● ACC● MDB○` | firmographics only — no trigger · **re-measured by the 04-09 pull** | D — watchlist, no trigger |
+| **Wallapop** · `wallapop.com` | 50 | — | `VER● AGE? SCL● VOL? EST● MRG◐ HIR● ACC● MDB○` | firmographics only — no trigger; `AGE?` Founded Year blank · **re-measured by the 04-09 pull** | D — watchlist, no trigger |
+| **Netradyne** · `netradyne.com` | 40 | — | `VER◐ AGE● SCL● VOL? EST⊘ MRG◐ HIR● ACC● MDB●` | firmographics only — no trigger; **legacy relational co-present**; MongoDB confirmed — **direction unverified, no requisition on file** · **`EST⊘` stale — estate language exists but predates the 12-month window** | D — watchlist, no trigger |
 | **Alan** · `alan.com` | 40 | — | `VER● AGE● SCL● VOL? EST● MRG○ HIR● ACC◐ MDB○` | named estate pain in an open req; live infra hiring | A — hiring trigger |
 | **NexHealth** · `nexhealth.com` | 37.5 | — | `VER◐ AGE? SCL✕ VOL? EST◐ MRG◐ HIR● ACC● MDB○` | partial estate signal; live infra hiring; `AGE?` Founded Year blank | A — hiring trigger |
 
-## Tier 3 — score <37.5  (11 accounts)
+## Tier 3 — score <37.5  (14 accounts)
 
-| Account | Score /75 | 03-09 | Gates | Trigger evidence | Cohort |
+| Account | Score /75 | prev | Gates | Trigger evidence | Cohort |
 |---|---|---|---|---|---|
-| **Civitatis** · `civitatis.com` | 35 | 20 | `VER● AGE? SCL● VOL? EST○ MRG● HIR● ACC● MDB○` | margin/sponsor trigger confirmed; `AGE?` Founded Year blank · **re-measured by the 04-09 pull** | B — sponsor mandate |
+| **Civitatis** · `civitatis.com` | 35 | — | `VER● AGE? SCL● VOL? EST○ MRG● HIR● ACC● MDB○` | margin/sponsor trigger confirmed; `AGE?` Founded Year blank · **re-measured by the 04-09 pull** | B — sponsor mandate |
 | **iCapital** · `icapital.com` | 27.5 | — | `VER● AGE● SCL● VOL? EST○ MRG● HIR○ ACC◐ MDB◑` | margin/sponsor trigger confirmed; **legacy relational co-present**; *job-posting evidence only*; **`MDB◑` — MongoDB appears only as one slug in a 317-entry job-advert aggregate; the product-stack detector returned nothing. Half credit, and direction is unknowable from this source** · **re-measured by the 04-09 pull** | C — re-score as M1 |
 | **FreedomPay** · `freedompay.com` | 27.5 | — | `VER● AGE● SCL◐ VOL? EST○ MRG● HIR◐ ACC◐ MDB?` | margin/sponsor trigger confirmed; **MongoDB UNKNOWN — detector returned no primary database** | B — sponsor mandate |
 | **Workrise (now RigUp)** · `workrise.com` | 27.5 | — | `VER◐ AGE? SCL● VOL? EST○ MRG● HIR○ ACC● MDB◑` | margin/sponsor trigger confirmed; *job-posting evidence only*; `AGE?` Founded Year blank; **`MDB◑` — MongoDB appears only as one slug in a 314-entry job-advert aggregate; the product-stack detector returned nothing. Half credit, and direction is unknowable from this source** · **re-measured by the 04-09 pull** | E — efficiency mandate |
-| **Fleetio** · `fleetio.com` | 25 | 10 | `VER◐ AGE? SCL● VOL? EST○ MRG◐ HIR● ACC● MDB○` | firmographics only — no trigger; `AGE?` Founded Year blank · **re-measured by the 04-09 pull** | D — watchlist, no trigger |
+| **Zeta** · `zeta.tech` | 25 | 50 | `VER● AGE● SCL● VOL? EST○ MRG◐ HIR○ ACC● MDB●` | firmographics only — no trigger; **legacy relational co-present**; MongoDB confirmed — **direction unverified, no requisition on file** · **`EST○` — the sole match was *"entrepreneurial legacy & excellence"*: heritage, not a legacy system. Spurious, dropped 2026-09-04** | D — watchlist, no trigger |
+| **Back Market** · `backmarket.com` | 25 | — | `VER● AGE● SCL● VOL? EST⊘ MRG◐ HIR● ACC● MDB○` | firmographics only — no trigger · **`EST⊘` stale — estate language exists but predates the 12-month window** | D — watchlist, no trigger |
+| **Blockchain.com** · `blockchain.com` | 25 | — | `VER● AGE● SCL● VOL? EST⊘ MRG◐ HIR● ACC◐ MDB○` | firmographics only — no trigger · **`EST⊘` stale — estate language exists but predates the 12-month window** | D — watchlist, no trigger |
+| **Fleetio** · `fleetio.com` | 25 | — | `VER◐ AGE? SCL● VOL? EST○ MRG◐ HIR● ACC● MDB○` | firmographics only — no trigger; `AGE?` Founded Year blank · **re-measured by the 04-09 pull** | D — watchlist, no trigger |
 | **Zūm** · `ridezum.com` | 20 | — | `VER◐ AGE● SCL● VOL? EST? MRG● HIR? ACC● MDB○` | margin/sponsor trigger confirmed · **re-measured by the 04-09 pull** | B — sponsor mandate |
 | **Weee!** · `sayweee.com` | 10 | — | `VER● AGE● SCL● VOL? EST? MRG◐ HIR? ACC● MDB○` | firmographics only — no trigger · **re-measured by the 04-09 pull** | D — watchlist, no trigger |
 | **Engine (formerly Hotel Engine)** · `hotelengine.com` | 10 | — | `VER● AGE? SCL● VOL? EST○ MRG◐ HIR○ ACC● MDB○` | firmographics only — no trigger; `AGE?` Founded Year blank · **re-measured by the 04-09 pull** | D — watchlist, no trigger |
 | **Sure** · `sureapp.com` | 10 | — | `VER● AGE? SCL● VOL? EST? MRG◐ HIR? ACC● MDB?` | firmographics only — no trigger; **MongoDB UNKNOWN — detector returned no primary database**; `AGE?` Founded Year blank · **re-measured by the 04-09 pull** | D — watchlist, no trigger |
 | **Lighthouse** · `mylighthouse.com` | 0 | — | `VER● AGE● SCL● VOL? EST○ MRG○ HIR○ ACC● MDB?` | firmographics only — no trigger; **MongoDB UNKNOWN — detector returned no primary database** | D — watchlist, no trigger |
 | **FarEye** · `fareye.com` | 0 | — | `VER● AGE● SCL● VOL? EST○ MRG○ HIR○ ACC◐ MDB?` | firmographics only — no trigger; **MongoDB UNKNOWN — detector returned no primary database** · **re-measured by the 04-09 pull** | D — watchlist, no trigger |
+
+## Hand-read of the 15 sentences — one spurious, and a distinction nobody had named
+
+Workstream 1 read the qualifying sentences and found what no regex catches. **Zeta's sole match was *"founded in 2015 by two visionary leaders … whose entrepreneurial legacy & excellence has put us on top of the global fintech."* `legacy` as heritage, not a legacy system.** Dropped — Zeta 50 → 25, Tier 2 → Tier 3. Their three "thin" calls also hold: ShiftKey's is an AWS region move, EIS Group's is generic Azure CloudOps, Wallapop's is mobile-app modularisation.
+
+### The distinction: evidence about the *candidate* is not evidence about the *company*
+
+Reading all 15 surfaces a category the term list cannot separate. **"Experience managing technical transitions such as monolith-to-microservices" describes the person being hired. "Our .NET Framework 4.8 monolith processing billions in giving" describes the estate.** Only the second is EST evidence. The regex matches both identically.
+
+Graded on that test:
+
+**Company's own estate, quotable** — Pushpay *".NET Framework 4.8 monolith processing billions in giving"* · Housecall Pro *"our transition from a monolithic Ruby on Rails application toward a modern, distributed, event-driven, domain-oriented architecture"* · ezCater *"we're actively replatforming search"* · Metropolis *"driving infrastructure modernization and legacy system integrations"* · Docplanner *"help modernize our architecture"* · OfferUp *"lead platform migrations end-to-end"* · RELEX *"in 2026, this includes … gradually migrating existing deployments into the new structure"*.
+
+**Candidate requirement, not company estate — and two are in Tier 1.** **Cambridge Mobile Telematics** (60, Tier 1): *"Experience managing technical transitions such as monolith-to-microservices, cloud migration, or major data store rearchitecture"* — a hiring specification. **Cover Genius** (65, Tier 1): its single dated sentence is *"Assist application teams to optimize queries, migrations and perform other datastore performance tuning"* — a duties list. **This qualifies workstream 1's reassurance that Tier 1 survived the hand-read untouched: six of the eight do, two rest on job-requirement language rather than a stated estate fact.** Neither is disqualifying on its own, and both hold real `MRG` and `HIR` evidence — but the first email to either cannot open on an estate claim the posting does not actually make.
+
+## Depth grading — dropped, and the mandatory sentence replaces it
+
+This workstream proposed grading EST by depth so a named migration would outrank a keyword hit. **Withdrawn. Workstream 1's counter-argument is better on all three counts**, and the third is decisive: **a human already reads this evidence at the right moment.** C3 requires a human-approved first touch per account, and the difference between Owner.com's named MongoDB-to-Postgres migration and a bare keyword match matters in *what the first email says* — not in a score. Grading it turns a solved workflow problem into an unsolvable scoring one. Their other two: a gate is a threshold test and must stay binary, and a hand-assigned depth grade is a **derived judgment**, the exact class this trial spent two days learning never to encode.
+
+**Adopted instead: the quoted, dated sentence is a mandatory field on every `EST●`.**
+
+**And the field is not only documentation — it is the detection mechanism for exactly the error above.** Zeta's heritage match and CMT's hiring-specification match are invisible behind a `●` and obvious the moment the sentence sits next to it. Had the field been mandatory from the start, both would have been caught on sight rather than by a hand-read three days later. It is the cheapest guard the roster has: it costs one column and it makes every false positive self-announcing.
+
+## MRG provenance audit — run 4 September. 59% of its points trace to nothing, and workstream 1 was right.
+
+**Correction to the section below, which was written yesterday and is wrong on its central claim.** It reported MRG prevalence at 35% and concluded the conditioning law did not apply. **That measured `MRG●` only. Counting any MRG credit, 28 of 31 accounts carry it — 90% prevalence.** That is the near-constant signature. **Workstream 1's conditioning hypothesis was correct; this workstream measured the wrong denominator**, which is the same error as the inverted depth metric two sections up.
+
+### What the 28 marks rest on
+
+| Provenance | Accounts | Points |
+|---|---|---|
+| A PE or sponsor fact in the committed CSV | 8 | 160 |
+| The cohort assignment only, no recorded fact | 3 | 60 |
+| **No traceable evidence of any kind** | **17** | **170** |
+| | **28** | **390** |
+
+**230 of 390 MRG points — 59% — rest on something other than a recorded fact.**
+
+**And the 17 with nothing are all `MRG◐` at 10 points, every one of them a Series C, D, E or G company.** The mark was awarded for being late-stage VC-backed. **But "Series C+ or $100M+ or PE-owned" was a *sourcing gate* — every account on the roster passed it by construction.** So `MRG◐` is the capital gate re-scored under a different name, which is precisely the VOL / SCL / AGE pattern: **a filter applied upstream, paid for a second time downstream.** Sixth instance of the family.
+
+The 8 with real provenance are genuine: `private_equity` or `PRIVATE_EQUITY_ROUND` or `POST_IPO_EQUITY` in the source data — Sensor Tower, Pushpay, Cambridge Mobile Telematics, Zuora, Civitatis, iCapital, FreedomPay, Zūm. A take-private or a sponsor round is a real margin-scrutiny event.
+
+### The decision this forces, and its size
+
+**Zeroing the 17 unsupported `MRG◐` marks would take Tier 1 from 8 accounts to roughly 4** — Close, ID.me, ezCater and Cover Genius all fall to 55 and out of Tier 1, and Owner.com, Signifyd, Housecall Pro and Wallapop each lose 10. **That is the second-largest tier movement of the trial and it is unresolved.** It is not applied here, because unlike the earlier corrections it is not a defect with one right answer: a late-stage VC company under board efficiency pressure genuinely *is* an M2 margin target, and `ICP.md` lists *"efficiency mandate after a funding round, layoff or profitability pivot"* as a trigger. What is missing is not the concept but the evidence that any specific account has it.
+
+**So the fix is retrieval, not arithmetic, and it belongs to workstream 1:** for the 17, is there an actual margin event on record — an earnings-call commitment, an announced layoff, a stated profitability pivot, a public retrenchment? That is a real sourcing question. Until it is answered, `MRG◐` on those 17 should be read as **`MRG?`** — unknown, not partial — and the roster's Tier 1 count treated as an upper bound.
+
+**Note the shape of this one, because it is the first of its kind in the trial:** every earlier defect was a blank scored as a value. This is a *sourcing gate scored as a trigger* — a real fact, correctly recorded, counted in the wrong column. Rule 6 catches it only if someone thinks to ask whether the signal was a gate. It is the argument for making that question mandatory rather than advisory.
+
+## MRG — the sole-cause reading, from 3 September (superseded above on prevalence)
+
+Workstream 1 flagged MRG as the next candidate for retirement: 20 points, 2 sole-cause tier changes, the profile VOL, SCL and AGE had. **Checked, and it is a different problem with a different fix.**
+
+**Their conditioning hypothesis does not hold.** PE-ownership is both a capital gate and the sponsor-mandate trigger, so there is partial overlap — but MRG sits at **35% prevalence**, nowhere near the near-constant signature that killed the other three. VOL had *zero* variance; SCL was identical on 28 of 32; AGE's entire spread was missing data. MRG has real variance.
+
+**What the 2 tier changes actually mean.** Renormalising the thresholds when a signal is deleted measures whether it changes the *ordering*. MRG barely does, because it is broadly distributed across the accounts that already rank highly — **72% overlap with HIR, 45% with EST**. But with thresholds held fixed, deleting MRG moves **12 accounts, including all 8 in Tier 1.** It is not idle; it is collinear.
+
+| Signal | Weight | Prevalence | Sole-cause changes | Reading |
+|---|---|---|---|---|
+| EST | 25 | 42% | 14 | Independent and decisive |
+| MDB | 15 | 32% | 6 | Independent, punches above its weight |
+| HIR | 15 | 68% | 3 | Broad; overlaps MRG at 72% |
+| MRG | 20 | 35% | 2 | **Collinear with HIR, not absent** |
+
+**So the sole-cause test answers "does this change the ranking", never "is this doing work."** A collinear signal scores low on it while carrying points every top account depends on. Worth adding to `lead-scoring` rule 6 as the test's stated limit — it is the same shape as the rule itself, one level in.
+
+**The real open question on MRG is provenance, not weight.** Twenty-eight accounts carry `MRG●` or `MRG◐` and the recorded evidence for most is the phrase *"margin/sponsor trigger confirmed."* That is the same unrecorded provenance flagged against Sensor Tower on 3 September and never resolved. **Before re-weighting MRG, establish what those 28 marks rest on** — it is a 20-point signal whose evidence has never been audited, and the trial's entire yield says that is where the next defect will be.
+
+## The recency rule — a window must match the half-life of the claim
+
+Workstream 1's finding, 4 September, and it is the most transferable rule the trial has produced.
+
+**A recency window must match the half-life of the claim the signal makes.**
+
+| Signal | What it claims | Window |
+|---|---|---|
+| `HIR` | hiring **now** | 90 days |
+| `EST` | **current** architecture | 12 months |
+| `MDB` | **current** stack | 12 months |
+| `AGE` | a historical fact | none |
+
+**Different signals take different windows from the same pull.** One window was inherited across a whole model, which is how a 2022 job advert ended up qualifying an account in 2026.
+
+**Why 12 months and not 24 or 90.** At 24 months the only account added is Blockchain.com, whose newest estate posting is August 2024 with zero inside the year against 43 requisitions — precisely the case the window exists to catch. At 90 days it drops Zeta, ShiftKey and ESW, all recent enough that the architecture cannot plausibly have changed.
+
+**Effect: EST● falls from 22 to 15 across the 44 domains, and Tier 1 from 10 to 8.** Four roster accounts move to the new `EST⊘` mark.
+
+### Our two counts differed by one account, and the one account was a Tier 1 seat
+
+Workstream 1 measured 16, this workstream 15. **The entire difference is the `cost optimisation` term**, and it decides **Zuora** — which sat at 75 in Tier 1.
+
+With the term in, Zuora has 6 recent qualifying postings on lines like *"drive initiatives for cost optimization, performance tuning, and system hardening."* With it out, Zuora has **zero** inside the window and its newest genuine estate language is from **May 2022**.
+
+**The term stays out, and the reason settles it independently of taste: Zuora already holds `MRG●` at 20 points for exactly this evidence.** ICP-M2 separates the two explicitly — the estate marker is *"MVP-era core: MSSQL/MySQL/Postgres monolith from the founding era now throttling releases"*; the margin trigger is *"infra spend growing faster than revenue, cloud bill a standing board topic."* Cloud FinOps is the second one. Counting it in EST as well pays 45 points for one piece of evidence, which is the double-count the four-signal rebuild exists to prevent. Same for Zinnia and Entrata, the other two domains the term would have added.
+
+## The EST pull — audit, and the term list pinned
+
+**Delivered 4 September: 958 rows, 949 postings, 44 of 44 domains returned, 9 with an explicit no-posting row.** Every audit claim from workstream 1 was independently reproduced here.
+
+| Check | Result |
+|---|---|
+| Date field | **Fixed — first time in the trial.** 545 distinct dates spanning 2019-11-07 to 2026-09-03. The retrieval-date defect is absent. |
+| Requisition duplication | **27.4%** — 949 rows, 689 distinct requisitions. Confirms the single Alan case was not an outlier. |
+| Role filter | **2.7% leaky**, down from 43%. The AI-platform and data-platform exclusions worked. |
+| MongoDB, free second source | Named in posting text on 6 domains — Workrise, ESW, Cover Genius, Docplanner, Housecall Pro, Zinnia. |
+
+### The pull returned four years of history, not live openings — and HIR had to change
+
+**Only 111 of 949 postings fall inside 90 days.** "Has posted an infrastructure role" and "is hiring one now" are different facts, and ICP-M2 defines the trigger as *live* hiring, posted ≤90 days.
+
+**19 domains have live infra hiring · 16 have history but nothing current · 9 have none.** Scoring HIR on any retrieved posting would have credited 16 accounts with 15 points they have not earned — iCapital, Workrise, Zeta, Engine and FarEye among them. **HIR is now computed from recent postings only.** EST is unaffected: architecture described in 2024 is still evidence about the estate.
+
+### The definition of "named estate pain", pinned as an exact term list
+
+Three independent measurements disagreed by up to 12×, entirely on wording. Reconciled by measuring prevalence of every candidate term across all 949 postings and discarding anything that cannot discriminate:
+
+**Discarded as boilerplate** — `reliability` 67% of postings · `observability` 38% · `on-call` 31% · `incident` 23%. A term present in two-thirds of a corpus is standard SRE vocabulary, not a company describing its estate. Same rule that retired the headcount rejection rate.
+
+**Discarded as belonging to another signal** — `cost optimisation`. It is the **margin** trigger, not the estate signal. Leaving it in had EST double-counting MRG, which is the redundancy the sole-cause work exists to remove. Costs two domains.
+
+**The pinned list, nine terms:** `migrat*` · `monolith*` · `legacy` · `technical debt` / `tech debt` · `re-architect*` · `replatform*` / `re-platform*` · `moderni[sz]*` · `decompos*` · `shard*`
+
+**Result: EST● on 23 of 44 domains.** Once the term lists were aligned the three measurements landed at 22, 23 and 25 — within two domains. **Workstream 1's structural argument settled the design question and it was right: requiring a named database inside EST collapses EST into MDB**, which already carries 15 points on its own detection path.
+
+### Frequency is not evidence — a metric built here inverted its own ranking
+
+A first attempt graded EST depth by *what share of a company's postings mention estate work.* It ranked **Vinted "thin" at 3%** — on the strength of *"Scaling database clusters (Vitess, MySQL) by introducing new sharding strategies,"* which is the single most specific estate sentence in the entire corpus — while grading a company "substantive" at 90% on *"our platform saw only 6 minutes of downtime."*
+
+**Rate measures how infrastructure-flavoured a hiring corpus is, not how strong the estate evidence is.** A large employer names its monolith in 3 of 67 adverts; a small one repeats a reliability line in 9 of 9. The repo's own rule — *the verbatim sentence, never the extracted count* — applies to metrics built here just as much as to columns arriving from the tool. Third time in two days the rule has caught its own author.
+
+**Consequence: EST carries no depth grading, and it should.** Owner.com's `EST●` is a named MongoDB-to-Postgres migration in a senior requisition read by a human. Several new Tier 1 entrants hold a single keyword match in a long corpus. **Both score 25.** MDB already grades its positives by source (`MDB●` product-stack versus `MDB◑` job-advert slug); EST needs the same treatment, graded on the specificity of the strongest sentence rather than the frequency of any. **Proposed, not applied** — it needs a human pass over 23 sentences, which is cheap but is not a regex.
+
+### Sole-cause test re-run on the measured roster
+
+Workstream 1's caveat was that if Tier 1 landed above ~8 the weight should be revisited. It landed at 10. **The test says the weight is not the problem.**
+
+| Signal | Weight | Prevalence of `●` | Sole-cause tier changes |
+|---|---|---|---|
+| **EST** | 25 | 58% | **9** — still the strongest discriminator on the roster |
+| MDB | 15 | 32% | 7 |
+| HIR | 15 | 68% | 3 |
+| **MRG** | 20 | 35% | **2** |
+
+**EST survives its own test.** The weaker signal is now **MRG at 20 points for 2 tier changes** — the next candidate for the treatment VOL, SCL and AGE received, and the thing to watch as the 28 pending accounts are gated.
 
 ### Cohort still overrides tier for sequencing
 

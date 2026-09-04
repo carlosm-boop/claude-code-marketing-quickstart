@@ -7,6 +7,28 @@ Delta cache for the WeKan marketing OS. Newest at top. Agents read this before d
 
 ---
 
+## 2026-09-04 (later 4) — the master account file exists; seven islands become one
+
+**`data/0926-master-accounts.csv`, 115 rows, built by `scripts/build-master-accounts.py`.** Schema and rules in `0926-master-accounts-schema.md`. The CSV is now the roster a sequence gets built from; `0926-target-accounts.md` stays the narrative record of why each mark is what it is. **The script is the only writer** — a correction goes into the source island and then into a rebuild, never into the CSV by hand.
+
+**Reconciliation is exact.** roster 31 (29 + Alan and FreedomPay shared with cost-test) · cost-test 9 (7 new) · consolidation 19 · c1-fresh-pull 56 · Vinted and ShiftKey, which had never landed in a file = **115**. Domain is the only join key. Zero duplicate domains, zero same-company-different-domain collisions. **Workstream 1's 9-vs-7 reconciliation confirmed independently by the build.**
+
+**Tier 1 is unchanged at 8** and is exactly the roster's eight, recomputed from the marks rather than copied. Tier 2 goes 9 → 15: six consolidation accounts (Cabify, Docplanner, Entrata, OfferUp, Teachers Pay Teachers, Vinted) reach it because the 44-domain pull gave them EST and HIR that the roster never scored. **Vinted lands at 40 carrying the corpus's most specific estate sentence** — the account the inverted depth metric graded "thin" at 3%.
+
+**The column that matters most is `tier_confidence`, and it is new thinking, not a port.** Every row now carries `score_ceiling` — the maximum it can still reach given what has *actually been retrieved*. A score alone presents an **unmeasured** account as a **measured-and-weak** one. That is the UNKNOWN family at the level of the whole model rather than a single field, and it is the seventh instance. Distribution: `FIRM` 36 · `PROVISIONAL` 9 · `CANNOT REACH TIER 1` 7 · **`UNSCOREABLE` 63** — ceiling below the 37.5 Tier 2 line. Sixty-three of 115 accounts are not ranked low. They are not ranked.
+
+**`evidence_tier` is separated from account tier, deliberately.** A 19 · B 33 · C 63. Evidence tier says what an email may *claim*; account tier says how much attention the account *earns*. Different questions, different columns. Collapsing them is how a category-line account gets a named-pain email.
+
+**MRG's provenance is settled: firmographic, not posting-derived.** `Ownership Type` / `Latest Round`, per `mrg_retrieval` on every row. So the 35-point ceiling for a no-posting account does not collapse to 15 the way workstream 1 guessed. But it is still optimistic for two other reasons: **MDB is unmeasured across the entire fresh pull** (`MDB?`, 15 points not in hand), and **MRG 20 needs a real margin event, not a funding stage.** Measured on the 56 keeps: **10 carry a `PRIVATE_EQUITY_ROUND` fact; of the 50 with no live posting, 9 do.** So today's real ceiling for those 50 is **20 for nine of them and 0 for the other 41** — not 35, not 15.
+
+**Eight verification checks run on every build** and all pass. One found a real gap, recorded rather than papered over: **the 949-row EST/HIR corpus was never committed** — only its per-domain aggregate. So 44 rows cannot show the dates behind their EST and HIR marks, **including the recency window that moved Tier 1 from 10 to 8.** That window is currently unverifiable from the repo. Only 8 rows have real date ranges, from the 58-row committed corpus. Requested from workstream 1.
+
+**Open gaps recorded in the schema doc:** the 949-row corpus · the 17 unsupported `MRG◐` · the 10-domain probe results not yet rows (Turno among them) · `Latest Round` blank on 13 of 56 fresh-pull rows, the **fourth** unpopulated-column instance after `Ownership Type`, `Company Screen` and `Matching Posting Count` · Bondora pending as a 10th cost-test account.
+
+**Disagreement with workstream 1 on one mark.** They asked for the probe's 4 zeros to be `EST⊗`. Per this repo's own legend `⊗` means *measured absent, single source, provisional* — searched one document, did not find it. An account with **nothing inside the window was never measured**: that is `EST?` if it has no postings at all, or `EST⊘` if postings exist but predate the window. All three score zero, so no tier moves — but the mark is the audit trail, and item 6 of the deltas file is the argument for getting it right.
+
+---
+
 ## 2026-09-03 (later 8) — the retraction landed; both skills at v1.2
 
 **Item 8 of the workstream-3 handover is a correction, and it was live in the skills.** Workstream 2 flagged three passages teaching the retracted sole-cause conclusion. There was a **fourth neither workstream flagged**: `origami-sourcing` Step B justified the whole one-gate shape with *"headcount, geography and capital uniquely reject nobody — every company they catch is already caught by type."* Same void reasoning, in the passage that sets the skill's shape.
@@ -160,6 +182,106 @@ These are mid-migration: the destination is already in the building and the thin
 **Group distribution across the 39:** Group 1 (MongoDB) 15 · Group 2 (relational, no MongoDB) 16 · Group 3 (other data infra only) 5 · Group 4 (nothing named) 3. Group 4 is Sure, FarEye and Facile.it — three accounts where enrichment returned a stack with no database in it at all, which is a coverage gap rather than a finding.
 
 **Consequence for w2's blank-scoring finding.** `(later 6)` measured MongoDB blank on 29 of 32 and 35 of 100 points resting on inference. **15 of those points are now sourced for every account on the roster.** The remaining exposure is AGE (14/32 blank) and VOL (20/32 blank) — and VOL was retired as a gate in §7, so whether it should score at all is the open question, not whether to fill it.
+
+---
+
+## 2026-09-04 (later 3) — MRG audited: 59% of its points trace to nothing, and yesterday's diagnosis was wrong
+
+**Run here, from committed data, at zero cost.** 28 accounts carry `MRG●` or `MRG◐`, worth 390 points. **8 accounts (160 pts) trace to a PE or sponsor fact in the CSV. 3 (60 pts) rest on the cohort assignment alone. 17 (170 pts) have no traceable evidence of any kind.** 230 of 390 points — **59%** — rest on something other than a recorded fact.
+
+**I had the diagnosis wrong yesterday.** `(later 2)` reported MRG at 35% prevalence and concluded the conditioning law did not apply. **That counted `MRG●` only. Counting any MRG credit it is 28 of 31 — 90%.** Near-constant. **Workstream 1's conditioning hypothesis was right and this workstream measured the wrong denominator** — the same error as the inverted depth metric, two days running.
+
+**The mechanism, and it is a new shape.** All 17 unsupported marks are `MRG◐` at 10 points, and every one is a Series C, D, E or G company. The mark was awarded for being late-stage VC-backed — **but "Series C+ or $100M+ or PE-owned" was a sourcing gate that every roster account passed by construction.** So `MRG◐` is the capital gate re-scored under another name: a filter applied upstream, paid for twice. **Sixth instance of the family, and the first that is not a blank scored as a value — it is a real fact, correctly recorded, counted in the wrong column.** Rule 6 only catches it if someone thinks to ask whether the signal was a gate, which argues for making that question mandatory rather than advisory.
+
+**Size of the unresolved decision: zeroing the 17 would take Tier 1 from 8 to roughly 4.** Close, ID.me, ezCater and Cover Genius all fall to 55 and out; Owner.com, Signifyd, Housecall Pro and Wallapop each lose 10. **Second-largest tier movement of the trial.** Not applied, because unlike the earlier corrections there is no single right answer — a late-stage company under board efficiency pressure genuinely is an M2 target, and `ICP.md` names *"efficiency mandate after a funding round, layoff or profitability pivot"* as a trigger. What is missing is evidence that any specific account has it.
+
+**So the fix is retrieval and it is workstream 1's:** for those 17, is there an actual margin event on record — an earnings commitment, an announced layoff, a stated profitability pivot? Until answered, `MRG◐` on the 17 reads as **`MRG?`**, and **Tier 1 at 8 is an upper bound.**
+
+**The 8 sound ones:** Sensor Tower, Pushpay, Cambridge Mobile Telematics, Zuora, Civitatis, iCapital, FreedomPay, Zūm — all carrying `private_equity`, `PRIVATE_EQUITY_ROUND` or `POST_IPO_EQUITY` in source data. A take-private or sponsor round is a real margin event.
+
+**Consequence for the Pursuit Order artifact: do not rebuild it yet.** Tier 1 could move 8 → 4 on this question alone, and the 28 pending accounts will restructure the roster again. A superseded banner pointing at this file is the right holding action.
+
+---
+
+## 2026-09-04 (later 2) — Zeta dropped; depth grading withdrawn; MRG is collinear, not idle
+
+**Zeta's `EST●` was spurious and is dropped.** Its sole dated match: *"founded in 2015 by two visionary leaders … whose entrepreneurial legacy & excellence."* `legacy` as heritage. Zeta 50 → 25, Tier 2 → Tier 3. **Tiers: T1 8 · T2 9 · T3 14.** Workstream 1's three "thin" calls also verified — ShiftKey is an AWS region move, EIS Group generic Azure CloudOps, Wallapop mobile-app modularisation.
+
+### The distinction the term list cannot make, and it touches two Tier 1 seats
+
+**Evidence about the candidate is not evidence about the company.** *"Experience managing technical transitions such as monolith-to-microservices"* describes the hire. *"Our .NET Framework 4.8 monolith processing billions in giving"* describes the estate. The regex matches both identically.
+
+**Two Tier 1 accounts rest on the first kind.** **Cambridge Mobile Telematics** (60) — *"Experience managing technical transitions such as monolith-to-microservices…"*, a hiring specification. **Cover Genius** (65) — its only dated sentence is *"assist application teams to optimize queries, migrations and perform other datastore performance tuning"*, a duties list. **This qualifies workstream 1's reassurance that Tier 1 came through the hand-read clean: six of eight did.** Neither is disqualifying — both hold real MRG and HIR evidence — but the first email to either cannot open on an estate claim the posting does not make.
+
+### Depth grading withdrawn — their argument is better
+
+This workstream proposed grading EST depth. **Dropped.** Their decisive reason: **a human already reads this evidence at the right moment.** C3 requires human-approved first touch, and Owner.com's named migration versus a keyword match matters in *what the email says*, not in a score. Grading it converts a solved workflow problem into an unsolvable scoring one. Plus: a gate is a threshold test and must stay binary, and a hand-assigned depth grade is a **derived judgment** — the class this trial spent two days learning never to encode.
+
+**Adopted: the quoted, dated sentence is a mandatory field on every `EST●`.** One addition from here — **the field is also the detection mechanism for the error they just found by hand.** Zeta's heritage match and CMT's hiring-spec match are invisible behind a `●` and obvious the moment the sentence sits beside it. Mandatory from the start, both would have been caught on sight rather than three days later. Cheapest guard on the roster: one column, and every false positive self-announces.
+
+### MRG is collinear, not idle — and the sole-cause test has a stated blind spot
+
+**Their conditioning hypothesis does not hold.** PE-ownership is both a capital gate and the sponsor trigger, so partial overlap exists, but MRG sits at **35% prevalence** — nowhere near the near-constant signature that killed VOL (zero variance), SCL (28 of 32 identical) or AGE (spread entirely missing data).
+
+**What the 2 changes mean: renormalising thresholds measures whether a signal changes the *ordering*.** MRG barely does — **72% overlap with HIR, 45% with EST**. But with thresholds fixed, deleting MRG moves **12 accounts including all 8 in Tier 1.** It is carrying points every top account depends on.
+
+**So the sole-cause test answers "does this change the ranking", never "is this doing work."** A collinear signal scores low while being load-bearing. Proposed as a stated limit on `lead-scoring` rule 6 — the same shape as the rule itself, one level in.
+
+**The real MRG question is provenance.** Twenty-eight accounts carry `MRG●` or `MRG◐` and the recorded evidence for most is *"margin/sponsor trigger confirmed."* Same unrecorded provenance flagged against Sensor Tower on 3 September and never resolved. **Audit what those 28 marks rest on before touching the weight** — a 20-point signal whose evidence has never been checked is exactly where this trial says the next defect lives.
+
+---
+
+## 2026-09-04 (later) — the recency rule: Tier 1 settles at 8, and a Tier 1 seat turned on one term
+
+**Workstream 1's recency finding is the most transferable rule of the trial, and it is right.** A 2022 advert saying *"we are modernizing our monolith"* is as likely to mean they finished as that they are still in it — the same inversion as Owner.com migrating *off* MongoDB. Stale evidence does not merely fail to help; it can point the wrong way.
+
+**The rule: a recency window must match the half-life of the claim the signal makes.** `HIR` claims hiring now → 90 days. `EST` claims current architecture → 12 months. `MDB` claims current stack → 12 months. `AGE` is a historical fact → no window. **Different signals take different windows from the same pull.** One window inherited across a whole model is how a four-year-old job ad qualified an account.
+
+**12 months justified against both boundaries:** at 24 months the only addition is Blockchain.com, whose newest estate posting is August 2024 with zero inside the year against 43 requisitions — exactly the case the window exists to catch. At 90 days it drops Zeta, ShiftKey and ESW, all recent enough that the architecture cannot have changed.
+
+**Applied: EST● falls 22 → 15 across the 44 domains. Tier 1 falls 10 → 8.** New mark **`EST⊘` stale** — pain language exists but predates the window; scores zero like `○` and `⊗`, and records why. Four roster accounts hold it: **Zuora** (newest 2022-05-24) · **Back Market** (2022-02-21) · **Netradyne** (2024-03-27) · **Blockchain.com** (2024-08-24).
+
+**Tier 1 (8):** Sensor Tower 75 · Pushpay 75 · Close 65 · ID.me 65 · ezCater 65 · Cover Genius 65 · Metropolis 60 · Cambridge Mobile Telematics 60. **T2 10 · T3 13.**
+
+### The one-account disagreement, and why it resolved without appeal to taste
+
+They measured 16, this workstream 15. **The whole difference is the `cost optimisation` term, and it decided Zuora's Tier 1 seat.** With it in, Zuora has 6 recent qualifying postings on lines like *"drive initiatives for cost optimization, performance tuning, and system hardening."* Without it, zero inside the window and nothing genuine since May 2022.
+
+**It stays out, and the deciding argument is structural rather than editorial: Zuora already holds `MRG●` at 20 points for exactly that evidence.** `ICP.md` separates them — the estate marker is a founding-era monolith throttling releases; the margin trigger is *"infra spend growing faster than revenue, cloud bill a standing board topic."* Cloud FinOps is the margin signal. Scoring it in EST too pays 45 points for one observation, which is the double-count the four-signal rebuild exists to prevent. Zinnia and Entrata are the same case.
+
+**Eight is also where workstream 1's own threshold sat** — they flagged that above ~8 the gate would have stopped gating and the 25-point weight should get another look. It landed at 8 without anyone tuning toward it, which is the most reassuring thing about the number.
+
+### Their fourth error of one shape, and the check that catches all four
+
+Workstream 1 catalogued it themselves: sole-cause on a corpus already conditioned on the filters under test · sole-cause used as a marginal statistic for a joint decision · estate pain read from boilerplate (`reliability` in 67% of postings) · estate pain read from four-year-old postings. **All four are computing on everything returned rather than on what is valid.**
+
+**The audit check: before computing any signal, state the retrieval path and the date range of the rows it rests on.** The retrieval-path half was already in `sourcing-csv-audit`; the date half is new. This workstream's own inverted depth metric — grading Vinted "thin" at 3% while it carried the corpus's single best estate sentence — is a fifth instance of the same family, so the check earns its place from both sides.
+
+---
+
+## 2026-09-04 — the EST pull lands: Tier 1 goes from 2 to 10, and a metric built here inverted its own ranking
+
+**949 postings across 44 domains, 689 distinct requisitions, every domain returned including 9 empty.** Every audit claim reproduced independently: date field **fixed for the first time in the trial** (545 distinct dates, 2019–2026) · duplication **27.4%** · role filter **2.7% leaky**, down from 43% · MongoDB named in posting text on 6 domains as a free second source.
+
+**Two corrections that changed the scoring.**
+
+**1 · The pull returned four years of history, not live openings — only 111 of 949 postings are inside 90 days.** ICP-M2 defines the trigger as *live* hiring. **19 domains hiring now · 16 with history only · 9 with none.** Scoring HIR on any retrieved posting would have credited 16 accounts with 15 unearned points. Workstream 1 caught this and it is right. EST is unaffected — architecture described in 2024 still describes the estate.
+
+**2 · "Named estate pain" pinned to an exact nine-term list.** Three measurements disagreed by up to 12×, entirely on wording. Reconciled by measuring every candidate term's prevalence across all 949 postings: **`reliability` appears in 67%, `observability` 38%, `on-call` 31%, `incident` 23%** — a term in two-thirds of a corpus cannot discriminate. Also removed **`cost optimisation`**, which is the *margin* signal: leaving it in had EST double-counting MRG. **Workstream 1's structural argument decided the design and was right — requiring a named database inside EST collapses EST into MDB.** Final list: `migrat* · monolith* · legacy · technical debt · re-architect* · replatform* · moderni[sz]* · decompos* · shard*`. **EST● on 23 of 44.** Aligned, the three measurements land at 22, 23 and 25.
+
+**Tier 1 goes from 2 accounts to 10** — Sensor Tower 75 · Zuora 75 · Pushpay 75 · Close 65 · ID.me 65 · ezCater 65 · Cover Genius 65 · Netradyne 65 · Metropolis 60 · Cambridge Mobile Telematics 60. T2 10 · T3 11. **The gate was never gating on estate pain; it was gating on which nine accounts had been measured.** Ten is also right-sized for C3's own cadence of 10–15 named accounts a week.
+
+**Sole-cause re-run answers the weight question: EST survives.** 25 points, 58% prevalence, **9 sole-cause tier changes — still the strongest discriminator.** The weak signal is now **MRG: 20 points for 2 tier changes**, and it is the next candidate for what VOL, SCL and AGE got.
+
+### The finding worth keeping: frequency is not evidence, and the rule caught its author again
+
+A depth metric built here graded EST by *what share of a company's postings mention estate work.* It ranked **Vinted "thin" at 3%** — carrying *"Scaling database clusters (Vitess, MySQL) by introducing new sharding strategies,"* the most specific estate sentence in the corpus — and graded another company "substantive" at 90% on *"our platform saw only 6 minutes of downtime."* **Rate measures how infrastructure-flavoured a hiring corpus is, not how strong the evidence is.** Third time in two days the repo's own rule — the verbatim sentence, never the extracted count — has caught the person applying it.
+
+**Consequence: EST needs depth grading and does not have it.** Owner.com's `EST●` is a named MongoDB-to-Postgres migration in a senior req; several new Tier 1 entrants hold one keyword in a long corpus. Both score 25. MDB already grades positives by source; EST should too, on the specificity of the strongest sentence. Proposed, not applied — it is a human pass over 23 sentences, not a regex.
+
+### Billing — flagged, unresolved
+
+Workstream 1 priced this pull at **~30–60 credits** and it retrieved **949 postings**. At 1 credit per posting that is potentially **~949 credits against an authorisation given for ~150**. They disclosed it unprompted. **Confirm the actual charge on the dashboard before the next pull.** This is the second outstanding billing question and it is why the exec brief now carries a recommendation to keep a running credit total — per-pull costs are recorded, no cumulative figure is.
 
 ---
 

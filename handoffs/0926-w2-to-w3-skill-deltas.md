@@ -161,3 +161,68 @@ This is the conditioning law applied to its own fix. With geography, headcount, 
 **Your safe-reading rationale stands where the gates are settled** — wrongly keeping a gate costs a narrower pull, wrongly dropping one costs Ola. The amendment only applies to the two gates whose values are actively in dispute, where a third cost exists that the framing omits: wrongly *keeping* a contested gate costs Vinted and ShiftKey, silently, forever, and with no way to find out.
 
 **If you disagree, keep all four as prompt gates.** The difference is two accounts' worth of visibility against ~64% retrieval waste on one dimension, and reasonable people land either side. What should not stand is the framing that the choice is binary between gate and column — the local-enforcement option is what lets both findings survive intact.
+
+---
+
+# ADDENDUM 2 — the outstanding set, reconciled 4 September
+
+Checked against the shipped skills before writing this. **`sourcing-csv-audit` v1.2 (15 checks) and `origami-sourcing` v1.2 absorbed everything from the first two sections of this file** — checks 12–15 exist, and check 11 carries the conditioning test. Nothing below is a repeat.
+
+**Everything produced in the last 24 hours is still outstanding.** Seven items. The recency rule is in workstream 1's handover at `6e3edf4` but has not reached a skill file.
+
+## 1 · Recency windows, one per signal
+
+**A recency window must match the half-life of the claim the signal makes.** `HIR` claims *hiring now* → 90 days. `EST` claims *current architecture* → 12 months. `MDB` claims *current stack* → 12 months. `AGE` is a historical fact → no window.
+
+Different signals take different windows **from the same pull**. One window inherited across a whole model is how a 2022 job advert qualified an account in 2026. Applying it dropped EST● from 22 to 15 and Tier 1 from 10 to 8. **New mark `EST⊘` — stale: pain language exists but predates the window.** Scores zero like `○` and `⊗`; the mark records why.
+
+Justified at both boundaries: 24 months adds only Blockchain.com, whose newest estate posting is August 2024 with zero inside the year against 43 requisitions — the exact case the window exists to catch. 90 days drops Zeta, ShiftKey and ESW, all too recent for the architecture to have changed.
+
+## 2 · The date half of the retrieval-path check
+
+Check 15 covers *is the evidence text in the repo*. **The other half: before computing any signal, state the retrieval path AND the date range of the rows it rests on.** Workstream 1 catalogued four of their own errors of one shape — sole-cause on a conditioned corpus · sole-cause used as a marginal statistic for a joint decision · estate pain read from boilerplate · estate pain read from four-year-old postings. **All four are computing on everything returned rather than on what is valid.** This workstream's inverted depth metric is a fifth. One check catches all five.
+
+## 3 · A definition is a pinned term list, never prose
+
+Three independent measurements of "named estate pain" disagreed **by up to 12×** — 2, 9, 22, 23, 25 depending on wording. **The entire spread was paraphrase.** Once the lists were aligned, three measurements landed within two domains.
+
+**Rule: any signal read from text carries its exact term list in the skill, as regex or as an enumerated list. A definition described in prose will be re-derived differently by the next reader, and a 2–3× swing from paraphrase is the same class of defect as everything else this trial has catalogued.**
+
+The pinned EST list, for reference: `migrat* · monolith* · legacy · technical debt · re-architect* · replatform* · moderni[sz]* · decompos* · shard*`
+
+## 4 · Prevalence threshold — a common term cannot discriminate
+
+Measured across all 949 postings: **`reliability` 67% · `observability` 38% · `on-call` 31% · `incident` 23%.** A term present in a fifth or more of a corpus is that corpus's standard vocabulary, not a company describing itself.
+
+**Rule: before a term enters a signal's list, measure its prevalence across the corpus. Above ~20%, it is boilerplate — exclude it by name and record the measured rate.** Same rule that retired the 84% headcount rejection rate, applied to text instead of filters.
+
+Corollary, from a metric built in this workstream and wrong: **frequency is not evidence.** A depth metric grading EST by *what share of a company's postings mention estate work* ranked **Vinted "thin" at 3%** — carrying *"Scaling database clusters (Vitess, MySQL) by introducing new sharding strategies,"* the single most specific estate sentence in the corpus — and graded another company "substantive" at 90% on *"our platform saw only 6 minutes of downtime."* Rate measures how infrastructure-flavoured a hiring corpus is. It does not measure evidence.
+
+## 5 · Candidate evidence is not company evidence
+
+**No regex separates these two, and both match identically:**
+
+- *"Experience managing technical transitions such as monolith-to-microservices"* — describes **the person being hired**.
+- *"Our .NET Framework 4.8 monolith processing billions in giving"* — describes **the estate**.
+
+Only the second is evidence about the target. **Two Tier 1 accounts currently rest on the first kind** — Cambridge Mobile Telematics on a hiring specification, Cover Genius on a duties list. Neither is disqualifying, but the first email to either cannot open on an estate claim the posting does not make.
+
+**Rule: for any signal read from a job posting, the qualifying sentence must describe the company's own system, not the candidate's required experience. This is a read, not a regex — which is why item 6 matters.**
+
+## 6 · The quoted, dated sentence is a mandatory field
+
+**Adopted in place of depth grading**, which was proposed here and withdrawn on workstream 1's argument: a gate is a threshold test and must stay binary; a hand-assigned depth grade is a **derived judgment**, the class this trial spent two days learning never to encode; and a human already reads this evidence at the right moment, because C3 requires a human-approved first touch and the difference between a named migration and a keyword match matters in *what the email says*, not in a score.
+
+**Rule: any signal derived from text carries the verbatim qualifying sentence and its source date as mandatory fields on the record.**
+
+**The field is not documentation — it is the detection mechanism for items 4 and 5.** Zeta's `EST●` rested on *"whose entrepreneurial legacy & excellence has put us on top of the global fintech"* — `legacy` as heritage. Invisible behind a `●`; obvious the moment the sentence sits beside it. Mandatory from the start, both that and the CMT hiring-spec match would have been caught on sight rather than by a hand-read three days later. One column, and every false positive self-announces.
+
+## 7 · Two gaps in `lead-scoring` rule 6
+
+**7a — the sole-cause test's blind spot: it answers "does this change the ranking", never "is this doing work."** A signal collinear with one that already discriminates scores near zero on the test while carrying points every top account depends on. **MRG: 20 points, 2 sole-cause tier changes — but 72% overlap with HIR, and with thresholds held fixed, deleting it moves 12 accounts including all 8 in Tier 1.** It is not idle; it is collinear. Record the limit alongside the test.
+
+**7b — the "was this a sourcing gate?" question must be mandatory, not advisory.** The MRG audit found **17 accounts carrying `MRG◐` at 10 points each, all Series C/D/E/G, awarded for being late-stage VC-backed — when "Series C+ or $100M+ or PE-owned" was a sourcing gate every roster account passed by construction.** The capital gate, re-scored under another name.
+
+**This is the sixth instance of the family and the first that is not a blank scored as a value.** It is a real fact, correctly recorded, **counted in the wrong column** — and it passes every other check in the catalogue. Only the gate question catches it, and only if someone thinks to ask.
+
+**Also worth recording: measure prevalence on *any* credit, not on full credit.** This workstream reported MRG at 35% prevalence and concluded the conditioning law did not apply. That counted `MRG●` only; counting `●` and `◐` together it is 28 of 31 — **90%**, the near-constant signature. Wrong denominator, and it is the second time in two days this workstream has made that error.
