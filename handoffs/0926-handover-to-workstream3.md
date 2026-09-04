@@ -353,3 +353,56 @@ error underneath the conditioning error.
 Re-deriving rather than reverting was right, and catching Step B was the better find — a skill whose
 *structure* rests on voided reasoning is worse than one whose instructions do. The three-block shape stands.
 Apply workstream 2's split inside the enforced-gates block and the file needs no further change from me.
+
+---
+
+# §17 — Cost model, corrected again with settlement data (4 September)
+
+## Billing behaves in two stages, and only the second one counts
+
+Origami **quotes a temporary gross charge, then settles.** Measured on the three zero-yield company pulls:
+
+| Pull | Quoted | Settlement refund | Net |
+|---|---|---|---|
+| 1 (244 candidates) | 125.00 | −125.00 | **0** |
+| 2 (389 candidates) | 199.50 | −199.50 | **0** |
+| 3 (497 candidates) | 319.96 | −319.96 | **0** |
+| | **644.46** | **−644.46** | **0** |
+
+So *"you were only charged for the qualified companies you got"* is literally true — zero qualified, zero net
+cost. **Rule: never record a quoted figure as spend. Read the balance after settlement.** Every per-lead and
+per-row figure in this file derived from a quote rather than a settled balance is an upper bound.
+
+## Job Posting Search rate — my figure was wrong in both directions
+
+I priced the 44-domain EST pull at **1 credit per posting, 30–60 credits total.** Actuals:
+
+- **Rate is 0.5 credits per candidate returned**, not 1.0 per posting → my rate was **2× too high**
+- **1,277 candidates returned**, 949 retained after filtering → billing is on **candidates returned, not rows
+  retained** (0.67 per retained posting)
+- Gross calculated at **638.5 credits**; execution record shows **0 debited** and the balance is unchanged at
+  6,507.92, so settlement may still be pending — **treat as unconfirmed, not free**
+
+The volume error dwarfs the rate error. I estimated one or two postings per domain. Reality: **Vinted 108,
+Housecall Pro 106, ID.me 85, Blockchain.com 64, Pushpay 61, Zuora 52** — median 20 per domain across 35
+domains with any postings.
+
+**Two rules for the skill:**
+
+1. **Estimate a posting pull as `domains × expected postings per domain`, and assume ~20, not 1.** A
+   domain-list pull against 44 known accounts is a ~1,000-row retrieval, not a ~50-row one.
+2. **Require a quote before retrieval.** Origami quotes before executing, so the prompt should end with:
+   *"Before retrieving anything, tell me the candidate count and the quoted credit cost, and wait for my
+   go-ahead."* That converts a 20× estimation error into a question.
+
+## Postings are historical, not live — a distinction the date fix revealed
+
+The verbatim-date requirement worked for the first time (545 distinct dates, 2019–2026). It also exposed that
+a posting pull returns **history, not current openings**: only **114 of 949** postings are inside 90 days.
+
+**Consequence: "has a posting" and "is hiring now" are different facts.** 35 of 44 domains have some posting;
+only **19** have one inside 90 days. HIR is a *live* signal and must be computed from the recent subset —
+counting all 35 over-states it by 16 accounts. EST is unaffected: architecture described in a 2024
+requisition is still evidence of the estate.
+
+**Audit check: bucket posting dates by age before computing any hiring signal.**
