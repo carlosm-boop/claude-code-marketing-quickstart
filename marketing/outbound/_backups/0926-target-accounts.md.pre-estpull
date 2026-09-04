@@ -117,59 +117,59 @@ Workstream 1 asked whether EST's zeros are a measured absence or an unmeasured b
 
 **Consequence for the credit spend — the priority inverts.** The proposed ~150 credits went to the 19 new consolidation accounts. **The 22 unmeasured roster accounts are the better buy:** they are already gate-qualified and evidenced on MRG, HIR and MDB, so one measurement completes them, and it directly changes who gets ABM. The 19 are unevidenced on everything and would land in Tier 3 regardless. Revised order in open item 15.
 
-## Roster re-measured against the 4 September EST pull
+## Tier 1 — score ≥56.25  (2 accounts)
 
-**949 postings across 44 domains, 689 distinct requisitions, all 44 domains returned including 9 with no postings.** The pull resolved the signal that had been blocking every decision. Full audit and the pinned term list are in the section below the tables.
+Named-account ABM. Run `/abm-campaign` per account.
 
-**Tier 1 goes from 2 accounts to 10.** The gate was never gating on estate pain — it was gating on which nine accounts happened to have been measured. With 23 of 44 domains measured positive, it gates on the thing it names.
-
-## Tier 1 — score ≥56.25  (10 accounts)
-
-Named-account ABM. Sized to C3's own cadence of 10–15 named accounts a week.
-
-| Account | Score /75 | 03-09 | Gates | Trigger evidence | Cohort |
+| Account | Score /75 | 7-signal | Gates (AGE · SCL · VOL are gates only — they no longer score) | Trigger evidence | Cohort |
 |---|---|---|---|---|---|
-| **Sensor Tower** · `sensortower.com` | 75 | — | `VER◐ AGE? SCL◐ VOL? EST● MRG● HIR● ACC● MDB●` | **MongoDB present**; named estate pain in an open req; margin/sponsor trigger confirmed; live infra hiring; MongoDB confirmed — direction checked, neutral; `AGE?` Founded Year blank | B — sponsor mandate |
-| **Zuora** · `zuora.com` | 75 | 35 | `VER◐ AGE● SCL● VOL? EST● MRG● HIR● ACC● MDB●` | margin/sponsor trigger confirmed; **legacy relational co-present**; MongoDB confirmed — **direction unverified, no requisition on file** · **re-measured by the 04-09 pull** | C — re-score as M1 |
-| **Pushpay** · `pushpay.com` | 75 | 35 | `VER◐ AGE? SCL● VOL? EST● MRG● HIR● ACC● MDB●` | margin/sponsor trigger confirmed; **legacy relational co-present**; MongoDB confirmed — **direction unverified, no requisition on file**; `AGE?` Founded Year blank · **re-measured by the 04-09 pull** | B — sponsor mandate |
-| **Close** · `close.com` | 65 | — | `VER◐ AGE? SCL○ VOL? EST● MRG◐ HIR● ACC● MDB●` | **MongoDB present**; named estate pain in an open req; live infra hiring; MongoDB confirmed — direction checked, neutral; `AGE?` Founded Year blank | A — hiring trigger |
-| **ID.me** · `id.me` | 65 | 25 | `VER◐ AGE● SCL● VOL? EST● MRG◐ HIR● ACC✕ MDB●` | access obstacle flagged; **legacy relational co-present**; MongoDB confirmed — **direction unverified, no requisition on file** · **re-measured by the 04-09 pull** | D — watchlist, no trigger |
-| **ezCater** · `ezcater.com` | 65 | 25 | `VER● AGE● SCL● VOL? EST● MRG◐ HIR● ACC● MDB●` | firmographics only — no trigger; MongoDB confirmed — **direction unverified, no requisition on file** · **re-measured by the 04-09 pull** | D — watchlist, no trigger |
-| **Cover Genius** · `covergenius.com` | 65 | 25 | `VER● AGE● SCL● VOL? EST● MRG◐ HIR● ACC● MDB●` | firmographics only — no trigger; MongoDB confirmed — **direction unverified, no requisition on file** · **re-measured by the 04-09 pull** | D — watchlist, no trigger |
-| **Netradyne** · `netradyne.com` | 65 | 25 | `VER◐ AGE● SCL● VOL? EST● MRG◐ HIR● ACC● MDB●` | firmographics only — no trigger; **legacy relational co-present**; MongoDB confirmed — **direction unverified, no requisition on file** · **re-measured by the 04-09 pull** | D — watchlist, no trigger |
-| **Metropolis Technologies** · `metropolis.io` | 60 | 20 | `VER○ AGE● SCL● VOL? EST● MRG● HIR● ACC● MDB○` | partial estate signal; margin/sponsor trigger confirmed; **`EST?` — the `EST◐` mark was dropped 2026-09-03: 0 posting rows, blank `Database Technology Mentions`, source untraceable. 12.5 pts removed. In the 44-domain pull.** · **re-measured by the 04-09 pull** | B — post-acquisition integration |
-| **Cambridge Mobile Telematics** · `cmtelematics.com` | 60 | 20 | `VER● AGE? SCL● VOL? EST● MRG● HIR● ACC● MDB?` | margin/sponsor trigger confirmed; **MongoDB UNKNOWN — detector returned no primary database**; `AGE?` Founded Year blank · **re-measured by the 04-09 pull** | B — sponsor mandate |
+| **Sensor Tower** · `sensortower.com` | 75 | 77 | `VER◐ AGE? SCL◐ VOL? EST● MRG● HIR● ACC● MDB●` | **MongoDB present**; named estate pain in an open req; margin/sponsor trigger confirmed; live infra hiring; MongoDB confirmed — direction checked, neutral; `AGE?` Founded Year blank | B — sponsor mandate |
+| **Close** · `close.com` | 65 | 65 | `VER◐ AGE? SCL○ VOL? EST● MRG◐ HIR● ACC● MDB●` | **MongoDB present**; named estate pain in an open req; live infra hiring; MongoDB confirmed — direction checked, neutral; `AGE?` Founded Year blank | A — hiring trigger |
 
-## Tier 2 — score 37.5–56.24  (10 accounts)
+**Close reaches Tier 1, three days after the disagreement was opened.** `0926-target-accounts.md` recorded on 2 September that the model scored Close 80 against a hand rank of 29, and that "one of the two is wrong, and the model is at least legible." **The model was right.** Close was hand-ranked down on unverified scale — and scale is one of the three signals now proven not to discriminate. Its `SCL○` no longer costs it anything, and what remains is real: MongoDB confirmed on product-stack detection and direction-checked, named estate pain in an open requisition, live infra hiring from a P1 posting with a genuine date.
 
-| Account | Score /75 | 03-09 | Gates | Trigger evidence | Cohort |
+## Tier 2 — score 37.5–56.24  (4 accounts)
+
+Persona sequences and signal monitoring, not named-account ABM.
+
+| Account | Score /75 | 7-signal | Gates (AGE · SCL · VOL are gates only — they no longer score) | Trigger evidence | Cohort |
 |---|---|---|---|---|---|
-| **Owner.com** · `owner.com` | 50 | — | `VER● AGE● SCL● VOL? EST● MRG◐ HIR● ACC● MDB⊘` | **MongoDB present**; named estate pain in an open req; live infra hiring; **`MDB⊘` — migration *away* from MongoDB named in its own requisition, co-sell weight zeroed (rule 5)** | A — hiring trigger |
-| **Signifyd** · `signifyd.com` | 50 | — | `VER● AGE● SCL● VOL? EST● MRG◐ HIR● ACC✕ MDB○` | named estate pain in an open req; live infra hiring; access obstacle flagged | A — hiring trigger |
-| **Carta** · `carta.com` | 50 | 35 | `VER● AGE● SCL● VOL? EST○ MRG● HIR● ACC● MDB●` | margin/sponsor trigger confirmed; MongoDB confirmed — **direction unverified, no requisition on file** · **re-measured by the 04-09 pull** | E — efficiency reset |
-| **Zeta** · `zeta.tech` | 50 | 25 | `VER● AGE● SCL● VOL? EST● MRG◐ HIR○ ACC● MDB●` | firmographics only — no trigger; **legacy relational co-present**; MongoDB confirmed — **direction unverified, no requisition on file** · **re-measured by the 04-09 pull** | D — watchlist, no trigger |
-| **Housecall Pro** · `housecallpro.com` | 50 | 10 | `VER● AGE● SCL● VOL? EST● MRG◐ HIR● ACC● MDB○` | firmographics only — no trigger · **re-measured by the 04-09 pull** | D — watchlist, no trigger |
-| **Back Market** · `backmarket.com` | 50 | 10 | `VER● AGE● SCL● VOL? EST● MRG◐ HIR● ACC● MDB○` | firmographics only — no trigger · **re-measured by the 04-09 pull** | D — watchlist, no trigger |
-| **Blockchain.com** · `blockchain.com` | 50 | 10 | `VER● AGE● SCL● VOL? EST● MRG◐ HIR● ACC◐ MDB○` | firmographics only — no trigger · **re-measured by the 04-09 pull** | D — watchlist, no trigger |
-| **Wallapop** · `wallapop.com` | 50 | 10 | `VER● AGE? SCL● VOL? EST● MRG◐ HIR● ACC● MDB○` | firmographics only — no trigger; `AGE?` Founded Year blank · **re-measured by the 04-09 pull** | D — watchlist, no trigger |
-| **Alan** · `alan.com` | 40 | — | `VER● AGE● SCL● VOL? EST● MRG○ HIR● ACC◐ MDB○` | named estate pain in an open req; live infra hiring | A — hiring trigger |
-| **NexHealth** · `nexhealth.com` | 37.5 | — | `VER◐ AGE? SCL✕ VOL? EST◐ MRG◐ HIR● ACC● MDB○` | partial estate signal; live infra hiring; `AGE?` Founded Year blank | A — hiring trigger |
+| **Owner.com** · `owner.com` | 50 | 65 | `VER● AGE● SCL● VOL? EST● MRG◐ HIR● ACC● MDB⊘` | **MongoDB present**; named estate pain in an open req; live infra hiring; **`MDB⊘` — migration *away* from MongoDB named in its own requisition, co-sell weight zeroed (rule 5)** | A — hiring trigger |
+| **Signifyd** · `signifyd.com` | 50 | 65 | `VER● AGE● SCL● VOL? EST● MRG◐ HIR● ACC✕ MDB○` | named estate pain in an open req; live infra hiring; access obstacle flagged | A — hiring trigger |
+| **Alan** · `alan.com` | 40 | 55 | `VER● AGE● SCL● VOL? EST● MRG○ HIR● ACC◐ MDB○` | named estate pain in an open req; live infra hiring | A — hiring trigger |
+| **NexHealth** · `nexhealth.com` | 37.5 | 37 | `VER◐ AGE? SCL✕ VOL? EST◐ MRG◐ HIR● ACC● MDB○` | partial estate signal; live infra hiring; `AGE?` Founded Year blank | A — hiring trigger |
 
-## Tier 3 — score <37.5  (11 accounts)
+## Tier 3 — score <37.5  (25 accounts)
 
-| Account | Score /75 | 03-09 | Gates | Trigger evidence | Cohort |
+Nurture and trigger-monitoring only. Not sequence-eligible.
+
+| Account | Score /75 | 7-signal | Gates (AGE · SCL · VOL are gates only — they no longer score) | Trigger evidence | Cohort |
 |---|---|---|---|---|---|
-| **Civitatis** · `civitatis.com` | 35 | 20 | `VER● AGE? SCL● VOL? EST○ MRG● HIR● ACC● MDB○` | margin/sponsor trigger confirmed; `AGE?` Founded Year blank · **re-measured by the 04-09 pull** | B — sponsor mandate |
-| **iCapital** · `icapital.com` | 27.5 | — | `VER● AGE● SCL● VOL? EST○ MRG● HIR○ ACC◐ MDB◑` | margin/sponsor trigger confirmed; **legacy relational co-present**; *job-posting evidence only*; **`MDB◑` — MongoDB appears only as one slug in a 317-entry job-advert aggregate; the product-stack detector returned nothing. Half credit, and direction is unknowable from this source** · **re-measured by the 04-09 pull** | C — re-score as M1 |
-| **FreedomPay** · `freedompay.com` | 27.5 | — | `VER● AGE● SCL◐ VOL? EST○ MRG● HIR◐ ACC◐ MDB?` | margin/sponsor trigger confirmed; **MongoDB UNKNOWN — detector returned no primary database** | B — sponsor mandate |
-| **Workrise (now RigUp)** · `workrise.com` | 27.5 | — | `VER◐ AGE? SCL● VOL? EST○ MRG● HIR○ ACC● MDB◑` | margin/sponsor trigger confirmed; *job-posting evidence only*; `AGE?` Founded Year blank; **`MDB◑` — MongoDB appears only as one slug in a 314-entry job-advert aggregate; the product-stack detector returned nothing. Half credit, and direction is unknowable from this source** · **re-measured by the 04-09 pull** | E — efficiency mandate |
-| **Fleetio** · `fleetio.com` | 25 | 10 | `VER◐ AGE? SCL● VOL? EST○ MRG◐ HIR● ACC● MDB○` | firmographics only — no trigger; `AGE?` Founded Year blank · **re-measured by the 04-09 pull** | D — watchlist, no trigger |
-| **Zūm** · `ridezum.com` | 20 | — | `VER◐ AGE● SCL● VOL? EST? MRG● HIR? ACC● MDB○` | margin/sponsor trigger confirmed · **re-measured by the 04-09 pull** | B — sponsor mandate |
-| **Weee!** · `sayweee.com` | 10 | — | `VER● AGE● SCL● VOL? EST? MRG◐ HIR? ACC● MDB○` | firmographics only — no trigger · **re-measured by the 04-09 pull** | D — watchlist, no trigger |
-| **Engine (formerly Hotel Engine)** · `hotelengine.com` | 10 | — | `VER● AGE? SCL● VOL? EST○ MRG◐ HIR○ ACC● MDB○` | firmographics only — no trigger; `AGE?` Founded Year blank · **re-measured by the 04-09 pull** | D — watchlist, no trigger |
-| **Sure** · `sureapp.com` | 10 | — | `VER● AGE? SCL● VOL? EST? MRG◐ HIR? ACC● MDB?` | firmographics only — no trigger; **MongoDB UNKNOWN — detector returned no primary database**; `AGE?` Founded Year blank · **re-measured by the 04-09 pull** | D — watchlist, no trigger |
-| **Lighthouse** · `mylighthouse.com` | 0 | — | `VER● AGE● SCL● VOL? EST○ MRG○ HIR○ ACC● MDB?` | firmographics only — no trigger; **MongoDB UNKNOWN — detector returned no primary database** | D — watchlist, no trigger |
-| **FarEye** · `fareye.com` | 0 | — | `VER● AGE● SCL● VOL? EST○ MRG○ HIR○ ACC◐ MDB?` | firmographics only — no trigger; **MongoDB UNKNOWN — detector returned no primary database** · **re-measured by the 04-09 pull** | D — watchlist, no trigger |
+| **Zuora** · `zuora.com` | 35 | 50 | `VER◐ AGE● SCL● VOL? EST○ MRG● HIR○ ACC● MDB●` | margin/sponsor trigger confirmed; **legacy relational co-present**; MongoDB confirmed — **direction unverified, no requisition on file** | C — re-score as M1 |
+| **Carta** · `carta.com` | 35 | 50 | `VER● AGE● SCL● VOL? EST○ MRG● HIR○ ACC● MDB●` | margin/sponsor trigger confirmed; MongoDB confirmed — **direction unverified, no requisition on file** | E — efficiency reset |
+| **Pushpay** · `pushpay.com` | 35 | 40 | `VER◐ AGE? SCL● VOL? EST○ MRG● HIR○ ACC● MDB●` | margin/sponsor trigger confirmed; **legacy relational co-present**; MongoDB confirmed — **direction unverified, no requisition on file**; `AGE?` Founded Year blank | B — sponsor mandate |
+| **Metropolis Technologies** · `metropolis.io` | 20 | 47 | `VER○ AGE● SCL● VOL? EST? MRG● HIR○ ACC● MDB○` | partial estate signal; margin/sponsor trigger confirmed; **`EST?` — the `EST◐` mark was dropped 2026-09-03: 0 posting rows, blank `Database Technology Mentions`, source untraceable. 12.5 pts removed. In the 44-domain pull.** | B — post-acquisition integration |
+| **iCapital** · `icapital.com` | 27.5 | 42.5 | `VER● AGE● SCL● VOL? EST○ MRG● HIR○ ACC◐ MDB◑` | margin/sponsor trigger confirmed; **legacy relational co-present**; *job-posting evidence only*; **`MDB◑` — MongoDB appears only as one slug in a 317-entry job-advert aggregate; the product-stack detector returned nothing. Half credit, and direction is unknowable from this source** | C — re-score as M1 |
+| **FreedomPay** · `freedompay.com` | 27.5 | 40 | `VER● AGE● SCL◐ VOL? EST○ MRG● HIR◐ ACC◐ MDB?` | margin/sponsor trigger confirmed; **MongoDB UNKNOWN — detector returned no primary database** | B — sponsor mandate |
+| **Workrise (now RigUp)** · `workrise.com` | 27.5 | 32.5 | `VER◐ AGE? SCL● VOL? EST○ MRG● HIR○ ACC● MDB◑` | margin/sponsor trigger confirmed; *job-posting evidence only*; `AGE?` Founded Year blank; **`MDB◑` — MongoDB appears only as one slug in a 314-entry job-advert aggregate; the product-stack detector returned nothing. Half credit, and direction is unknowable from this source** | E — efficiency mandate |
+| **ID.me** · `id.me` | 25 | 40 | `VER◐ AGE● SCL● VOL? EST○ MRG◐ HIR○ ACC✕ MDB●` | access obstacle flagged; **legacy relational co-present**; MongoDB confirmed — **direction unverified, no requisition on file** | D — watchlist, no trigger |
+| **Zeta** · `zeta.tech` | 25 | 40 | `VER● AGE● SCL● VOL? EST○ MRG◐ HIR○ ACC● MDB●` | firmographics only — no trigger; **legacy relational co-present**; MongoDB confirmed — **direction unverified, no requisition on file** | D — watchlist, no trigger |
+| **ezCater** · `ezcater.com` | 25 | 40 | `VER● AGE● SCL● VOL? EST○ MRG◐ HIR○ ACC● MDB●` | firmographics only — no trigger; MongoDB confirmed — **direction unverified, no requisition on file** | D — watchlist, no trigger |
+| **Cover Genius** · `covergenius.com` | 25 | 40 | `VER● AGE● SCL● VOL? EST○ MRG◐ HIR○ ACC● MDB●` | firmographics only — no trigger; MongoDB confirmed — **direction unverified, no requisition on file** | D — watchlist, no trigger |
+| **Netradyne** · `netradyne.com` | 25 | 40 | `VER◐ AGE● SCL● VOL? EST○ MRG◐ HIR○ ACC● MDB●` | firmographics only — no trigger; **legacy relational co-present**; MongoDB confirmed — **direction unverified, no requisition on file** | D — watchlist, no trigger |
+| **Zūm** · `ridezum.com` | 20 | 35 | `VER◐ AGE● SCL● VOL? EST○ MRG● HIR○ ACC● MDB○` | margin/sponsor trigger confirmed | B — sponsor mandate |
+| **Cambridge Mobile Telematics** · `cmtelematics.com` | 20 | 25 | `VER● AGE? SCL● VOL? EST○ MRG● HIR○ ACC● MDB?` | margin/sponsor trigger confirmed; **MongoDB UNKNOWN — detector returned no primary database**; `AGE?` Founded Year blank | B — sponsor mandate |
+| **Civitatis** · `civitatis.com` | 20 | 25 | `VER● AGE? SCL● VOL? EST○ MRG● HIR○ ACC● MDB○` | margin/sponsor trigger confirmed; `AGE?` Founded Year blank | B — sponsor mandate |
+| **Weee!** · `sayweee.com` | 10 | 25 | `VER● AGE● SCL● VOL? EST○ MRG◐ HIR○ ACC● MDB○` | firmographics only — no trigger | D — watchlist, no trigger |
+| **Housecall Pro** · `housecallpro.com` | 10 | 25 | `VER● AGE● SCL● VOL? EST○ MRG◐ HIR○ ACC● MDB○` | firmographics only — no trigger | D — watchlist, no trigger |
+| **Back Market** · `backmarket.com` | 10 | 25 | `VER● AGE● SCL● VOL? EST○ MRG◐ HIR○ ACC● MDB○` | firmographics only — no trigger | D — watchlist, no trigger |
+| **Blockchain.com** · `blockchain.com` | 10 | 25 | `VER● AGE● SCL● VOL? EST○ MRG◐ HIR○ ACC◐ MDB○` | firmographics only — no trigger | D — watchlist, no trigger |
+| **Fleetio** · `fleetio.com` | 10 | 15 | `VER◐ AGE? SCL● VOL? EST○ MRG◐ HIR○ ACC● MDB○` | firmographics only — no trigger; `AGE?` Founded Year blank | D — watchlist, no trigger |
+| **Wallapop** · `wallapop.com` | 10 | 15 | `VER● AGE? SCL● VOL? EST○ MRG◐ HIR○ ACC● MDB○` | firmographics only — no trigger; `AGE?` Founded Year blank | D — watchlist, no trigger |
+| **Engine (formerly Hotel Engine)** · `hotelengine.com` | 10 | 15 | `VER● AGE? SCL● VOL? EST○ MRG◐ HIR○ ACC● MDB○` | firmographics only — no trigger; `AGE?` Founded Year blank | D — watchlist, no trigger |
+| **Sure** · `sureapp.com` | 10 | 15 | `VER● AGE? SCL● VOL? EST○ MRG◐ HIR○ ACC● MDB?` | firmographics only — no trigger; **MongoDB UNKNOWN — detector returned no primary database**; `AGE?` Founded Year blank | D — watchlist, no trigger |
+| **Lighthouse** · `mylighthouse.com` | 0 | 15 | `VER● AGE● SCL● VOL? EST○ MRG○ HIR○ ACC● MDB?` | firmographics only — no trigger; **MongoDB UNKNOWN — detector returned no primary database** | D — watchlist, no trigger |
+| **FarEye** · `fareye.com` | 0 | 15 | `VER● AGE● SCL● VOL? EST○ MRG○ HIR○ ACC◐ MDB?` | firmographics only — no trigger; **MongoDB UNKNOWN — detector returned no primary database** | D — watchlist, no trigger |
 
 ### Cohort still overrides tier for sequencing
 

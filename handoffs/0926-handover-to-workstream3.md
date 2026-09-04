@@ -406,3 +406,62 @@ counting all 35 over-states it by 16 accounts. EST is unaffected: architecture d
 requisition is still evidence of the estate.
 
 **Audit check: bucket posting dates by age before computing any hiring signal.**
+
+---
+
+# §18 — Recency windows. Raised by Rudra, and it was my fourth provenance error of the day.
+
+## What happened
+
+The 44-domain pull returned **four years of posting history**. I filtered HIR to 90 days and then measured
+EST across **all 949 postings regardless of age.** Rudra caught it: *"I'm seeing job postings as far back as
+2021, I hope that's getting contemplated."*
+
+**Effect: EST● 22 → 16 on a 12-month window.** Six domains were qualifying on stale evidence:
+
+| Domain | Newest pain posting | Pain postings, all time | in last 12m |
+|---|---|---|---|
+| Cabify | **2022-02-10** | 3 | 0 |
+| Back Market | **2022-02-21** | 2 | 0 |
+| fabric.inc | 2023-03-25 | 1 | 0 |
+| Netradyne | 2024-03-27 | 1 | 0 |
+| Minted | 2024-08-25 | 5 | 0 |
+| Blockchain.com | 2024-12-02 | 4 | 0 |
+
+**And a stale positive can invert.** A 2022 posting saying *"modernising our monolith"* is as likely to mean
+the work finished as that it is ongoing — the same direction problem as Owner.com migrating *off* MongoDB.
+Age does not merely weaken this signal, it can reverse it.
+
+## The rule
+
+> **A recency window must match the half-life of the claim the signal makes.**
+>
+> | Signal | Claims | Window |
+> |---|---|---|
+> | HIR — live infra hiring | a company is hiring **now** | **90 days** |
+> | EST — named estate pain | current **architecture** | **12 months** |
+> | MDB — MongoDB present | current **stack** | 12 months |
+> | AGE / founding year | a historical fact | none — never expires |
+>
+> Different signals take different windows from the same pull. Never inherit one window across a scoring model.
+
+12 months chosen over 24: the only domain 24 months adds is Blockchain.com, whose newest pain posting is
+December 2024 with **zero** inside the year — precisely the stale case the window exists to exclude. 90 days
+was rejected as too tight: it drops Zinnia, Zeta, ShiftKey and Entrata, all recent enough that the
+architecture cannot have changed.
+
+**New mark `EST⊘` — stale: pain language exists but predates the window.** Distinct from `EST○` (measured
+absent across an enumerated set) and `EST⊗` (absent, thin evidence). Six accounts hold it. All three score
+zero; the marks record *why*, which is the whole point of the family.
+
+## The pattern in my four errors today
+
+All four were the same shape: **computing on everything returned rather than on what is valid.**
+
+1. Sole-cause on a corpus already conditioned on the filters being tested
+2. Sole-cause as a marginal statistic used for a joint decision
+3. Estate pain read from boilerplate — "reliability" is in 67% of postings
+4. Estate pain read from four-year-old postings
+
+**Audit check: before computing any signal, state the retrieval path AND the date range of the rows it rests
+on.** Both belong in Step 1 of `sourcing-csv-audit` next to retrieval-path-per-value. The date half is new.
